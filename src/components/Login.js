@@ -29,7 +29,7 @@ const Login = () => {
               placeholder="Enter Password"
             />
           </div>
-          <button type="submit" className="btn btn-primary btn-block">Login</button>
+          <button type="submit" className="btn btn-success btn-block">Login</button>
         </form>
         <p className="lead mt-4">
           No Account? <a href="/users/register">Register</a>

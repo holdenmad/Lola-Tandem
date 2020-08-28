@@ -20,7 +20,7 @@ const Register = () => {
               name="name"
               className="form-control"
               placeholder="Enter Name"
-              value="<%= typeof name != 'undefined' ? name : '' %>"
+              value="{typeof name != 'undefined' ? name : ''}"
             />
           </div>
           <div className="form-group">
@@ -31,7 +31,7 @@ const Register = () => {
               name="email"
               className="form-control"
               placeholder="Enter Email"
-              value="<%= typeof email != 'undefined' ? email : '' %>"
+              value="{typeof email != 'undefined' ? email : '' }"
             />
           </div>
           <div className="form-group">
@@ -42,7 +42,7 @@ const Register = () => {
               name="password"
               className="form-control"
               placeholder="Create Password"
-              value="<%= typeof password != 'undefined' ? password : '' %>"
+              value="{typeof password != 'undefined' ? password : ''} "
             />
           </div>
           <div className="form-group">
@@ -53,11 +53,11 @@ const Register = () => {
               name="password2"
               className="form-control"
               placeholder="Confirm Password"
-              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+              value="{typeof password2 != 'undefined' ? password2 : ''} "
             />
           </div>
 
-          <button type="submit" className="btn btn-primary btn-block">
+          <button type="submit" className="btn btn-success btn-block">
             Register
           </button>
         </form>

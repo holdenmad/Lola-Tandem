@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Welcome from "./components/Welcome";
-import Dashboard from "./components/Dashboard";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
+import Welcome from "./Components/Welcome";
+import Dashboard from "./Components/Dashboard";
 
 function App() {
   return (
@@ -13,10 +13,10 @@ function App() {
         <Route exact path="/">
           <Welcome />
         </Route>
-        <Route exact path="/register">
+        <Route exact path="/users/register">
           <Register />
         </Route>
-        <Route exact path="/login">
+        <Route exact path="/users/login">
           <Login />
         </Route>
         <Route exact path="/dashboard">

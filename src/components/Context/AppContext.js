@@ -11,7 +11,7 @@ const AppContextProvider = ({ children }) => {
   
   // READ METHOD
   useEffect(() => {
-    fetch("http://localhost:5000/User")
+    fetch("http://localhost:5000/user/:id")
       .then((res) => res.json())
       .then((res) => setState(res));
   }, []);

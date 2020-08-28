@@ -1,6 +1,43 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from 'react'
+// import { AppContext } from "./Context/AppContext"
 
 const Register = () => {
+  // const { create } = useContext(AppContext)
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    password: "",
+    password2: ""
+  });
+  useEffect(() => {
+    console.log(formState);
+  }, [formState])
+
+  const handleChange = (event) => {
+    event.persist();
+    setFormState((prevState) => {
+      return { ...prevState, [event.target.name]: event.target.value };
+    });
+  };
+  const handleSubmit = (event) => {
+    register(event, formState)
+  }
+    // Register METHOD
+    const register = async (event, values) => {
+      event.preventDefault();
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values }),
+      };
+  
+      const result = await fetch(
+        "http://localhost:5000/users/register", requestOptions
+      );
+  
+      const token = await result.json();
+      console.log(token); 
+    };
   return (
     <div>
       <div className="row mt-5">
@@ -8,41 +45,44 @@ const Register = () => {
           <div className="card card-body">
             <h1 className="text-center mb-3">
               <i className="fas fa-user-plus"></i> Register
-            </h1>
+        </h1>
 
             {/* <%- include ('./partials/messages') %> */}
-            <form action="/users/register" method="POST">
+            <form action="/users/register" method="POST" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label for="name">Name</label>
+                <label hmtlFor="name">Name</label>
                 <input
-                  type="name"
+                  type="text"
                   id="name"
                   name="name"
                   className="form-control"
                   placeholder="Enter Name"
-                  value="{typeof name != 'undefined' ? name : ''}"
+                  value={formState.name}
+                  onChange={handleChange}
                 />
               </div>
               <div className="form-group">
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   className="form-control"
                   placeholder="Enter Email"
-                  value="{typeof email != 'undefined' ? email : '' }"
+                  value={formState.email}
+                  onChange={handleChange}
                 />
               </div>
               <div className="form-group">
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   id="password"
                   name="password"
                   className="form-control"
                   placeholder="Create Password"
-                  value="{typeof password != 'undefined' ? password : ''} "
+                  value={formState.password}
+                  onChange={handleChange}
                 />
               </div>
               <div className="form-group">
@@ -53,22 +93,22 @@ const Register = () => {
                   name="password2"
                   className="form-control"
                   placeholder="Confirm Password"
-                  value="{typeof password2 != 'undefined' ? password2 : ''} "
+                  value={formState.password2}
+                  onChange={handleChange}
                 />
               </div>
 
               <button type="submit" className="btn btn-success btn-block">
                 Register
-              </button>
+          </button>
             </form>
-            <p className="lead mt-4">
-              Have An Account? <a href="/users/login">Login</a>
-            </p>
+            <p className="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register
+

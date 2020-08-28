@@ -9,31 +9,27 @@ const AppContextProvider = ({ children }) => {
   //here we have allowed the entire app to use AppContext
   //putting the request in the context so that we can use it anywhere
   
-  // READ METHOD
+  // FETCH ONE USER
   useEffect(() => {
     fetch("http://localhost:5000/user/:id")
       .then((res) => res.json())
       .then((res) => setState(res));
   }, []);
 
-//   //CREATE METHOD
-//   const create = (event, values) => {
-//     event.preventDefault();
-//     fetch("http://localhost:5000/users", {
-//       method: "post",
-//       headers: {
-//         Accept: "application/json, text/plain, */*",
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ ...values }),
-//     })
-//       .then((res) => res.json())
-//       //this takes the original array, and then adding something to the end and updating it
-//       .then((res) => setProfile([...profile, res]))
-//       .catch((error) => {
-//         console.error("Error:", error);
-//       });
-//   };
+  //FETCH ALL USERS
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((res) => setState(res));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((res) => setState(res));
+  }, []);
+
+
 
 
 

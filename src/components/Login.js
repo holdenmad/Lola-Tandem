@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [formState, setFormState] = useState({
@@ -31,11 +32,12 @@ const Login = () => {
     };
 
     const result = await fetch(
-      "http://localhost:5000/users/login", requestOptions
+      "http://localhost:5000/users/login",
+      requestOptions
     );
 
     const token = await result.json();
-    console.log(token); 
+    console.log(token);
     //store the token in the context and next time something requires it then we send the token
     //every time we want to have a logged in state we need to add it to the header
     //if the token is set, then show everything else, if it's not set show the login page
@@ -45,8 +47,6 @@ const Login = () => {
     // .catch((error) => {
     //   console.error("Error:", error);
   };
-
-  
 
   return (
     <div>
@@ -91,7 +91,7 @@ const Login = () => {
               </button>
             </form>
             <p className="lead mt-4">
-              No Account? <a href="/users/register">Register</a>
+              No Account? <Link to="/users/register">Register</Link>
             </p>
           </div>
         </div>

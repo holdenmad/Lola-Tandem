@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import {AppContext} from "./Context/AppContext"
 
 const Login = () => {
+  const {setState} = useContext(AppContext)
   const [formState, setFormState] = useState({
     email: "",
     password: "",
@@ -34,10 +36,12 @@ const Login = () => {
     const result = await fetch(
       "http://localhost:5000/users/login",
       requestOptions
-    );
+    )
+    const response = await result.json();
+    // console.log(response.headers.get('x-auth-response'))
+    console.log(response);
+    if(response.token) setState(prev => ({...prev,user:response}))
 
-    const token = await result.json();
-    console.log(token);
     //store the token in the context and next time something requires it then we send the token
     //every time we want to have a logged in state we need to add it to the header
     //if the token is set, then show everything else, if it's not set show the login page

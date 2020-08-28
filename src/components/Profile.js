@@ -1,6 +1,9 @@
 import React from "react";
 
 const Profile = () => {
+  //route = lola.com/users/profile-:id
+  //Fetch request from MongoDB for Profile information
+  //map that information into return statement below for each user that matches the {id} req.params
     
   return (
     <div classname="Profile">

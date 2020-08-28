@@ -9,9 +9,16 @@ const AppContextProvider = ({ children }) => {
   //here we have allowed the entire app to use AppContext
   //putting the request in the context so that we can use it anywhere
   
-  // READ METHOD
+  // FETCH ALL USERS
   useEffect(() => {
-    fetch("http://localhost:5000/User")
+    fetch("http://localhost:5000/users") 
+      .then((res) => res.json())
+      .then((res) => setState(res));
+  }, []);
+
+  // FETCH ALL PROFILES
+  useEffect(() => {
+    fetch("http://localhost:5000/profiles")
       .then((res) => res.json())
       .then((res) => setState(res));
   }, []);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Link } from "react-router-dom";
 // import { AppContext } from "./Context/AppContext"
 
 const Register = () => {
@@ -102,7 +103,9 @@ const Register = () => {
                 Register
           </button>
             </form>
-            <p className="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+            <p className="lead mt-4">
+              Have An Account? <Link to="/users/login">Login</Link>
+            </p>
           </div>
         </div>
       </div>

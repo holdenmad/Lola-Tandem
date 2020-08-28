@@ -5,6 +5,7 @@ export const AppContext = createContext();
 const AppContextProvider = ({ children }) => {
 //   const [profiles, setProfiles] = useState(initialProfile);
   const [state, setState] = useState();
+
   //we can allow any component to have access to anything here if we give them the AppContext
   //here we have allowed the entire app to use AppContext
   //putting the request in the context so that we can use it anywhere
@@ -71,7 +72,7 @@ const AppContextProvider = ({ children }) => {
 
   return (
     <div>
-      <AppContext.Provider value={{ state, setState}}>
+      <AppContext.Provider value={{state, setState}}>
         {children}
       </AppContext.Provider>
     </div>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { AppContext } from "./Context/AppContext"
+// import { AppContext } from "./Context/AppContext"
 
 const Register = () => {
-  const { create } = useContext(AppContext)
+  // const { create } = useContext(AppContext)
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -20,7 +20,7 @@ const Register = () => {
     });
   };
   const handleSubmit = (event) => {
-    create(event, formState)
+    register(event, formState)
   }
     // Register METHOD
     const register = async (event, values) => {

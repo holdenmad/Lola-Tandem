@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from "react-router-dom";
-// import { AppContext } from "./Context/AppContext"
+import { AppContext } from "./Context/AppContext"
 
 const Register = () => {
-  // const { create } = useContext(AppContext)
+  const { setState } = useContext(AppContext)
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -36,8 +36,15 @@ const Register = () => {
         "http://localhost:5000/users/register", requestOptions
       );
   
-      const token = await result.json();
-      console.log(token); 
+      const response = await result.json();
+      const user = {
+        email: response.body.email,
+        name: response.body.name,
+        ["x-auth-token"]: response.headers["x-auth-token"]
+      }
+      setState(prev => ({...prev,user}))
+      localStorage.setItem("x-auth-token", response.headers["x-auth-token"])
+  
     };
   return (
     <div>

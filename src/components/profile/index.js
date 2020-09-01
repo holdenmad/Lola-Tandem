@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import Gender from "./Gender"
 import Avatar from "./Avatar"
 import { Birthday } from "./Birthday"

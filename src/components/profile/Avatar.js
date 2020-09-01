@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Formik } from "formik";
 import FileUpload from "../_components/FileUpload";
@@ -19,3 +20,4 @@ function Avatar() {
 }
 
 export default Avatar;
+

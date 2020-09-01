@@ -1,17 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import {AppContext} from "./Context/AppContext"
 
 const Login = () => {
-  const {setState} = useContext(AppContext)
+  const {setState, state} = useContext(AppContext)
+
   const [formState, setFormState] = useState({
     email: "",
     password: "",
   });
-
-  useEffect(() => {
-    console.log(formState);
-  }, [formState]);
 
   const handleChange = (event) => {
     event.persist();
@@ -37,19 +34,16 @@ const Login = () => {
       "http://localhost:5000/users/login",
       requestOptions
     )
-    const response = await result.json();
-    // console.log(response.headers.get('x-auth-response'))
-    console.log(response);
-    if(response.token) setState(prev => ({...prev,user:response}))
 
-    //store the token in the context and next time something requires it then we send the token
-    //every time we want to have a logged in state we need to add it to the header
-    //if the token is set, then show everything else, if it's not set show the login page
 
-    // .then((res) => res.json())
-    // .then(data => setFormState({...values}))
-    // .catch((error) => {
-    //   console.error("Error:", error);
+    const responseBody = await result.json();
+    const user = {
+      email: responseBody.email,
+      name: responseBody.name,
+      "x-auth-token": result.headers.get("x-auth-token")
+    }
+    setState(prev => ({...prev,user}))
+    localStorage.setItem("x-auth-token", result.headers.get("x-auth-token"))
   };
 
   return (
@@ -60,7 +54,6 @@ const Login = () => {
             <h1 className="text-center mb-3">
               <i className="fas fa-sign-in-alt"></i> Login
             </h1>
-            {/* <%- include ('./partials/messages') %> */}
             <form method="POST" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="email">Email</label>

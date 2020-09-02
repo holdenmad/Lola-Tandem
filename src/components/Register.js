@@ -58,7 +58,7 @@ const Register = () => {
             {/* <%- include ('./partials/messages') %> */}
             <form action="/users/register" method="POST" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label hmtlFor="name">Name</label>
+                <label htmlhtmlFor="name">Name</label>
                 <input
                   type="text"
                   id="name"
@@ -70,7 +70,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlhtmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -82,7 +82,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlhtmlFor="password">Password</label>
                 <input
                   type="password"
                   id="password"
@@ -94,7 +94,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label for="password2">Confirm Password</label>
+                <label htmlhtmlFor="password2">Confirm Password</label>
                 <input
                   type="password"
                   id="password2"

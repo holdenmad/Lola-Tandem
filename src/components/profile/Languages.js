@@ -3,8 +3,8 @@ import React from 'react';
 function Languages() {
     return (
         <div>
-                <div class="row">
-                    <div class="col-sm">
+                <div className="row">
+                    <div className="col-sm">
                         <label className="heading">Native Language</label>
                         <select
                         
@@ -48,7 +48,7 @@ function Languages() {
                         </select>
 
                     </div>
-                    <div class="col-sm">
+                    <div className="col-sm">
                         <label className="heading">Learning Language</label>
                         <select
                         

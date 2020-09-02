@@ -3,7 +3,7 @@ import React from 'react';
 function Birthday() {
     return (
         <div>
-            <label>Date of Birth</label>
+            <label className="heading">Date of Birth</label>
             <div className="birthday">
                 <select
                     

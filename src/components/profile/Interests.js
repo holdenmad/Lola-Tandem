@@ -3,7 +3,7 @@ import React from 'react';
 function Interests() {
     return (
         <div>
-            <label id="checkbox-group">Interests</label>
+            <label className="heading" id="checkbox-group">Interests</label>
             <div role="group" aria-labelledby="checkbox-group">
                 {/* New row */}
                 <div className="form-row">

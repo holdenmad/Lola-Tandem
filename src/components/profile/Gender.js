@@ -25,12 +25,12 @@ function Gender() {
 
   return (
     <div>
-      <label>Gender</label>
+      <label className="heading">Gender</label>
       <select
         onChange={handleChange}
         as="select"
         name="gender"
-        className="form-control gender"
+        className="form-control medium"
       >
         {genders.map((gender) => (
           <option

@@ -7,6 +7,7 @@ import { Birthday } from "./Birthday";
 import FreeText from "./FreeText";
 import Interests from "./Interests";
 import Languages from "./Languages";
+import Location from "./Location";
 import {AppContext} from "../Context/AppContext";
 
 // import { accountService, alertService } from "@/_services";
@@ -54,7 +55,7 @@ function EditProfile({ history, _id}) {
       <Gender />
       <Birthday />
       <FreeText value={formState.freeText} />
-      {/* <Location /> */}
+      <Location />
       <Languages />
       <Interests />
       <div className="form-group">

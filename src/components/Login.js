@@ -19,6 +19,8 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     login(event, formState);
+    //redirect to dashboard on successful login
+
   };
 
   // LOGIN METHOD
@@ -44,6 +46,8 @@ const Login = () => {
     }
     setState(prev => ({...prev,user}))
     localStorage.setItem("x-auth-token", result.headers.get("x-auth-token"))
+
+    window.location='/dashboard'
   };
 
   return (
@@ -56,7 +60,7 @@ const Login = () => {
             </h1>
             <form method="POST" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlhtmlFor="email">Email</label>
                 <input
                   type="email"
                   onChange={handleChange}
@@ -68,7 +72,7 @@ const Login = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlhtmlFor="password">Password</label>
                 <input
                   type="password"
                   onChange={handleChange}

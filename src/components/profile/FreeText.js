@@ -4,7 +4,7 @@ import React from 'react';
 function FreeText({value}) {
     return (
         <div>
-            <label for="freetext">FreeText</label>
+            <label htmlFor="freetext">FreeText</label>
             <textarea
                 className="form-control"
                 id="freetext"

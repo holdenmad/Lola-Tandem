@@ -4,7 +4,7 @@ function Birthday() {
     return (
         <div>
             <label>Date of Birth</label>
-            <div class="birthday">
+            <div className="birthday">
                 <select
                     
                     name="dob-day"

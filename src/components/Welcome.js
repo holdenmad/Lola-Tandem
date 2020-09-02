@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const Welcome = () => {
@@ -11,15 +12,15 @@ const Welcome = () => {
               <i className="far fa-comments fa-2x"></i>
             </h1>
             <p>Create an account or login</p>
-            <a
-              href="/users/register"
+            <Link
+              to="/users/register"
               className="btn btn-success btn-block mb-2"
             >
               Register
-            </a>
-            <a href="/users/login" className="btn btn-secondary btn-block">
+            </Link>
+            <Link to="/users/login" className="btn btn-secondary btn-block">
               Login
-            </a>
+            </Link>
           </div>
         </div>
       </div>

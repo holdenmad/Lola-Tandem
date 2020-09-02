@@ -1,7 +1,6 @@
 
 import React from "react";
-import { Formik } from "formik";
-import FileUpload from "../_components/FileUpload";
+// import FileUpload from "../components/FileUpload";
 
 function Avatar() {
   return (
@@ -13,7 +12,7 @@ function Avatar() {
           alt="profile-photo"
           width="100px"
         />
-        <FileUpload />
+        {/* <FileUpload /> */}
       </div>
     </div>
   );

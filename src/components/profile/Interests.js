@@ -8,20 +8,10 @@ const culture = ["Culture", "Museums", "Reading", "Movies/Cinema"];
 const other = ["Photography", "Cooking", "Painting", "Travelling", "Sight Seeing"];
 
 function Interests() {
-    const { state, setState } = useContext(AppContext);
+    const { state, setState, handleProfileFormChange } = useContext(AppContext);
     const [value, setValue] = useState("");
 
-    const handleChange = (e) => {
-        console.log(state);
-        const key = e.target.name;
-        const newState = { ...state };
-        newState.unsavedProfileState = {
-            ...newState.unsavedProfileState,
-            [key]: e.target.value,
-        };
-        console.log(key, newState);
-        setState(newState);
-    };
+
     return (
         <div>
             <label className="heading" id="checkbox-group">Interests</label>
@@ -36,7 +26,7 @@ function Interests() {
                                 type="checkbox"
                                 name={interest}
                                 id={interest}
-                                onChange={handleChange}
+                                onChange={handleProfileFormChange}
                                 className="checkbox"
                             />
                             <label className="interest" for={interest}>{interest}</label>
@@ -53,7 +43,7 @@ function Interests() {
                                 type="checkbox"
                                 name={music}
                                 id={music}
-                                onChange={handleChange}
+                                onChange={handleProfileFormChange}
                                 className="checkbox"
                             />
                             <label className="interest" for={music}>{music}</label>
@@ -70,7 +60,7 @@ function Interests() {
                                 type="checkbox"
                                 name={inside}
                                 id={inside}
-                                onChange={handleChange}
+                                onChange={handleProfileFormChange}
                                 className="checkbox"
                             />
                             <label className="interest" for={inside}>{inside}</label>
@@ -87,7 +77,7 @@ function Interests() {
                                     type="checkbox"
                                     name={culture}
                                     id={culture}
-                                    onChange={handleChange}
+                                    onChange={handleProfileFormChange}
                                     className="checkbox"
                                 />
                                 <label className="interest" for={culture}>{culture}</label>
@@ -104,7 +94,7 @@ function Interests() {
                                     type="checkbox"
                                     name={other}
                                     id={other}
-                                    onChange={handleChange}
+                                    onChange={handleProfileFormChange}
                                     className="checkbox"
                                 />
                                 <label className="interest" for={other}>{other}</label>

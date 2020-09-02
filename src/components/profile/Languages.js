@@ -5,20 +5,9 @@ const nativLang = ["English", "German", "French", "Spanish", "Portuguese", "Ital
 const learnLang = ["English", "German", "French", "Spanish", "Portuguese", "Italian", "Arabic", "Bengali", "Bulgarian", "Croatian", "Czech", "Danish", "Dutch", "Estonian", "Finnish", "Greek", "Hindi", "Hungarian", "Indonesian", "Irish", "Latvian", "Lithuanian", "Malay", "Maltese", "Mandarin Chinese", "Polish", "Romanian", "Russian", "Sign Language", "Slovak", "Slovene", "Swedish"];
 
 function Languages() {
-    const { state, setState } = useContext(AppContext);
+    const { state, setState, handleProfileFormChange } = useContext(AppContext);
     const [value, setValue] = useState("");
 
-    const handleChange = (e) => {
-        console.log(state);
-        const key = e.target.name;
-        const newState = { ...state };
-        newState.unsavedProfileState = {
-            ...newState.unsavedProfileState,
-            [key]: e.target.value,
-        };
-        console.log(key, newState);
-        setState(newState);
-    };
 
     return (
         <div>
@@ -26,7 +15,7 @@ function Languages() {
                 <div className="col-sm">
                     <label className="heading">Native Language</label>
                     <select
-                        onChange={handleChange}
+                        onChange={handleProfileFormChange}
                         as="select"
                         name="nativLang"
                         className="form-control"
@@ -58,7 +47,7 @@ function Languages() {
                 <div className="col-sm">
                     <label className="heading">Learning Language</label>
                     <select
-                        onChange={handleChange}
+                        onChange={handleProfileFormChange}
                         as="select"
                         name="learnLang"
                         className="form-control"

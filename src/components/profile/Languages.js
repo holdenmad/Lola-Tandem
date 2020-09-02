@@ -1,14 +1,11 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../Context/AppContext";
 
-const nativLang = ["English", "German", "French", "Spanish", "Portuguese", "Italian", "Arabic", "Bengali", "Bulgarian", "Croatian", "Czech", "Danish", "Dutch", "Estonian", "Finnish", "Greek", "Hindustani", "Hungarian", "Indonesian", "Irish", "Latvian", "Lithuanian", "Malay", "Maltese", "MandarinChinese", "Polish", "Romanian", "Russian", "SignLanguage", "Slovak", "Slovene", "Swedish"];
-const learnLang = ["English", "German", "French", "Spanish", "Portuguese", "Italian", "Arabic", "Bengali", "Bulgarian", "Croatian", "Czech", "Danish", "Dutch", "Estonian", "Finnish", "Greek", "Hindustani", "Hungarian", "Indonesian", "Irish", "Latvian", "Lithuanian", "Malay", "Maltese", "MandarinChinese", "Polish", "Romanian", "Russian", "SignLanguage", "Slovak", "Slovene", "Swedish"];
+const nativLang = ["English", "German", "French", "Spanish", "Portuguese", "Italian", "Arabic", "Bengali", "Bulgarian", "Croatian", "Czech", "Danish", "Dutch", "Estonian", "Finnish", "Greek", "Hindi", "Hungarian", "Indonesian", "Irish", "Latvian", "Lithuanian", "Malay", "Maltese", "Mandarin Chinese", "Polish", "Romanian", "Russian", "Sign Language", "Slovak", "Slovene", "Swedish"];
+const learnLang = ["English", "German", "French", "Spanish", "Portuguese", "Italian", "Arabic", "Bengali", "Bulgarian", "Croatian", "Czech", "Danish", "Dutch", "Estonian", "Finnish", "Greek", "Hindi", "Hungarian", "Indonesian", "Irish", "Latvian", "Lithuanian", "Malay", "Maltese", "Mandarin Chinese", "Polish", "Romanian", "Russian", "Sign Language", "Slovak", "Slovene", "Swedish"];
 
 function Languages() {
     const { state, setState } = useContext(AppContext);
-    //updating unsaved profile state
-
-    // const [value, setValue] = useState(state.profile.gender)
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
@@ -20,7 +17,6 @@ function Languages() {
             [key]: e.target.value,
         };
         console.log(key, newState);
-        //update the state when we change the form
         setState(newState);
     };
 
@@ -64,7 +60,7 @@ function Languages() {
                     <select
                         onChange={handleChange}
                         as="select"
-                        name="nativLang"
+                        name="learnLang"
                         className="form-control"
                     >
                         <option value="" disabled selected>Learning Language</option>

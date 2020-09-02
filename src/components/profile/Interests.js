@@ -1,119 +1,119 @@
-import React from 'react';
+import React, { useState, useContext } from "react";
+import { AppContext } from "../Context/AppContext";
+
+const sports = ["Sports", "Teamsports", "Extreme Sports", "Skating", "Running", "Fitness", "Yoga"];
+const music = ["Music", "Concerts", "Playing Instruments", "Singing"];
+const inside = ["Inside Activities", "Video Gaming", "Board Gaming"];
+const culture = ["Culture", "Museums", "Reading", "Movies/Cinema"];
+const other = ["Photography", "Cooking", "Painting", "Travelling", "Sight Seeing"];
 
 function Interests() {
+    const { state, setState } = useContext(AppContext);
+    const [value, setValue] = useState("");
+
+    const handleChange = (e) => {
+        console.log(state);
+        const key = e.target.name;
+        const newState = { ...state };
+        newState.unsavedProfileState = {
+            ...newState.unsavedProfileState,
+            [key]: e.target.value,
+        };
+        console.log(key, newState);
+        setState(newState);
+    };
     return (
         <div>
             <label className="heading" id="checkbox-group">Interests</label>
-            <div role="group" aria-labelledby="checkbox-group">
-                {/* New row */}
-                <div className="form-row">
-                    <label>
-                        <input type="checkbox" name="checked" value="Sports" />
-              Sports
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Teamsports" />
-              TeamSports
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Extreme Sports" />
-              Extreme Sports
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Skating" />
-              Skating
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Running" />
-              Running
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Fitness" />
-              Fitness
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Yoga" />
-              Yoga
-            </label>
+            <div className="row">
+                <div className="col-md interests">
+                    {sports.map((interest) => (
+                        <div>
+                            <input
+                                key={interest}
+                                selected={interest === value ? true : false}
+                                value={interest}
+                                type="checkbox"
+                                name={interest}
+                                id={interest}
+                                onChange={handleChange}
+                                className="checkbox"
+                            />
+                            <label className="interest" for={interest}>{interest}</label>
+                        </div>
+                    ))}
                 </div>
-                {/* New row */}
-                <div className="form-row">
-                    <label>
-                        <input type="checkbox" name="checked" value="Music" />
-              Music
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Concerts" />
-              Concerts
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Playing Instruments" />
-              Playing Instruments
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Singing" />
-              Singing
-            </label>
+                <div className="col-md interests">
+                    {music.map((music) => (
+                        <div>
+                            <input
+                                key={music}
+                                selected={music === value ? true : false}
+                                value={music}
+                                type="checkbox"
+                                name={music}
+                                id={music}
+                                onChange={handleChange}
+                                className="checkbox"
+                            />
+                            <label className="interest" for={music}>{music}</label>
+                        </div>
+                    ))}
                 </div>
-                {/* New row */}
-                <div className="form-row">
-                    <label>
-                        <input type="checkbox" name="checked" value="Inside Activities" />
-                Inside Activities
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Video Gaming" />
-                Video Gaming
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Board Gaming" />
-                Board Gaming
-            </label>
+                <div className="col-md interests">
+                    {inside.map((inside) => (
+                        <div>
+                            <input
+                                key={inside}
+                                selected={inside === value ? true : false}
+                                value={inside}
+                                type="checkbox"
+                                name={inside}
+                                id={inside}
+                                onChange={handleChange}
+                                className="checkbox"
+                            />
+                            <label className="interest" for={inside}>{inside}</label>
+                        </div>
+                    ))}
                 </div>
-                {/* New row */}
-                <div className="form-row">
-                    <label>
-                        <input type="checkbox" name="checked" value="Culture" />
-                Culture
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Museums" />
-                Museums
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Reading" />
-                Reading
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Movies/Cinema" />
-                Movies/Cinema
-            </label>
+                <div className="col-md interests">
+                        {culture.map((culture) => (
+                            <div>
+                                <input
+                                    key={culture}
+                                    selected={culture === value ? true : false}
+                                    value={culture}
+                                    type="checkbox"
+                                    name={culture}
+                                    id={culture}
+                                    onChange={handleChange}
+                                    className="checkbox"
+                                />
+                                <label className="interest" for={culture}>{culture}</label>
+                            </div>
+                        ))}
                 </div>
-                {/* New row */}
-                <div className="form-row">
-                    <label>
-                        <input type="checkbox" name="checked" value="Photography" />
-                Photography
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Cooking" />
-                Cooking
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Painting" />
-                Painting
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Travleing" />
-                Traveling
-            </label>
-                    <label>
-                        <input type="checkbox" name="checked" value="Sight Seeing" />
-                Sight Seeing
-            </label>
+                <div className="col-md interests">
+                        {other.map((other) => (
+                            <div>
+                                <input
+                                    key={other}
+                                    selected={other === value ? true : false}
+                                    value={other}
+                                    type="checkbox"
+                                    name={other}
+                                    id={other}
+                                    onChange={handleChange}
+                                    className="checkbox"
+                                />
+                                <label className="interest" for={other}>{other}</label>
+                            </div>
+                        ))}
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
+
     );
 }
 

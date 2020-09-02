@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState, useContext } from "react";
+import { AppContext } from "../Context/AppContext";
 
+function FreeText() {
+    const { state, setState } = useContext(AppContext);
+    const [value, setValue] = useState("");
 
-function FreeText({value}) {
+    const handleChange = (e) => {
+        console.log(state);
+        const key = e.target.name;
+        const newState = { ...state };
+        newState.unsavedProfileState = {
+            ...newState.unsavedProfileState,
+            [key]: e.target.value,
+        };
+        console.log(key, newState);
+        setState(newState);
+    };
     return (
         <div>
             <label className="heading" htmlFor="freetext">FreeText</label>
@@ -13,6 +27,7 @@ function FreeText({value}) {
                 cols="50"
                 placeholder="My motivation / learning goals / profile"
                 value={value}
+                onChange={handleChange}
             >
             </textarea>
         </div>

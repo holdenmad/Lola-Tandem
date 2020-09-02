@@ -12,7 +12,7 @@ import { AppContext } from "../Context/AppContext";
 // import { accountService, alertService } from "@/_services";
 
 export default function EditProfile({ history, value, _id }) {
-  const { state, setState} = useContext(AppContext);
+  const { user, updateProfile} = useContext(AppContext);
   //   const user = accountService.userValue;
   const initialValue = {
     freetext: "",
@@ -30,23 +30,8 @@ export default function EditProfile({ history, value, _id }) {
     event.preventDefault();
    
     setIsSubmitting(true);
-    // fetch request profile db
-    fetch(`http://localhost:5000/profiles/${_id}`, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      method: "PUT",
-      body: JSON.stringify(state.unsavedProfileState),
-    })
-      .then(function (res) {
-    
-        // update the state.profile = res
-        // update the state.unsavedProfileState = null
-      })
-      .catch(function (res) {
-        console.log(res);
-      });
+    console.log(user.id)
+    updateProfile(user.id)
   };
 
   return (

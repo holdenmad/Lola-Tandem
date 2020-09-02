@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AppContext } from "../Context/AppContext";
 
-const UserProfileView = ({ users }) => {
+const UserProfileView = () => {
+  const { profiles } = useContext(AppContext);
   //fetch request from database (or from AppContext)
   let { id } = useParams();
   let profileId = parseInt(`${id}`);
-  let profileDeets = users
+  let profileDeets = profiles
     .filter((oneProfile) => {
       return oneProfile.userId === profileId;
     })

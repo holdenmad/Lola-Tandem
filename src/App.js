@@ -10,7 +10,6 @@ import Profile from "./components/Profile";
 import UserProfileView from "./components/profile/UserProfileView";
 
 const token = localStorage.getItem("x-auth-token");
-console.log(token);
 
 const isAuthenticated = () => {
   if (token === null || token === undefined || token === false) {
@@ -34,17 +33,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 function App() {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    const fetchUser = async () => {
-      const users = await axios
-        .get("https://localhost:5000/users")
-        .then((result) => result.data);
-      return users;
-    };
-    fetchUser().then((res) => setUsers(res));
-  }, []);
-
   return (
     <div className="App">
       <Switch>
@@ -61,13 +49,13 @@ function App() {
           exact
           path="/dashboard"
           component={Dashboard}
-          users={users}
+         
         />
         <PrivateRoute
           exact
           path="/:id"
           component={UserProfileView}
-          users={users}
+        
         />
       </Switch>
     </div>

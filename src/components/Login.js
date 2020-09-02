@@ -42,11 +42,13 @@ const Login = () => {
     const user = {
       email: responseBody.email,
       name: responseBody.name,
+      // id: ??????,
       "x-auth-token": result.headers.get("x-auth-token")
     }
     setState(prev => ({...prev,user}))
     localStorage.setItem("x-auth-token", result.headers.get("x-auth-token"))
-
+    localStorage.setItem("id", user.id)
+console.log(user)
     window.location='/dashboard'
   };
 

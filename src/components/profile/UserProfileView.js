@@ -1,16 +1,14 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { AppContext } from "../Context/AppContext";
 
-const UserProfileView = ({ profiles }) => {
-  const { update } = useContext(AppContext);
-  const [value, setValue] = useState({ title, imageURL, content });
-
+const UserProfileView = ({ users }) => {
   //fetch request from database (or from AppContext)
   let { id } = useParams();
   let profileId = parseInt(`${id}`);
-  let profileDeets = profile
+  let profileDeets = users
     .filter((oneProfile) => {
-      return oneProfile.id === profileId;
+      return oneProfile.userId === profileId;
     })
     .map((oneProfile) => {
       return oneProfile;
@@ -32,15 +30,15 @@ const UserProfileView = ({ profiles }) => {
             alt={`${oneProfile.name}`}
           />
           <ul>
-            <li>Name: {user.name} </li>
-            <li>Gender: {user.gender}</li>
-            <li>Location: {user.location}</li>
-            <li>Birthday: {user.dob}</li>
-            <li>Native Languages: {user.nativelangs}</li>
-            <li>Other Languages: {user.otherlangs}</li>
-            <li>Languages Learning: {user.learninglangs}</li>
-            <li>Interests: {user.interests}</li>
-            <li>About Text: {user.freetext}</li>
+            <li>Name: {oneProfile.name} </li>
+            <li>Gender: {oneProfile.gender}</li>
+            <li>Location: {oneProfile.location}</li>
+            <li>Birthday: {oneProfile.dob}</li>
+            <li>Native Languages: {oneProfile.nativelangs}</li>
+            <li>Other Languages: {oneProfile.otherlangs}</li>
+            <li>Languages Learning: {oneProfile.learninglangs}</li>
+            <li>Interests: {oneProfile.interests}</li>
+            <li>About Text: {oneProfile.freetext}</li>
           </ul>
         </div>
       ))}

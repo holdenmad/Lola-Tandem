@@ -7,13 +7,13 @@ import { Birthday } from "./Birthday";
 import FreeText from "./FreeText";
 import Interests from "./Interests";
 import Languages from "./Languages";
-import {AppContext} from "../Context/AppContext";
+import { AppContext } from "../Context/AppContext";
 
 // import { accountService, alertService } from "@/_services";
 
-function EditProfile({ history, _id}) {
-    const {state, setState} = useContext(AppContext)
-//   const user = accountService.userValue;
+export default function EditProfile({ history, value, _id }) {
+  const { state, setState} = useContext(AppContext);
+  //   const user = accountService.userValue;
   const initialValue = {
     freetext: "",
     Avatar: "",
@@ -26,26 +26,27 @@ function EditProfile({ history, _id}) {
   const [formState, setFormState] = useState(initialValue);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+   
     setIsSubmitting(true);
-    //fetch request profile db
-    fetch(`http://localhost:5000/profiles/${state.user}`,
-    {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: "PUT",
-        body: JSON.stringify(state.unsavedProfileState)
+    // fetch request profile db
+    fetch(`http://localhost:5000/profiles/${_id}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
+      body: JSON.stringify(state.unsavedProfileState),
     })
-    .then(function(res){
-      state.profile = res
-      state.unsavedProfileState = null
+      .then(function (res) {
+    
         // update the state.profile = res
         // update the state.unsavedProfileState = null
-     })
-    .catch(function(res){ console.log(res) })
+      })
+      .catch(function (res) {
+        console.log(res);
+      });
   };
 
   return (
@@ -75,5 +76,3 @@ function EditProfile({ history, _id}) {
     </form>
   );
 }
-
-export default EditProfile;

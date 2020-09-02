@@ -11,7 +11,7 @@ const Register = () => {
     password2: ""
   });
   useEffect(() => {
-    console.log(formState);
+    
   }, [formState])
 
   const handleChange = (event) => {
@@ -44,10 +44,10 @@ const Register = () => {
       }
       setState(prev => ({...prev,user}))
       localStorage.setItem("x-auth-token", response.headers["x-auth-token"])
-  
+      console.log(user)
     };
   return (
-    <div>
+    <div>2
       <div className="row mt-5">
         <div className="col-md-6 m-auto">
           <div className="card card-body">
@@ -58,7 +58,7 @@ const Register = () => {
             {/* <%- include ('./partials/messages') %> */}
             <form action="/users/register" method="POST" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlhtmlFor="name">Name</label>
+                <label htmlFor="name">Name</label>
                 <input
                   type="text"
                   id="name"
@@ -70,7 +70,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlhtmlFor="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -82,7 +82,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlhtmlFor="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   id="password"
@@ -94,7 +94,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlhtmlFor="password2">Confirm Password</label>
+                <label htmlFor="password2">Confirm Password</label>
                 <input
                   type="password"
                   id="password2"

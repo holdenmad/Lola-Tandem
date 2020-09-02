@@ -4,7 +4,7 @@ import { AppContext } from '../Context/AppContext';
 const genders = ['', 'other', 'female', 'male', 'd', 'e', 'f'];
 
 function Gender() {
-  const { state, setState } = useContext(AppContext);
+  const { state, setState, handleProfileFormChange } = useContext(AppContext);
   //updating unsaved profile state
 
   // const [value, setValue] = useState(state.profile.gender)
@@ -14,7 +14,7 @@ function Gender() {
     <div>
       <label>Gender</label>
       <select
-        onChange={handleChange}
+        onChange={handleProfileFormChange}
         as='select'
         name='gender'
         className='form-control gender'

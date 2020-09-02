@@ -6,6 +6,7 @@ const initialState = [];
 
 const AppContextProvider = ({ children }) => {
   //   const [profiles, setProfiles] = useState(initialProfile);
+  const [state, setState] = useState();
   const [user, setUser] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { token } = localStorage;
@@ -76,7 +77,9 @@ const AppContextProvider = ({ children }) => {
           login,
           isLoggedIn,
           updateProfile,
-          handleProfileFormChange
+          handleProfileFormChange,
+          state,
+          setState
         }}
       >
         {children}

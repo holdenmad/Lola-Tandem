@@ -1,10 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { AppContext } from './Context/AppContext';
 
 const Login = () => {
-  const { login, user, isLoggedIn } = useContext(AppContext);
-
+  const { authenticate, state } = useContext(AppContext);
   const [formState, setFormState] = useState({
     email: '',
     password: ''
@@ -17,12 +16,16 @@ const Login = () => {
     });
   };
 
+  useEffect(() => {
+    console.log('isLoggedIn', state.isLoggedIn);
+  }, [state.isLoggedIn]);
+
   const handleSubmit = event => {
-    login(event, formState);
+    authenticate(event, formState, 'login');
     //redirect to dashboard on successful login
   };
 
-  return !isLoggedIn ? (
+  return !state.isLoggedIn ? (
     <div>
       <div className='row mt-5'>
         <div className='col-md-6 m-auto'>

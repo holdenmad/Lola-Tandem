@@ -1,54 +1,104 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext, useEffect } from "react";
+
+const initialState = {
+  user: { id: localStorage.getItem("userId") },
+  profile: {},
+  unsavedProfileState: {},
+  isLoggedIn: false
+};
 
 export const AppContext = createContext();
 
-const initialState = [];
-
 const AppContextProvider = ({ children }) => {
-  //   const [profiles, setProfiles] = useState(initialProfile);
-  const [state, setState] = useState();
-  const [user, setUser] = useState();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { token } = localStorage;
+  const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    fetch('http://localhost:5000/users/getuser', {
-      headers: { 'x-auth-token': token }
-    })
-      .then(res => res.json())
-      .then(data => {
-        setUser(data);
-        setIsLoggedIn(true);
+    const requestOptions = {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+    };
+    // fetch user on page load
+    fetch(
+      // doing this with an access token would be allow for auth server side
+      `http://localhost:5000/users/${state.user.id}`,
+      requestOptions
+    )
+      .then(res => {
+        return { result: res, user: res.json() };
       })
-      .catch(err => console.log(err));
-  });
+      .then(things => {
+        const { result, user } = things;
+        setState(previousState => ({
+          ...previousState,
+          isLoggedIn: true,
+          user: {
+            ...user,
+            "x-auth-token": result.headers.get("x-auth-token"),
+          }
+        }));
+      });
+
+    // fetch profile on page load
+    fetch(`http://localhost:5000/profiles/${state.user.id}`, requestOptions)
+      .then(res => res.json())
+      .then(profile =>
+        setState(previousState => ({ ...previousState, profile }))
+      );
+  }, []);
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
   //Login
-  const login = async (event, values) => {
+  const authenticate = async (event, values, action) => {
+    console.log({ event, values, action });
     event.preventDefault();
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...values })
     };
 
     const result = await fetch(
-      'http://localhost:5000/users/login',
+      `http://localhost:5000/users/${action}`,
       requestOptions
     );
 
-    const responseBody = await result.json();
-    setUser({
-      id: responseBody._id,
-      email: responseBody.email,
-      name: responseBody.name,
-      'x-auth-token': result.headers.get('x-auth-token')
-    });
-    setIsLoggedIn(true);
-    localStorage.setItem('x-auth-token', result.headers.get('x-auth-token'));
+    const response = await result.json();
+    const user = {
+      id: response._id,
+      email: response.email,
+      name: response.name,
+      "x-auth-token": result.headers.get("x-auth-token")
+    };
+    setState(prev => ({ ...prev, user, isLoggedIn: true}));
+    localStorage.setItem("x-auth-token", result.headers.get("x-auth-token"))
+    localStorage.setItem("userId", response._id)
+
+    // if was registering a new user, create an empty profile now 
+    if(action === "register") {
+      fetch(`http://localhost:5000/profiles/${state.user.id}`, {
+        method: "post",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ userId: response._id})
+      })
+      .then(function (res) {
+        console.log(res);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+    }
   };
+
   //Update user
-  const updateProfile = id => {
-    fetch(`http://localhost:5000/profiles/${id}`)
+  const updateProfile = () => {
+    const requestOptions = {
+      method: "put",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(state.unsavedProfileState)
+    };
+    fetch(`http://localhost:5000/profiles/${state.user.id}`, requestOptions)
       .then(function (res) {
         console.log(res);
       })
@@ -56,6 +106,8 @@ const AppContextProvider = ({ children }) => {
         console.log(err);
       });
   };
+
+  //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
 
   const handleProfileFormChange = e => {
     console.log(state);
@@ -73,11 +125,9 @@ const AppContextProvider = ({ children }) => {
     <div>
       <AppContext.Provider
         value={{
-          user,
-          login,
-          isLoggedIn,
-          updateProfile,
+          authenticate,
           handleProfileFormChange,
+          updateProfile,
           state,
           setState
         }}

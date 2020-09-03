@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
@@ -8,16 +8,20 @@ import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import Matches from './components/Matches';
 
-import UserProfileView from './components/profile/UserProfileView';
+// import UserProfileView from './components/profile/UserProfileView';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { AppContext } from './components/Context/AppContext';
 
 const token = localStorage.getItem('x-auth-token');
 
+
 const isAuthenticated = () => {
   if (token === null || token === undefined || token === false) {
+   console.log("a");
     return false;
   } else {
+    console.log("b");
     return token;
   }
 };
@@ -36,9 +40,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 function App() {
+  const { state } = useContext(AppContext);
   return (
     <div className='App'>
-      {isAuthenticated && <Header />}
+      {state.isLoggedIn && <Header />}
       <Switch>
         <Route exact path='/'>
           <Welcome />
@@ -54,7 +59,7 @@ function App() {
         <PrivateRoute exact path='/profile' component={Profile} />
         <PrivateRoute exact path='/matches' component={Matches} />
       </Switch>
-      {isAuthenticated && <Footer /> }
+      {state.isLoggedIn && <Footer /> }
     </div>
   );
 }

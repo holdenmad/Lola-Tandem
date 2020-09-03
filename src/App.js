@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';
 import UserProfileView from './components/profile/UserProfileView';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -35,7 +36,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 function App() {
   return (
     <div className='App'>
-      <Header />
+      {isAuthenticated && <Header />}
       <Switch>
         <Route exact path='/'>
           <Welcome />
@@ -47,9 +48,10 @@ function App() {
           <Login />
         </Route>
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
-        <PrivateRoute exact path='/:id' component={UserProfileView} />
+        {/* <PrivateRoute exact path='/:id' component={UserProfileView} /> */}
+        <PrivateRoute exact path='/profile' component={Profile} />
       </Switch>
-      <Footer />
+      {isAuthenticated && <Footer /> }
     </div>
   );
 }

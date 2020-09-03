@@ -16,14 +16,14 @@ function Header() {
                             <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Messages</Link>
+                            <Link className="nav-link" to="/messages">Messages</Link>
 
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Profile</Link>
+                            <Link className="nav-link" to="/profile">Profile</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Settings</Link>
+                            <Link className="nav-link" to="/settings">Settings</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/" >Logout</Link>

@@ -13,13 +13,6 @@ const Matches = () => {
       headers: { 'Content-Type': 'application/json' }
     };
 
-    //fetch on match tab and loop over results
-
-    //possible problems:
-    // 1. State isn't being set correctly
-    // 2. User isn't staying logged in, so matches can't be made without a userId
-    // 3. Profiles are not in state on matches page
-
     fetch(`http://localhost:5000/matches/${state.user._id}`, requestOptions)
       .then(res => res.json())
       //   .then(matches => console.log(matches[0].user.name))
@@ -32,16 +25,11 @@ const Matches = () => {
 
   return (
     <div>
-      <div>Here are matches</div>
+      <div>Your best matches!</div>
       <div>
         {matches.map(match => (
           <MatchedUser key={match.user.id} match={match} />
         ))}
-
-        {/* {Object.entries(state.matches).map(matchInfo =>
-      <div>
-      <li>{matchInfo[0]}: {matchInfo[1]}</li>
-      </div>)} */}
       </div>
     </div>
   );

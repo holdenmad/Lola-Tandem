@@ -47,7 +47,7 @@ export default function EditProfile({ history, value, _id }) {
         <button
           type='submit'
           disabled={isSubmitting}
-          className='btn btn-success mr-2'
+          className='btn btn-outline-success mr-2'
         >
           {isSubmitting && (
             <span className='spinner-border spinner-border-sm mr-1'></span>

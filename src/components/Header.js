@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import { AppContext } from './Context/AppContext';
 
 function Header() {
+    const { logOut } = useContext(AppContext);
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,7 +27,7 @@ function Header() {
                             <Link className="nav-link" to="/settings">Settings</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/" >Logout</Link>
+                            <Link onClick={logOut} className="nav-link" to="/" >Logout</Link>
                         </li>
                     </ul>
                 </div>

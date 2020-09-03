@@ -1,12 +1,11 @@
-.gender {
-    width: 100px;
-}
-
 .small {
     width: 80px;
 }
 .medium {
     width: 110px;
+}
+.large {
+    width: 210px;
 }
 .birthday {
     display: flex;
@@ -15,4 +14,16 @@
 .heading {
     margin: 30px 0px 20px;
     font-size: 1.5rem;
+}
+
+.checkbox {
+    margin-right: 5px;
+}
+
+.interest {
+    margin-right: 20px;
+}
+.interests {
+    margin-left: 5px;
+    margin-bottom: 15px;
 }

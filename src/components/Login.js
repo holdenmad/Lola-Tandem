@@ -46,6 +46,7 @@ const Login = () => {
     }
     setState(prev => ({...prev,user}))
     localStorage.setItem("x-auth-token", result.headers.get("x-auth-token"))
+    localStorage.setItem("userId", responseBody._id)
 
     window.location='/dashboard'
   };

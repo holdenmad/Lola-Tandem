@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useContext } from "react";
+import { AppContext } from "../Context/AppContext";
 
+function FreeText() {
+    const { state, setState, handleProfileFormChange } = useContext(AppContext);
 
-function FreeText({value}) {
     return (
         <div>
-            <label htmlFor="freetext">FreeText</label>
+            <label className="heading" htmlFor="freetext">FreeText</label>
             <textarea
                 className="form-control"
                 id="freetext"
@@ -12,7 +14,8 @@ function FreeText({value}) {
                 rows="4"
                 cols="50"
                 placeholder="My motivation / learning goals / profile"
-                value={value}
+                value={state.unsavedProfileState && state.unsavedProfileState.freeText || state.profile && state.profile.freeText}
+                onChange={handleProfileFormChange}
             >
             </textarea>
         </div>

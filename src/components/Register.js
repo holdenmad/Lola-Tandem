@@ -44,7 +44,9 @@ const Register = () => {
       }
       setState(prev => ({...prev,user}))
       localStorage.setItem("x-auth-token", response.headers["x-auth-token"])
+      localStorage.setItem("userId", response.body._id)
   
+      window.location='/dashboard'
     };
   return (
     <div>

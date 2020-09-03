@@ -9,7 +9,7 @@ function Dashboard() {
             <div>
                 <h1 className="mt-4">Dashboard</h1>
                 <p className="lead mb-3">Welcome Username</p>
-                <Link to="/users/logout" className="btn btn-secondary">Logout</Link>
+                <Link to="/users/login" className="btn btn-secondary">Logout</Link>
                 <EditProfile/>
             </div>
         </div>

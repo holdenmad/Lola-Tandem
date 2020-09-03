@@ -7,6 +7,7 @@ import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
 import UserProfileView from './components/profile/UserProfileView';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const token = localStorage.getItem('x-auth-token');
 
@@ -48,6 +49,7 @@ function App() {
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/:id' component={UserProfileView} />
       </Switch>
+      <Footer />
     </div>
   );
 }

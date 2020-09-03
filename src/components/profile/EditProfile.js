@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import SelectSearch from 'react-select-search';
 
 import Gender from './Gender';
 import Avatar from './Avatar';
@@ -11,7 +12,17 @@ import Location from './Location';
 import { AppContext } from '../Context/AppContext';
 
 // import { accountService, alertService } from "@/_services";
-
+const options = [
+  {name: 'Swedish', value: 'sv'},
+  {name: 'English', value: 'en'},
+  {
+      type: 'group',
+      name: 'Group name',
+      items: [
+          {name: 'Spanish', value: 'es'},
+      ]
+  },
+];
 export default function EditProfile({ history, value, _id }) {
   const { state, updateProfile } = useContext(AppContext);
   //   const user = accountService.userValue;

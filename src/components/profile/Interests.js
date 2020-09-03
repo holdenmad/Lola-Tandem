@@ -7,6 +7,8 @@ const inside = ["Inside Activities", "Video Gaming", "Board Gaming"];
 const culture = ["Culture", "Museums", "Reading", "Movies/Cinema"];
 const other = ["Photography", "Cooking", "Painting", "Travelling", "Sight Seeing"];
 
+const interests = ["Culture","Video Gaming","Inside Activities"]
+// state.profile.interests 
 function Interests() {
     const { state, setState, handleProfileFormChange } = useContext(AppContext);
     const [value, setValue] = useState("");
@@ -16,23 +18,22 @@ function Interests() {
         <div>
             <label className="heading" id="checkbox-group">Interests</label>
             <div className="row">
-                <div className="col-md interests">
+                <form onChange={handleProfileFormChange} className="col-md interests">
                     {sports.map((interest) => (
                         <div>
                             <input
                                 key={interest}
-                                selected={interest === value ? true : false}
+                                selected={ interests.indexOf(interest)>-1 ? true : false }
                                 value={interest}
                                 type="checkbox"
                                 name={interest}
-                                id={interest}
-                                onChange={handleProfileFormChange}
+                                id={interest}                                
                                 className="checkbox"
                             />
                             <label className="interest" for={interest}>{interest}</label>
                         </div>
                     ))}
-                </div>
+                </form>
                 <div className="col-md interests">
                     {music.map((music) => (
                         <div>

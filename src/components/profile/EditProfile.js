@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import SelectSearch from 'react-select-search';
 
 import Gender from './Gender';
 import Avatar from './Avatar';

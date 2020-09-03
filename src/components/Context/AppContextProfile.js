@@ -5,7 +5,7 @@ const initialState = {
   profile: {},
   unsavedProfileState: {},
   isLoggedIn: false,
-  matches: []
+  matches: {}
 };
 
 export const AppContext = createContext();
@@ -105,12 +105,10 @@ const AppContextProvider = ({ children }) => {
       });
   };
 
-
-
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
 
   const handleProfileFormChange = e => {
-    console.log("helloo", e.target.name, e.target.selected);
+    console.log(state);
     const key = e.target.name;
     const newState = { ...state };
     newState.unsavedProfileState = {

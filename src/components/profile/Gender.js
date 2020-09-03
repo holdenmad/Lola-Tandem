@@ -8,7 +8,7 @@ function Gender() {
   //updating unsaved profile state
 
   // const [value, setValue] = useState(state.profile.gender)
-  const [value, setValue] = useState('female');
+  const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.gender || state.profile && state.profile.gender || null);
 
   return (
     <div>

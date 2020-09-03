@@ -13,7 +13,7 @@ import { AppContext } from '../Context/AppContext';
 // import { accountService, alertService } from "@/_services";
 
 export default function EditProfile({ history, value, _id }) {
-  const { state, updateProfile } = useContext(AppContext);
+  const { state, setState, updateProfile } = useContext(AppContext);
   //   const user = accountService.userValue;
   const initialValue = {
     freetext: '',
@@ -30,7 +30,7 @@ export default function EditProfile({ history, value, _id }) {
   const handleSubmit = event => {
     event.preventDefault();
     setIsSubmitting(true);
-    updateProfile(state.user.id);
+    updateProfile();
   };
 
   return (

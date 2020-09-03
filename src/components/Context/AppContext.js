@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from "react";
 
 const initialState = {
-  user: { id: localStorage.getItem("userId") },
+  user: { id: localStorage.getItem("userId")},
   profile: {},
   unsavedProfileState: {},
   isLoggedIn: false
@@ -18,7 +18,8 @@ const AppContextProvider = ({ children }) => {
       headers: { "Content-Type": "application/json" }
     };
     // fetch user on page load
-    fetch(
+    if(state.user.id !== "null") {
+      fetch(
       // doing this with an access token would be allow for auth server side
       `http://localhost:5000/users/${state.user.id}`,
       requestOptions
@@ -30,21 +31,24 @@ const AppContextProvider = ({ children }) => {
         const { result, user } = things;
         setState(previousState => ({
           ...previousState,
-          isLoggedIn: true,
+          isLoggedIn: !!user._id,
           user: {
             ...user,
             "x-auth-token": result.headers.get("x-auth-token"),
           }
         }));
       });
-
+    
     // fetch profile on page load
     fetch(`http://localhost:5000/profiles/${state.user.id}`, requestOptions)
-      .then(res => res.json())
-      .then(profile =>
-        setState(previousState => ({ ...previousState, profile }))
-      );
-  }, []);
+        .then(res => res.json())
+        .then(profile =>
+          setState(previousState => ({ ...previousState, profile }))
+        );
+    }
+    }, []);
+
+    
 
   useEffect(() => {
     console.log(state);
@@ -72,19 +76,21 @@ const AppContextProvider = ({ children }) => {
       name: response.name,
       "x-auth-token": result.headers.get("x-auth-token")
     };
-    setState(prev => ({ ...prev, user, isLoggedIn: true}));
     localStorage.setItem("x-auth-token", result.headers.get("x-auth-token"))
     localStorage.setItem("userId", response._id)
+    setState(prev => ({ ...prev, user, isLoggedIn: !!response._id}));
 
+    
     // if was registering a new user, create an empty profile now 
     if(action === "register") {
-      fetch(`http://localhost:5000/profiles/${state.user.id}`, {
+      fetch(`http://localhost:5000/profiles`, {
         method: "post",
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json", "x-auth-token": state.user, "id": state.user.id}, //let this reflect the state of the
         body: JSON.stringify({ userId: response._id})
       })
       .then(function (res) {
         console.log(res);
+        console.log(state.user)
       })
       .catch(function (err) {
         console.log(err);
@@ -92,6 +98,13 @@ const AppContextProvider = ({ children }) => {
     }
   };
 
+  const logOut = () => {
+    localStorage.setItem("x-auth-token", null)
+    localStorage.setItem("userId", null)
+    setState(prev => ({ ...prev, user:null}));
+    setState(prev => ({ ...prev, isLoggedIn: false}));
+
+  }
   //Update user
   const updateProfile = () => {
     const requestOptions = {
@@ -99,6 +112,7 @@ const AppContextProvider = ({ children }) => {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(state.unsavedProfileState)
     };
+    console.log()
     fetch(`http://localhost:5000/profiles/${state.user.id}`, requestOptions)
       .then(function (res) {
         console.log(res);
@@ -129,6 +143,7 @@ const AppContextProvider = ({ children }) => {
           authenticate,
           handleProfileFormChange,
           updateProfile,
+          logOut,
           state,
           setState
         }}

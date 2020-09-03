@@ -10,7 +10,9 @@ function Dashboard() {
       <div>
         <h1 className='mt-4'>Dashboard</h1>
         <p className='lead mb-3'>Welcome Username</p>
-        <button className='btn btn-secondary' onClick={logOut}>logout</button>
+        {/* <button className='btn btn-secondary' onClick={logOut}>Logout</button> */}
+        <button className='btn btn-primary btn-lg btn-block' onClick={logOut}>Find a tandem partner</button>
+
         <EditProfile/>
       </div>
     </div>

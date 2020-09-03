@@ -28,7 +28,7 @@ const Matches = () => {
       <h2 class='text-center'>Your best matches!</h2>
       <div >
         {matches.map(match => (
-          <div className="m-4"><MatchedUser key={match.user.id} match={match} /></div>
+          <div className="m-4"><MatchedUser key={match.user.id} match={match} /></div> 
         ))}
       </div>
     </div>

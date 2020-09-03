@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
-import { AppContext } from "../Context/AppContext";
+import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { AppContext } from '../Context/AppContext';
 
 const UserProfileView = () => {
   const { profiles } = useContext(AppContext);
@@ -8,28 +8,30 @@ const UserProfileView = () => {
   let { id } = useParams();
   let profileId = parseInt(`${id}`);
   let profileDeets = profiles
-    .filter((oneProfile) => {
+    .filter(oneProfile => {
       return oneProfile.userId === profileId;
     })
-    .map((oneProfile) => {
+    .map(oneProfile => {
       return oneProfile;
     });
 
   return (
     <div>
-      {profileDeets.map((oneProfile) => (
+      {profileDeets.map(oneProfile => (
         <div>
-          <p margin="small" textAlign="center">
+          <p margin='small' textAlign='center'>
             {oneProfile.name}
           </p>
 
           <img
-            fill="false"
-            alignSelf="center"
-            className="avatar"
-            src={"useravatar.png"}
+            fill='false'
+            alignSelf='center'
+            className='avatar'
+            src={'useravatar.png'}
             alt={`${oneProfile.name}`}
           />
+         
+
           <ul>
             <li>Name: {oneProfile.name} </li>
             <li>Gender: {oneProfile.gender}</li>

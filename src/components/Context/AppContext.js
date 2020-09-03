@@ -49,6 +49,7 @@ const AppContextProvider = ({ children }) => {
   useEffect(() => {
     console.log(state);
   }, [state]);
+  
   //Login
   const authenticate = async (event, values, action) => {
     console.log({ event, values, action });

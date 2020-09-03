@@ -1,4 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import MatchedUser from './MatchedUser';
+
 import { AppContext } from './Context/AppContext';
 
 const Matches = () => {
@@ -9,26 +12,35 @@ const Matches = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    //fetch on match tab and loop over results
+
     fetch(`http://localhost:5000/matches/${state.user._id}`, requestOptions)
-      .then(async res => {
-        const matches = await res.json();
-      })
-      .then(matches =>
-        setState(...previousState => ({ ...previousState, matches }))
-      )
+      .then(res => res.json())
+      //   .then(matches => console.log(matches[0].user.name))
+      .then(matches => setState(prevState => ({ ...prevState, matches })))
       .catch(err => console.log(err));
   }, []);
 
-  console.log(state);
+  console.log(state.matches);
+  const { matches } = state;
 
   return (
     <div>
-      {state.matches.map(match => (
-        <div>{match}</div>
-      ))}
+      <div>Your best matches!</div>
+      <div>
+        {matches.map(match => (
+          <MatchedUser key={match.user.id} match={match} />
+        ))}
+      </div>
     </div>
   );
+  //   !state.isLoggedIn ? (
+  //       <>
+  //
+  //     </>
+  //    ) : (
+  //      <Redirect to='/login' />
+
+  //   );
 };
 
 export default Matches;

@@ -60,6 +60,7 @@ function App() {
         <PrivateRoute exact path='/profile' component={Profile} />
         <PrivateRoute exact path='/editprofile' component={EditProfile} />
         <PrivateRoute exact path='/matches' component={Matches} />
+
       </Switch>
       {state.isLoggedIn && <Footer /> }
     </div>

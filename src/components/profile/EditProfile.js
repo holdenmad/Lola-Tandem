@@ -12,17 +12,7 @@ import Location from './Location';
 import { AppContext } from '../Context/AppContext';
 
 // import { accountService, alertService } from "@/_services";
-const options = [
-  {name: 'Swedish', value: 'sv'},
-  {name: 'English', value: 'en'},
-  {
-      type: 'group',
-      name: 'Group name',
-      items: [
-          {name: 'Spanish', value: 'es'},
-      ]
-  },
-];
+
 export default function EditProfile({ history, value, _id }) {
   const { state, setState, updateProfile } = useContext(AppContext);
   //   const user = accountService.userValue;

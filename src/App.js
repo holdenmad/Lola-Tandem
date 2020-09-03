@@ -6,6 +6,7 @@ import Register from './components/Register';
 import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
+import EditProfile from './components/profile/EditProfile';
 import Matches from './components/Matches';
 
 // import UserProfileView from './components/profile/UserProfileView';
@@ -57,6 +58,7 @@ function App() {
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         {/* <PrivateRoute exact path='/:id' component={UserProfileView} /> */}
         <PrivateRoute exact path='/profile' component={Profile} />
+        <PrivateRoute exact path='/editprofile' component={EditProfile} />
         <PrivateRoute exact path='/matches' component={Matches} />
       </Switch>
       {state.isLoggedIn && <Footer /> }

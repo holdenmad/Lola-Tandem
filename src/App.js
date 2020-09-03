@@ -47,7 +47,7 @@ function App() {
         </Route>
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/matches' component={Matches} />
-        <PrivateRoute exact path='/:id' component={UserProfileView} />
+        {/* <PrivateRoute exact path='/:id' component={UserProfileView} /> */}
       </Switch>
     </div>
   );

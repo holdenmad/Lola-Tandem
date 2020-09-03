@@ -5,7 +5,7 @@ const initialState = {
   profile: {},
   unsavedProfileState: {},
   isLoggedIn: false,
-  matches: {}
+  matches: []
 };
 
 export const AppContext = createContext();
@@ -104,6 +104,8 @@ const AppContextProvider = ({ children }) => {
         console.log(err);
       });
   };
+
+
 
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
 

@@ -5,6 +5,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
+
+import Matches from './components/Matches';
 import UserProfileView from './components/profile/UserProfileView';
 
 const token = localStorage.getItem('x-auth-token');
@@ -44,6 +46,7 @@ function App() {
           <Login />
         </Route>
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <PrivateRoute exact path='/matches' component={Matches} />
         <PrivateRoute exact path='/:id' component={UserProfileView} />
       </Switch>
     </div>

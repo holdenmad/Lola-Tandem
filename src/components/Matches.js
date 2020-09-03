@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { AppContext } from './Context/AppContext';
 
 const Matches = () => {
-  const [matches, setMatches] = useState();
+  const { state, setState } = useContext(AppContext);
+
   useEffect(() => {
     const requestOptions = {
       method: 'GET',
@@ -9,16 +11,20 @@ const Matches = () => {
     };
     //fetch on match tab and loop over results
     fetch(`http://localhost:5000/matches/${state.user._id}`, requestOptions)
-      .then(res => res.json())
-      .then(matches => setMatches(matches))
+      .then(async res => {
+        const matches = await res.json();
+      })
+      .then(matches =>
+        setState(...previousState => ({ ...previousState, matches }))
+      )
       .catch(err => console.log(err));
   }, []);
 
-  console.log(matches);
+  console.log(state);
 
   return (
     <div>
-      {matches.map(match => (
+      {state.matches.map(match => (
         <div>{match}</div>
       ))}
     </div>

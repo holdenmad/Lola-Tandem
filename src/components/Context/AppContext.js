@@ -1,10 +1,11 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext, useEffect } from 'react';
 
 const initialState = {
-  user: { id: localStorage.getItem("userId") },
+  user: { _id: localStorage.getItem('userId') },
   profile: {},
   unsavedProfileState: {},
-  isLoggedIn: false
+  isLoggedIn: false,
+  matches: {}
 };
 
 export const AppContext = createContext();
@@ -14,49 +15,53 @@ const AppContextProvider = ({ children }) => {
 
   useEffect(() => {
     const requestOptions = {
-      method: "GET",
-      headers: { "Content-Type": "application/json" }
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
     };
     // fetch user on page load
-    fetch(
-      // doing this with an access token would be allow for auth server side
-      `http://localhost:5000/users/${state.user.id}`,
-      requestOptions
-    )
-      .then(res => {
-        return { result: res, user: res.json() };
-      })
-      .then(things => {
-        const { result, user } = things;
-        setState(previousState => ({
-          ...previousState,
-          isLoggedIn: true,
-          user: {
-            ...user,
-            "x-auth-token": result.headers.get("x-auth-token"),
-          }
-        }));
-      });
+    if (state.user.id !== 'null') {
+      fetch(
+        // doing this with an access token would be allow for auth server side
+        `http://localhost:5000/users/${state.user._id}`,
+        requestOptions
+      )
+        .then(async res => {
+          const user = await res.json();
+          return { result: res, user };
+        })
+        .then(things => {
+          const { result, user } = things;
+          console.log(user);
+          setState(previousState => ({
+            ...previousState,
+            isLoggedIn: !!user._id,
+            user: {
+              ...user,
+              'x-auth-token': result.headers.get('x-auth-token')
+            }
+          }));
+        });
 
-    // fetch profile on page load
-    fetch(`http://localhost:5000/profiles/${state.user.id}`, requestOptions)
-      .then(res => res.json())
-      .then(profile =>
-        setState(previousState => ({ ...previousState, profile }))
-      );
+      // fetch profile on page load
+      fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+        .then(res => res.json())
+        .then(profile =>
+          setState(previousState => ({ ...previousState, profile }))
+        );
+    }
   }, []);
 
   useEffect(() => {
     console.log(state);
   }, [state]);
-  
+
   //Login
   const authenticate = async (event, values, action) => {
     console.log({ event, values, action });
     event.preventDefault();
     const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...values })
     };
 
@@ -70,36 +75,28 @@ const AppContextProvider = ({ children }) => {
       id: response._id,
       email: response.email,
       name: response.name,
-      "x-auth-token": result.headers.get("x-auth-token")
+      'x-auth-token': result.headers.get('x-auth-token')
     };
-    setState(prev => ({ ...prev, user, isLoggedIn: true}));
-    localStorage.setItem("x-auth-token", result.headers.get("x-auth-token"))
-    localStorage.setItem("userId", response._id)
-
-    // if was registering a new user, create an empty profile now 
-    if(action === "register") {
-      fetch(`http://localhost:5000/profiles/${state.user.id}`, {
-        method: "post",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ userId: response._id})
-      })
-      .then(function (res) {
-        console.log(res);
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-    }
+    localStorage.setItem('x-auth-token', result.headers.get('x-auth-token'));
+    localStorage.setItem('userId', response._id);
+    setState(prev => ({ ...prev, user, isLoggedIn: !!response._id }));
   };
 
+  const logOut = () => {
+    localStorage.setItem('x-auth-token', null);
+    localStorage.setItem('userId', null);
+    setState(prev => ({ ...prev, user: null }));
+    setState(prev => ({ ...prev, isLoggedIn: false }));
+  };
   //Update user
   const updateProfile = () => {
     const requestOptions = {
-      method: "put",
-      headers: {"Content-Type": "application/json"},
+      method: 'put',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(state.unsavedProfileState)
     };
-    fetch(`http://localhost:5000/profiles/${state.user.id}`, requestOptions)
+    console.log();
+    fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
       .then(function (res) {
         console.log(res);
       })
@@ -129,6 +126,7 @@ const AppContextProvider = ({ children }) => {
           authenticate,
           handleProfileFormChange,
           updateProfile,
+          logOut,
           state,
           setState
         }}

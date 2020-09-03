@@ -16,9 +16,9 @@ const Login = () => {
     });
   };
 
-  // useEffect(() => {
-  //   console.log('isLoggedIn', state.isLoggedIn);
-  // }, [state.isLoggedIn]);
+  useEffect(() => {
+    console.log('isLoggedIn', state.isLoggedIn);
+  }, [state.isLoggedIn]);
 
   const handleSubmit = event => {
     authenticate(event, formState, 'login');

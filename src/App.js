@@ -6,6 +6,7 @@ import Register from './components/Register';
 import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
 import UserProfileView from './components/profile/UserProfileView';
+import Header from './components/Header';
 
 const token = localStorage.getItem('x-auth-token');
 
@@ -33,6 +34,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 function App() {
   return (
     <div className='App'>
+      <Header />
       <Switch>
         <Route exact path='/'>
           <Welcome />

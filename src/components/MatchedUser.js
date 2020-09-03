@@ -2,7 +2,7 @@ import React from 'react';
 
 const MatchedUser = ({ match: { user } }) => {
   return (
-    <div>
+    <div className="d-flex justify-content-center">
       <div className='card' style={{ width: '40rem' }}>
         <img
           src={`${user.profileImg}`}

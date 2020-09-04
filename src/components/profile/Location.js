@@ -7,7 +7,7 @@ const location = ["Aachen", "Augsburg", "Bergisch Gladbach", "Berlin", "Bielefe
 
 function Location() {
     const { state, setState, handleProfileFormChange } = useContext(AppContext);
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.location || state.profile && state.profile.location || null);
 
     return (
         <div>
@@ -23,19 +23,22 @@ function Location() {
                     <option
                         key={city}
                         selected={city === value ? true : false}
-                        value={city}
+                        value={city}                        
                     >
                         {city}
                     </option>
                 ))}
             </select>
             <SelectSearch
-                onChange={handleProfileFormChange}
                 options={cities}
+                onChange={handleProfileFormChange}
                 search
                 placeholder="Select your city"
-                className="form-control large"
-                value={cities.value}
+                className="select-search"
+                value={cities.name}
+                name="location"
+                selected={cities === cities.value ? true : false}
+                key={cities.value}
             />
         </div>
     );

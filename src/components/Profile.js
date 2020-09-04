@@ -95,7 +95,8 @@ const Profile = () => {
             Native Languages: {state.profile ? state.profile.nativelang : null}
           </li>
           <li>
-            Languages Learning:{state.profile ? state.profile.learnlang : null}
+            Languages Learning: {state.profile ? state.profile.learnlangs : null}
+
           </li>
           <li>Interests: {state.profile ? state.profile.interests : null}</li>
           <li>About Text: {state.profile ? state.profile.freetext : null}</li>

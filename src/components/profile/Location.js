@@ -23,19 +23,23 @@ function Location() {
                     <option
                         key={city}
                         selected={city === value ? true : false}
-                        value={city}
+                        value={city}                        
                     >
                         {city}
                     </option>
                 ))}
             </select>
             <SelectSearch
-                onChange={handleProfileFormChange}
+                // onChange={handleProfileFormChange}
                 options={cities}
+                onChange={handleProfileFormChange}
                 search
                 placeholder="Select your city"
-                className="form-control large"
-                value={cities.value}
+                className="select-search"
+                value={cities.name}
+                name="location"
+                selected={cities === cities.value ? true : false}
+                key={cities.value}
             />
         </div>
     );

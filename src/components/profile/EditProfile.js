@@ -35,29 +35,31 @@ export default function EditProfile({ history, value, _id }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Avatar />
-      <Gender />
-      <Birthday />
-      <FreeText value={formState.freeText} />
-      <Location />
-      <Languages />
-      <Interests />
-      <div className='form-group'>
-        <button
-          type='submit'
-          disabled={isSubmitting}
-          className='btn btn-outline-success mr-2'
-        >
-          {isSubmitting && (
-            <span className='spinner-border spinner-border-sm mr-1'></span>
-          )}{' '}
-          Update
-        </button>
-        <Link to='.' className='btn btn-link'>
-          Cancel
-        </Link>
-      </div>
-    </form>
+    <div className='d-flex justify-content-center'>
+      <form onSubmit={handleSubmit}>
+        <Avatar />
+        <Gender />
+        <Birthday />
+        <FreeText value={formState.freeText} />
+        <Location />
+        <Languages />
+        <Interests />
+        <div className='form-group'>
+          <button
+            type='submit'
+            disabled={isSubmitting}
+            className='btn btn-outline-success mr-2'
+          >
+            {isSubmitting && (
+              <span className='spinner-border spinner-border-sm mr-1'></span>
+            )}{' '}
+            Update
+          </button>
+          <Link to='.' className='btn btn-link'>
+            Cancel
+          </Link>
+        </div>
+      </form>
+    </div>
   );
 }

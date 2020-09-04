@@ -105,6 +105,7 @@ const AppContextProvider = ({ children }) => {
       });
   };
 
+  
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
 
   const handleProfileFormChange = e => {

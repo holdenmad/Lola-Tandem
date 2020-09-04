@@ -1,5 +1,6 @@
 export const cities = 
-    [{name: "Aachen", value: "Aachen"}, 
+    [
+    {name: "Aachen", value: "Aachen"}, 
     {name: "Augsburg", value: "Augsburg"}, 
     {name: "Bergisch Gladbach", value: "Bergisch Gladbach"}, 
     {name: "Berlin", value: "Berlin"}, 

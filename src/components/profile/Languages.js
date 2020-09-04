@@ -1,12 +1,15 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../Context/AppContext";
+import SelectSearch from 'react-select-search';
+import { languages } from './data/languages';
 
-const nativLang = ["English", "German", "French", "Spanish", "Portuguese", "Italian", "Arabic", "Bengali", "Bulgarian", "Croatian", "Czech", "Danish", "Dutch", "Estonian", "Finnish", "Greek", "Hindi", "Hungarian", "Indonesian", "Irish", "Latvian", "Lithuanian", "Malay", "Maltese", "Mandarin Chinese", "Polish", "Romanian", "Russian", "Sign Language", "Slovak", "Slovene", "Swedish"];
+const nativeLang = ["English", "German", "French", "Spanish", "Portuguese", "Italian", "Arabic", "Bengali", "Bulgarian", "Croatian", "Czech", "Danish", "Dutch", "Estonian", "Finnish", "Greek", "Hindi", "Hungarian", "Indonesian", "Irish", "Latvian", "Lithuanian", "Malay", "Maltese", "Mandarin Chinese", "Polish", "Romanian", "Russian", "Sign Language", "Slovak", "Slovene", "Swedish"];
 const learnLang = ["English", "German", "French", "Spanish", "Portuguese", "Italian", "Arabic", "Bengali", "Bulgarian", "Croatian", "Czech", "Danish", "Dutch", "Estonian", "Finnish", "Greek", "Hindi", "Hungarian", "Indonesian", "Irish", "Latvian", "Lithuanian", "Malay", "Maltese", "Mandarin Chinese", "Polish", "Romanian", "Russian", "Sign Language", "Slovak", "Slovene", "Swedish"];
 
 function Languages() {
     const { state, setState, handleProfileFormChange } = useContext(AppContext);
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.nativelang || state.profile && state.profile.nativelang || null);
+    // const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.learnlang || state.profile && state.profile.learnlang || null);
 
 
     return (
@@ -21,26 +24,37 @@ function Languages() {
                         className="form-control"
                     >
                         <option value="" disabled selected>Native Language</option>
-                        {nativLang.slice(0, 5).map((nativL) => (
+                        {nativeLang.slice(0, 5).map((nativeL) => (
                             <option
-                                key={nativL}
-                                selected={nativL === value ? true : false}
-                                value={nativL}
+                                key={nativeL}
+                                selected={nativeL === value ? true : false}
+                                value={nativeL}
                             >
-                                {nativL}
+                                {nativeL}
                             </option>
                         ))}
                         <option value="" disabled>---------</option>
-                        {nativLang.slice(6, nativLang.length).map((nativL) => (
+                        {nativeLang.slice(6, nativeLang.length).map((nativeL) => (
                             <option
-                                key={nativL}
-                                selected={nativL === value ? true : false}
-                                value={nativL}
+                                key={nativeL}
+                                selected={nativeL === value ? true : false}
+                                value={nativeL}
                             >
-                                {nativL}
+                                {nativeL}
                             </option>
                         ))}
                     </select>
+                    <SelectSearch
+                        options={languages}
+                        onChange={handleProfileFormChange}
+                        search
+                        placeholder="Native Language"
+                        className="select-search"
+                        value={languages.name}
+                        name="nativelang"
+                        selected={languages === languages.value ? true : false}
+                        key={languages.value}
+                    />
 
 
                 </div>
@@ -52,7 +66,7 @@ function Languages() {
                         name="learnLang"
                         className="form-control"
                     >
-                        <option value="" disabled selected>Learning Language</option>
+                        {/* <option value="" disabled selected>Learning Language</option> */}
                         {learnLang.slice(0, 5).map((learnL) => (
                             <option
                                 key={learnL}
@@ -62,7 +76,7 @@ function Languages() {
                                 {learnL}
                             </option>
                         ))}
-                        <option value="" disabled>---------</option>
+                        {/* <option value="" disabled>---------</option> */}
                         {learnLang.slice(6, learnLang.length).map((learnL) => (
                             <option
                                 key={learnL}
@@ -73,6 +87,18 @@ function Languages() {
                             </option>
                         ))}
                     </select>
+                    <SelectSearch
+                        options={languages}
+                        onChange={handleProfileFormChange}
+                        search
+                        placeholder="Learning Language"
+                        className="select-search"
+                        value={languages.name}
+                        name="learnlangs"
+                        selected={languages === languages.value ? true : false}
+                        key={languages.value}
+                    />
+
 
                 </div>
             </div>
@@ -85,7 +111,7 @@ export default Languages;
 
 
 
-                    {/* <select
+{/* <select
 
                         name="nativeLang"
                         className="form-control"

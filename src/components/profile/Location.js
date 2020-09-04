@@ -7,7 +7,7 @@ const location = ["Aachen", "Augsburg", "Bergisch Gladbach", "Berlin", "Bielefe
 
 function Location() {
     const { state, setState, handleProfileFormChange } = useContext(AppContext);
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.location || state.profile && state.profile.location || null);
 
     return (
         <div>
@@ -30,7 +30,6 @@ function Location() {
                 ))}
             </select>
             <SelectSearch
-                // onChange={handleProfileFormChange}
                 options={cities}
                 onChange={handleProfileFormChange}
                 search

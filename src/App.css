@@ -44,6 +44,7 @@
 }
 
 
+
 /* Dropdown-SearchBar */
 .select-search {
     width: 300px;
@@ -242,4 +243,10 @@
     max-height: 260px;
     border-top: 1px solid #eee;
     border-radius: 0 0 3px 3px;
+
+/* custom */
+.image {
+    border: 2px solid black;
+    border-radius: 150px 150px 0px 150px;
+
 }

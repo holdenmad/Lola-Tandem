@@ -25,6 +25,7 @@ const Profile = () => {
   return (
     <div className='Profile d-flex justify-content-center'>
       {/* This is the bootstrap code with profile info */}
+      {JSON.stringify(state)}
       <div
         className='card border border-info shadow'
         style={{ width: '40rem' }}
@@ -95,6 +96,7 @@ const Profile = () => {
           </li>
           <li>
             Languages Learning: {state.profile ? state.profile.learnlangs : null}
+
           </li>
           <li>Interests: {state.profile ? state.profile.interests : null}</li>
           <li>About Text: {state.profile ? state.profile.freetext : null}</li>

@@ -47,7 +47,7 @@ function App() {
       {state.isLoggedIn && <Header />}
       <Switch>
         <Route exact path='/'>
-          <Welcome />
+        {!state.isLoggedIn && <Welcome /> || <Dashboard />}
         </Route>
         <Route exact path='/users/register'>
           <Register />

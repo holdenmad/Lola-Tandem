@@ -3,7 +3,7 @@ import { AppContext } from '../Context/AppContext';
 import FileUpload from './utils/FileUpload';
 
 function Avatar() {
-  const { state, setState, handleProfileFormChange } = useContext(AppContext);
+  const { state, handleProfileFormChange } = useContext(AppContext);
   const [value, setValue] = useState(
     (state.unsavedProfileState && state.unsavedProfileState.gender) ||
       (state.profile && state.profile.gender) ||

@@ -54,10 +54,10 @@ const Profile = () => {
           <div className='card-body bg-info d-flex flex-row'>
             <div className='flex-grow-1'>
               <p className='card-title nameText text-primary'>
-                {`${state.user ? state.user.name : null}`}, <small>29</small>
+                {`${state.user ? state.user.name : null}`}, <small>{state.profile ? years : null} years old</small>
               </p>
               <p className='card-text'>
-                <i>Location: {`${state.profile.location}`}</i>
+                <i>Location: {`${state.profile ? state.profile.location : null}`}</i>
               </p>
             </div>
             <div className='justify-content-end'>
@@ -71,51 +71,31 @@ const Profile = () => {
           <div aria-label='Profile information of user'>
             <ul className='list-group list-group-flush'>
               <li className='list-group-item border-0'>
-                About: {`${state.profile.freetext}`}
+                About: {`${state.profile ? state.profile.freetext : null}`}
               </li>
               <div className='row border-0'>
                 <div className='col-7 border-0'>
                   <li className='list-group-item border-0'>
-                    Gender: {`${state.profile.gender}`}
-                  </li>
+                    Gender: {`${state.profile ? state.profile.gender : null}`}
+                  </li>   
                   <li className='list-group-item border-0'>
-                    Interests: {`${state.profile.interests}`}
-                  </li>
+                    Interests: {`${state.profile ? state.profile.interests : null}`} 
+                  </li>               
                 </div>
                 <div className='col-5'>
                   <li className='list-group-item border-0'>
-                    Native: {`${state.profile.nativelang}`}
+                    Native: {`${state.profile ? state.profile.nativelang : null}`}
                   </li>
                   <li className='list-group-item border-0'>
-                    Learning: {`${state.profile.learnlangs}`}
+                    Learning: {`${state.profile ? state.profile.learnlangs : null}`}
                   </li>
                 </div>
               </div>
             </ul>
           </div>
-
-          {/* Actual code to use to get the profile info */}
-          <ul>
-            <li>Name: {state.user ? state.user.name : null}</li>
-            <li>Gender: {state.profile ? state.profile.gender : null}</li>
-            <li>Location: {state.profile ? state.profile.location : null}</li>
-            {/* <li>Birthday: {state.profile ? state.profile.birthday : null}</li> */}
-            <li>Age: {state.profile ? years : null}</li>
-            <li>
-              Native Languages: {state.profile ? state.profile.nativelang : null}
-            </li>
-            <li>
-              Languages Learning: {state.profile ? state.profile.learnlangs : null}
-
-            </li>
-            <li>Interests: {state.profile ? state.profile.interests : null}</li>
-            <li>About Text: {state.profile ? state.profile.freetext : null}</li>
-            <li>Photot: {state.profile ? state.profile.profileImg : null}</li>
-          </ul>
           <Link to='./editProfile'>
               <button className='btn btn-primary m-3'>Edit</button>
            </Link>
-
       </div>
     </div>
     </div>

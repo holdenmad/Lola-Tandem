@@ -24,23 +24,23 @@ const Matches = () => {
   const { matches } = state;
 
   return (
+    //how to change text if there are no matches? 
+  // matches === null ? (
     <div className='m-4'>
       <h2 class='text-center'>Your best matches!</h2>
-      <div >
+      <div>
         {matches.map(match => (
-          <div className="m-4"><MatchedUser key={match.user.id} match={match} /></div> 
+          <div className='m-4'>
+            <MatchedUser key={match.user.id} match={match} />
+          </div>
         ))}
       </div>
     </div>
+  // ) : (
+  //   <div className='justify-content-center d-flex'>
+  //     <p className='display-4 '>You have no matches!</p>
+  //   </div>
   );
-  //   !state.isLoggedIn ? (
-  //       <>
-  //
-  //     </>
-  //    ) : (
-  //      <Redirect to='/login' />
-
-  //   );
 };
 
 export default Matches;

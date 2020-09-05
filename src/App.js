@@ -22,7 +22,7 @@ const isAuthenticated = () => {
    console.log("a");
     return false;
   } else {
-    console.log("b");
+    
     return token;
   }
 };

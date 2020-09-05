@@ -51,9 +51,9 @@ const AppContextProvider = ({ children }) => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
+  // useEffect(() => {
+  //   console.log(state);
+  // }, [state]);
 
   //Login
   const authenticate = async (event, values, action) => {
@@ -110,7 +110,6 @@ const AppContextProvider = ({ children }) => {
         console.log(err);
       });
   };
-
 
 
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?

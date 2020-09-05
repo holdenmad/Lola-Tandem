@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react';
 
 const initialState = {
-  user: { _id: localStorage.getItem('userId') },
+  user :  { _id: localStorage.getItem('userId') },
   profile: {},
   unsavedProfileState: {},
   isLoggedIn: false,
@@ -14,12 +14,13 @@ const AppContextProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
+    
     const requestOptions = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
     // fetch user on page load
-    if (state.user.id !== 'null') {
+    if (state.user && state.user._id !== 'null') {
       fetch(
         // doing this with an access token would be allow for auth server side
         `http://localhost:5000/users/${state.user._id}`,
@@ -41,6 +42,8 @@ const AppContextProvider = ({ children }) => {
             }
           }));
         });
+
+        console.log(requestOptions);
 
       // fetch profile on page load
       fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
@@ -72,7 +75,7 @@ const AppContextProvider = ({ children }) => {
 
     const response = await result.json();
     const user = {
-      id: response._id,
+      _id: response._id,
       email: response.email,
       name: response.name,
       'x-auth-token': result.headers.get('x-auth-token')
@@ -87,9 +90,12 @@ const AppContextProvider = ({ children }) => {
     localStorage.setItem('userId', null);
     setState(prev => ({ ...prev, user: null }));
     setState(prev => ({ ...prev, isLoggedIn: false }));
+    const cleanInitialState = {...initialState};
+    cleanInitialState.user = {}
+    setState(cleanInitialState);
   };
   //Update user
-  const updateProfile = () => {
+  const updateProfile = async () => {
     const change = {...state.unsavedProfileState}
     if (state.unsavedProfileState.days) {
       const bdStr = state.unsavedProfileState.days + " " + state.unsavedProfileState.months + " " + state.unsavedProfileState.years
@@ -102,9 +108,13 @@ const AppContextProvider = ({ children }) => {
       body: JSON.stringify(change)
     };
     console.log(requestOptions.body);
-    fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+    await fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
       .then(function (res) {
         console.log(res);
+
+        const newState = { ...state, ...state.unsavedProfileState };
+        newState.unsavedProfileState = {}
+        setState(newState);
       })
       .catch(function (err) {
         console.log(err);

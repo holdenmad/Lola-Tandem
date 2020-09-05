@@ -31,7 +31,7 @@ const Matches = () => {
       <div>
         {matches.map(match => (
           <div className='m-4'>
-            <MatchedUser key={match.user.id} match={match} />
+            <MatchedUser key={match.user._id} match={match} />
           </div>
         ))}
       </div>

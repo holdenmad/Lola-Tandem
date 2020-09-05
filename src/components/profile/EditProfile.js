@@ -28,10 +28,17 @@ export default function EditProfile({ history, value, _id }) {
   const [formState, setFormState] = useState(initialValue);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     setIsSubmitting(true);
-    updateProfile();
+    try {
+      await updateProfile();
+    } catch (error) {
+       console.log(error)
+    }
+    finally{
+      setIsSubmitting(false);
+    }
   };
 
   return (

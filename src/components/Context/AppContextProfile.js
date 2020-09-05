@@ -19,7 +19,7 @@ const AppContextProvider = ({ children }) => {
       headers: { 'Content-Type': 'application/json' }
     };
     // fetch user on page load
-    if (state.user.id !== 'null') {
+    if (state.user._id !== 'null') {
       fetch(
         // doing this with an access token would be allow for auth server side
         `http://localhost:5000/users/${state.user._id}`,

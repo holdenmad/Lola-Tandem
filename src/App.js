@@ -56,10 +56,10 @@ function App() {
           <Login />
         </Route>
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
-        {/* <PrivateRoute exact path='/:id' component={UserProfileView} /> */}
         <PrivateRoute exact path='/profile' component={Profile} />
         <PrivateRoute exact path='/editprofile' component={EditProfile} />
         <PrivateRoute exact path='/matches' component={Matches} />
+        {/* <PrivateRoute exact path='/settings' component={Settings} /> */}
 
       </Switch>
       {state.isLoggedIn && <Footer /> }

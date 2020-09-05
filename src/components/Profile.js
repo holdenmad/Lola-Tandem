@@ -8,7 +8,7 @@ const Profile = () => {
   // Fetch request from MongoDB for Profile information
   // map that information into return statement below for each user that matches the {id} req.params
   const { state, setState } = useContext(AppContext);
-  console.log(state, 'test');
+  // console.log(state, 'test');
 
   useEffect(() => {
     if (!state.user) return;
@@ -97,7 +97,7 @@ const Profile = () => {
             <li>Photot: {state.profile ? state.profile.profileImg : null}</li>
           </ul>
           <Link to='./editProfile'>
-              <button className='btn btn-primary m-3'>Edit</button>
+              <button className='btn btn-outline-warning m-3'>Edit</button>
            </Link>
 
       </div>

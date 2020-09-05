@@ -19,7 +19,7 @@ const FileUpload = () => {
 
   const onFileChange = e => {
     setState({ ...state, profileImg: e.target.files[0] });
-    console.log(state, e.target.files[0]);
+    // console.log(state, e.target.files[0]);
   };
 
   const onSubmit = e => {
@@ -40,21 +40,21 @@ const FileUpload = () => {
    
   };
 
-  console.log(state.profile);
+  // console.log(state.profile);
 
   return (
     <div className='container'>
       <div className='row'>
-        <form onSubmit={onSubmit}>
+        
           <div className='form-group'>
             <input type='file' onChange={onFileChange} />
           </div>
           <div className='form-group'>
-            <button className='btn btn-primary' type='submit'>
+            <button className='btn btn-outline-primary' type='submit'>
               Upload
             </button>
           </div>
-        </form>
+
       </div>
     </div>
   );

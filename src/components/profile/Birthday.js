@@ -13,8 +13,8 @@ for (let year = 2015; year > 1900; year--) {
 }
 
 function Birthday() {
-    const { state, setState, handleProfileFormChange } = useContext(AppContext);
-    const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.days || state.profile && state.profile.days || null);
+    const { state, handleProfileFormChange } = useContext(AppContext);
+    const [value, setValue] = useState((state.unsavedProfileState && state.unsavedProfileState.days) || (state.profile && state.profile.days) || null);
 
 
     return (

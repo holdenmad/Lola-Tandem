@@ -43,7 +43,7 @@ const AppContextProvider = ({ children }) => {
           }));
         });
 
-        console.log(requestOptions);
+        // console.log(requestOptions);
 
       // fetch profile on page load
       fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
@@ -107,7 +107,6 @@ const AppContextProvider = ({ children }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(change)
     };
-    console.log(requestOptions.body);
     await fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
       .then(function (res) {
         console.log(res);

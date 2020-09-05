@@ -7,11 +7,10 @@ function Dashboard() {
   return state.user ? (
     <div className='p-4'>
       <div>
-        <p className='mt-4'>Dashboard</p>
         <h1 className='text-center mb-5'>Welcome User</h1>
         <img className="image" src="https://trello-attachments.s3.amazonaws.com/5f22b0c744d7080cde4bd7b8/5f50bf1029616c58694df4c4/d3f483afc05c2586c0673df0c73acdd7/hello-in-different-languages-word-cloud-illustration-id1194745913.jpeg" alt="hello" width="500px" />
         {/* <button className='btn btn-secondary' onClick={logOut}>Logout</button> */}
-        <button className='btn btn-primary btn-lg btn-block' onClick={logOut}>Find a tandem partner</button>
+        <button className='btn btn-warning btn-lg btn-block' onClick={logOut}>Find a tandem partner</button>
       </div>
     </div>
   ) : (

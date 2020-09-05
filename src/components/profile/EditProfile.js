@@ -34,9 +34,8 @@ export default function EditProfile({ history, value, _id }) {
     try {
       await updateProfile();
     } catch (error) {
-       console.log(error)
-    }
-    finally{
+      console.log(error)
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -52,16 +51,18 @@ export default function EditProfile({ history, value, _id }) {
         <Languages />
         <Interests />
         <div className='form-group'>
-          <button
-            type='submit'
-            disabled={isSubmitting}
-            className='btn btn-outline-success mr-2'
-          >
-            {isSubmitting && (
-              <span className='spinner-border spinner-border-sm mr-1'></span>
-            )}{' '}
-            Update
-          </button>
+          
+            <button
+              type='submit'
+              disabled={isSubmitting}
+              className='btn btn-outline-warning mr-2'
+            >
+              {isSubmitting && (
+                <span className='spinner-border spinner-border-sm mr-1'></span>
+              )}{' '}
+              Update
+            </button>
+          
           <Link to='.' className='btn btn-link'>
             Cancel
           </Link>

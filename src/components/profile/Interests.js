@@ -1,56 +1,45 @@
 import React, { useState, useContext } from 'react';
 import { AppContext } from '../Context/AppContext';
+import Checkbox from './utils/Checkbox'
 
-const interests = [
+const sports = [
   'Sports',
   'Teamsports',
   'Extreme Sports',
   'Skating',
   'Running',
   'Fitness',
-  'Yoga',
-  'Music',
-  'Concerts',
-  'Playing Instruments',
-  'Singing',
-  'Inside Activities',
-  'Video Gaming',
-  'Board Gaming',
-  'Culture',
-  'Museums',
-  'Reading',
-  'Movies/Cinema',
+  'Yoga'
+];
+const music = ['Music', 'Concerts', 'Playing Instruments', 'Singing'];
+const inside = ['Inside Activities', 'Video Gaming', 'Board Gaming'];
+const culture = ['Culture', 'Museums', 'Reading', 'Movies/Cinema'];
+const other = [
   'Photography',
   'Cooking',
   'Painting',
   'Travelling',
   'Sight Seeing'
 ];
-// const sports = [
-//   'Sports',
-//   'Teamsports',
-//   'Extreme Sports',
-//   'Skating',
-//   'Running',
-//   'Fitness',
-//   'Yoga'
-// ];
-// const music = ['Music', 'Concerts', 'Playing Instruments', 'Singing'];
-// const inside = ['Inside Activities', 'Video Gaming', 'Board Gaming'];
-// const culture = ['Culture', 'Museums', 'Reading', 'Movies/Cinema'];
-// const other = [
-//   'Photography',
-//   'Cooking',
-//   'Painting',
-//   'Travelling',
-//   'Sight Seeing'
-// ];
 
 // const interests = ['Culture', 'Video Gaming', 'Inside Activities'];
-// state.profile.interests
+
 function Interests() {
-  const { state, handleMultipleChoices } = useContext(AppContext);
-  const [value, setValue] = useState('');
+  const { state, handleProfileFormChange} = useContext(AppContext);
+  const [value, setValue] = useState(
+    (state.unsavedProfileState && state.unsavedProfileState.interests) ||
+      (state.profile && state.profile.interests) ||
+      null
+  );
+  const initialState = { interests: value };
+  const [interests, setInterests] = useState(initialState);
+
+  const interestsChanged = value => {
+    console.log(value);
+    setInterests({ ...state, interests: value });
+    const result = { target: { name: 'interests', value: value} };
+    handleProfileFormChange(result);
+  };
 
   return (
     <div>
@@ -58,41 +47,21 @@ function Interests() {
         Interests
       </label>
       <div className='row'>
-      <div className='col-md interests'>
-          {interests.map(interest => (
-            <div key={interest}>
-              <input
-                key={interest}
-                selected={interests.indexOf(interest) > -1 ? true : false}
-                value={interest}
-                type='checkbox'
-                name='interests'
-                id={interest}
-                onChange={handleMultipleChoices}
-                className='checkbox'
-              />
-              <label className='interest' htmlFor={interest}>
-                {interest}
-              </label>
-            </div>
-          ))}
-        </div>
-{/* 
         <div className='col-md interests'>
-          {sports.map(interest => (
-            <div key={interest}>
+          {sports.map(sport => (
+            <div key={sport}>
               <input
-                key={interest}
-                selected={interests.indexOf(interest) > -1 ? true : false}
-                value={interest}
+                key={sport}
+                selected={sport === value ? true : false}
+                value={sport.name}
                 type='checkbox'
                 name='interests'
-                id={interest}
-                onChange={handleMultipleChoices}
+                id={sport}
+                onClick={interestsChanged}
                 className='checkbox'
               />
-              <label className='interest' htmlFor={interest}>
-                {interest}
+              <label className='interest' htmlFor={sport}>
+                {sport}
               </label>
             </div>
           ))}
@@ -107,7 +76,7 @@ function Interests() {
                 type='checkbox'
                 name='interests'
                 id={music}
-                onChange={handleMultipleChoices}
+                onClick={interestsChanged}
                 className='checkbox'
               />
               <label className='interest' htmlFor={music}>
@@ -126,7 +95,7 @@ function Interests() {
                 type='checkbox'
                 name='interests'
                 id={inside}
-                onChange={handleMultipleChoices}
+                onClick={interestsChanged}
                 className='checkbox'
               />
               <label className='interest' htmlFor={inside}>
@@ -145,7 +114,7 @@ function Interests() {
                 type='checkbox'
                 name='interests'
                 id={culture}
-                onChange={handleMultipleChoices}
+                onClick={interestsChanged}
                 className='checkbox'
               />
               <label className='interest' htmlFor={culture}>
@@ -164,7 +133,7 @@ function Interests() {
                 type='checkbox'
                 name='interests'
                 id={other}
-                onChange={handleMultipleChoices}
+                onClick={interestsChanged}
                 className='checkbox'
               />
               <label className='interest' htmlFor={other}>
@@ -172,7 +141,7 @@ function Interests() {
               </label>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </div>
   );

@@ -4,9 +4,13 @@ const initialState = {
   user: { _id: localStorage.getItem('userId') },
   profile: {},
   unsavedProfileState: {},
+  interests: [{id: 12345, name: 'Sports', checked: false}],
   isLoggedIn: false,
   matches: []
 };
+
+
+
 
 export const AppContext = createContext();
 
@@ -95,17 +99,12 @@ const AppContextProvider = ({ children }) => {
   };
   //Update user
   const updateProfile = async () => {
-    const change = { ...state.unsavedProfileState };
-    if (state.unsavedProfileState.days) {
-      const bdStr =
-        state.unsavedProfileState.days +
-        ' ' +
-        state.unsavedProfileState.months +
-        ' ' +
-        state.unsavedProfileState.years;
-      const birthday = Date.parse(bdStr);
-      change.birthday = birthday;
-    }
+    const change = {...state.unsavedProfileState}
+    // if (state.unsavedProfileState.days) {
+    //   const bdStr = state.unsavedProfileState.days + " " + state.unsavedProfileState.months + " " + state.unsavedProfileState.years
+    //   const birthday = Date.parse(bdStr);
+    //   change.birthday = birthday;
+    // }
     const requestOptions = {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
@@ -130,14 +129,14 @@ const AppContextProvider = ({ children }) => {
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
   //Either push each checked item into an array to be put into the state, or change the handle to progressively update the unsavedProfile state to reflect each change
   const handleProfileFormChange = e => {
-    console.log('Test handleProfileFormChange', e.target.name, e.target.value);
+    // console.log('Test handleProfileFormChange', e.target.name, e.target.value);
     const key = e.target.name;
     const newState = { ...state };
     newState.unsavedProfileState = {
       ...newState.unsavedProfileState,
       [key]: e.target.value
     };
-    console.log(key, newState);
+    console.log('Test handleProfileFormChange', ": ", key, e.target.value);
     setState(newState);
   };
 

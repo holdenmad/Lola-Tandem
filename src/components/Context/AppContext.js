@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react';
 
 const initialState = {
-  user :  { _id: localStorage.getItem('userId') },
+  user: { _id: localStorage.getItem('userId') },
   profile: {},
   unsavedProfileState: {},
   isLoggedIn: false,
@@ -14,7 +14,6 @@ const AppContextProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    
     const requestOptions = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
@@ -43,7 +42,7 @@ const AppContextProvider = ({ children }) => {
           }));
         });
 
-        // console.log(requestOptions);
+      // console.log(requestOptions);
 
       // fetch profile on page load
       fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
@@ -90,15 +89,20 @@ const AppContextProvider = ({ children }) => {
     localStorage.setItem('userId', null);
     setState(prev => ({ ...prev, user: null }));
     setState(prev => ({ ...prev, isLoggedIn: false }));
-    const cleanInitialState = {...initialState};
-    cleanInitialState.user = {}
+    const cleanInitialState = { ...initialState };
+    cleanInitialState.user = {};
     setState(cleanInitialState);
   };
   //Update user
   const updateProfile = async () => {
-    const change = {...state.unsavedProfileState}
+    const change = { ...state.unsavedProfileState };
     if (state.unsavedProfileState.days) {
-      const bdStr = state.unsavedProfileState.days + " " + state.unsavedProfileState.months + " " + state.unsavedProfileState.years
+      const bdStr =
+        state.unsavedProfileState.days +
+        ' ' +
+        state.unsavedProfileState.months +
+        ' ' +
+        state.unsavedProfileState.years;
       const birthday = Date.parse(bdStr);
       change.birthday = birthday;
     }
@@ -107,12 +111,15 @@ const AppContextProvider = ({ children }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(change)
     };
-    await fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+    await fetch(
+      `http://localhost:5000/profiles/${state.user._id}`,
+      requestOptions
+    )
       .then(function (res) {
         console.log(res);
 
         const newState = { ...state, ...state.unsavedProfileState };
-        newState.unsavedProfileState = {}
+        newState.unsavedProfileState = {};
         setState(newState);
       })
       .catch(function (err) {
@@ -120,16 +127,33 @@ const AppContextProvider = ({ children }) => {
       });
   };
 
-
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
-
+  //Either push each checked item into an array to be put into the state, or change the handle to progressively update the unsavedProfile state to reflect each change
   const handleProfileFormChange = e => {
-    // console.log("helloo", e.target.name, e.target.selected);
+    console.log('Test handleProfileFormChange', e.target.name, e.target.value);
     const key = e.target.name;
     const newState = { ...state };
     newState.unsavedProfileState = {
       ...newState.unsavedProfileState,
       [key]: e.target.value
+    };
+    console.log(key, newState);
+    setState(newState);
+  };
+
+  const handleMultipleChoices = e => {
+    console.log(
+      'Test handleMultipleChoices',
+      ': ',
+      e.target.name,
+      ': ',
+      e.target.value
+    );
+    const key = e.target.name;
+    const newState = { ...state };
+    // newState.unsavedProfileState = {...newState.unsavedProfileState, [key]: e.target.value};
+    newState.unsavedProfileState = {
+      ...newState.unsavedProfileState, [key]: e.target.value
     };
     console.log(key, newState);
     setState(newState);
@@ -141,6 +165,7 @@ const AppContextProvider = ({ children }) => {
         value={{
           authenticate,
           handleProfileFormChange,
+          handleMultipleChoices,
           updateProfile,
           logOut,
           state,

@@ -1,30 +1,55 @@
 import React, { useState, useContext } from 'react';
 import { AppContext } from '../Context/AppContext';
 
-const sports = [
+const interests = [
   'Sports',
   'Teamsports',
   'Extreme Sports',
   'Skating',
   'Running',
   'Fitness',
-  'Yoga'
-];
-const music = ['Music', 'Concerts', 'Playing Instruments', 'Singing'];
-const inside = ['Inside Activities', 'Video Gaming', 'Board Gaming'];
-const culture = ['Culture', 'Museums', 'Reading', 'Movies/Cinema'];
-const other = [
+  'Yoga',
+  'Music',
+  'Concerts',
+  'Playing Instruments',
+  'Singing',
+  'Inside Activities',
+  'Video Gaming',
+  'Board Gaming',
+  'Culture',
+  'Museums',
+  'Reading',
+  'Movies/Cinema',
   'Photography',
   'Cooking',
   'Painting',
   'Travelling',
   'Sight Seeing'
 ];
+// const sports = [
+//   'Sports',
+//   'Teamsports',
+//   'Extreme Sports',
+//   'Skating',
+//   'Running',
+//   'Fitness',
+//   'Yoga'
+// ];
+// const music = ['Music', 'Concerts', 'Playing Instruments', 'Singing'];
+// const inside = ['Inside Activities', 'Video Gaming', 'Board Gaming'];
+// const culture = ['Culture', 'Museums', 'Reading', 'Movies/Cinema'];
+// const other = [
+//   'Photography',
+//   'Cooking',
+//   'Painting',
+//   'Travelling',
+//   'Sight Seeing'
+// ];
 
-const interests = ['Culture', 'Video Gaming', 'Inside Activities'];
+// const interests = ['Culture', 'Video Gaming', 'Inside Activities'];
 // state.profile.interests
 function Interests() {
-  const { state, handleProfileFormChange } = useContext(AppContext);
+  const { state, handleMultipleChoices } = useContext(AppContext);
   const [value, setValue] = useState('');
 
   return (
@@ -33,6 +58,26 @@ function Interests() {
         Interests
       </label>
       <div className='row'>
+      <div className='col-md interests'>
+          {interests.map(interest => (
+            <div key={interest}>
+              <input
+                key={interest}
+                selected={interests.indexOf(interest) > -1 ? true : false}
+                value={interest}
+                type='checkbox'
+                name='interests'
+                id={interest}
+                onChange={handleMultipleChoices}
+                className='checkbox'
+              />
+              <label className='interest' htmlFor={interest}>
+                {interest}
+              </label>
+            </div>
+          ))}
+        </div>
+{/* 
         <div className='col-md interests'>
           {sports.map(interest => (
             <div key={interest}>
@@ -41,9 +86,9 @@ function Interests() {
                 selected={interests.indexOf(interest) > -1 ? true : false}
                 value={interest}
                 type='checkbox'
-                name={interest}
+                name='interests'
                 id={interest}
-                onChange={handleProfileFormChange}
+                onChange={handleMultipleChoices}
                 className='checkbox'
               />
               <label className='interest' htmlFor={interest}>
@@ -60,9 +105,9 @@ function Interests() {
                 selected={music === value ? true : false}
                 value={music}
                 type='checkbox'
-                name={music}
+                name='interests'
                 id={music}
-                onChange={handleProfileFormChange}
+                onChange={handleMultipleChoices}
                 className='checkbox'
               />
               <label className='interest' htmlFor={music}>
@@ -79,9 +124,9 @@ function Interests() {
                 selected={inside === value ? true : false}
                 value={inside}
                 type='checkbox'
-                name={inside}
+                name='interests'
                 id={inside}
-                onChange={handleProfileFormChange}
+                onChange={handleMultipleChoices}
                 className='checkbox'
               />
               <label className='interest' htmlFor={inside}>
@@ -98,9 +143,9 @@ function Interests() {
                 selected={culture === value ? true : false}
                 value={culture}
                 type='checkbox'
-                name={culture}
+                name='interests'
                 id={culture}
-                onChange={handleProfileFormChange}
+                onChange={handleMultipleChoices}
                 className='checkbox'
               />
               <label className='interest' htmlFor={culture}>
@@ -117,9 +162,9 @@ function Interests() {
                 selected={other === value ? true : false}
                 value={other}
                 type='checkbox'
-                name={other}
+                name='interests'
                 id={other}
-                onChange={handleProfileFormChange}
+                onChange={handleMultipleChoices}
                 className='checkbox'
               />
               <label className='interest' htmlFor={other}>
@@ -127,7 +172,7 @@ function Interests() {
               </label>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

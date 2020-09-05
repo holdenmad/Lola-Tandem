@@ -25,7 +25,6 @@ const Profile = () => {
   return (
     <div className='Profile d-flex justify-content-center'>
       {/* This is the bootstrap code with profile info */}
-      {JSON.stringify(state)}
       <div
         className='card border border-info shadow'
         style={{ width: '40rem' }}

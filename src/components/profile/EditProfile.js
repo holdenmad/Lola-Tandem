@@ -8,6 +8,7 @@ import Avatar from './Avatar';
 import Bday from './Bday';
 import FreeText from './FreeText';
 import Interests from './Interests';
+import Interests1 from './Interests1';
 import Languages from './Languages';
 import Location from './Location';
 import { AppContext } from '../Context/AppContext';
@@ -35,7 +36,7 @@ export default function EditProfile({ history, value, _id }) {
     try {
       await updateProfile();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -46,25 +47,23 @@ export default function EditProfile({ history, value, _id }) {
       <form onSubmit={handleSubmit}>
         <Avatar />
         <Gender />
-        {/* <Birthday /> */}
         <Bday />
         <FreeText value={formState.freeText} />
         <Location />
         <Languages />
-        <Interests />
+        <Interests1 />
         <div className='form-group'>
-          
-            <button
-              type='submit'
-              disabled={isSubmitting}
-              className='btn btn-outline-warning mr-2'
-            >
-              {isSubmitting && (
-                <span className='spinner-border spinner-border-sm mr-1'></span>
-              )}{' '}
-              Update
-            </button>
-          
+          <button
+            type='submit'
+            disabled={isSubmitting}
+            className='btn btn-outline-warning mr-2'
+          >
+            {isSubmitting && (
+              <span className='spinner-border spinner-border-sm mr-1'></span>
+            )}{' '}
+            Update
+          </button>
+
           <Link to='.' className='btn btn-link'>
             Cancel
           </Link>

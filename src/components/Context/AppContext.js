@@ -4,12 +4,21 @@ const initialState = {
   user: { _id: localStorage.getItem('userId') },
   profile: {},
   unsavedProfileState: {},
-  interests: [{id: 12345, name: 'Sports', checked: false}],
+  interests: [],
   isLoggedIn: false,
   matches: []
 };
 
-
+const interests = [
+  { name: 'interests', id: 1, value: 'Sports', isChecked: false },
+  { name: 'interests', id: 2, value: 'Teamsports', isChecked: false },
+  { name: 'interests', id: 3, value: 'Extreme Sports', isChecked: false },
+  { name: 'interests', id: 4, value: 'Skating', isChecked: false },
+  { name: 'interests', id: 5, value: 'Running', isChecked: false },
+  { name: 'interests', id: 6, value: 'Fitness', isChecked: false },
+  { name: 'interests', id: 7, value: 'Yoga', isChecked: false },
+  { name: 'interests', id: 8, value: 'Music', isChecked: false }
+];
 
 
 export const AppContext = createContext();
@@ -99,7 +108,7 @@ const AppContextProvider = ({ children }) => {
   };
   //Update user
   const updateProfile = async () => {
-    const change = {...state.unsavedProfileState}
+    const change = { ...state.unsavedProfileState };
     // if (state.unsavedProfileState.days) {
     //   const bdStr = state.unsavedProfileState.days + " " + state.unsavedProfileState.months + " " + state.unsavedProfileState.years
     //   const birthday = Date.parse(bdStr);
@@ -136,25 +145,7 @@ const AppContextProvider = ({ children }) => {
       ...newState.unsavedProfileState,
       [key]: e.target.value
     };
-    console.log('Test handleProfileFormChange', ": ", key, e.target.value);
-    setState(newState);
-  };
-
-  const handleMultipleChoices = e => {
-    console.log(
-      'Test handleMultipleChoices',
-      ': ',
-      e.target.name,
-      ': ',
-      e.target.value
-    );
-    const key = e.target.name;
-    const newState = { ...state };
-    // newState.unsavedProfileState = {...newState.unsavedProfileState, [key]: e.target.value};
-    newState.unsavedProfileState = {
-      ...newState.unsavedProfileState, [key]: e.target.value
-    };
-    console.log(key, newState);
+    console.log('Test handleProfileFormChange', ': ', key, e.target.value);
     setState(newState);
   };
 
@@ -164,8 +155,8 @@ const AppContextProvider = ({ children }) => {
         value={{
           authenticate,
           handleProfileFormChange,
-          handleMultipleChoices,
           updateProfile,
+          interests,
           logOut,
           state,
           setState

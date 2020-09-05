@@ -10,8 +10,8 @@ const containerStyles = {
 
 function Bday() {
     const { state, setState, handleProfileFormChange } = useContext(AppContext);
-    const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.birthday || 
-        state.profile && state.profile.birthday || null);
+    const [value, setValue] = useState((state.unsavedProfileState && state.unsavedProfileState.birthday) || 
+        (state.profile && state.profile.birthday) || null);
     const dateChanged = (value) => {
         setBDate({ date: value })
         const result = {target:{name:"birthday", value}}

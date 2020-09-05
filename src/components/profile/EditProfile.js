@@ -8,7 +8,8 @@ import Birthday from './Birthday';
 // import BdayOld from './BdayOld';
 import FreeText from './FreeText';
 import Interests from './Interests';
-import Languages from './Languages';
+import NativeLanguages from './NativeLang';
+import LearningLanguages from './LearnLang';
 import Location from './Location';
 import { AppContext } from '../Context/AppContext';
 
@@ -50,7 +51,14 @@ export default function EditProfile({ history, value, _id }) {
         <Birthday />
         <FreeText value={formState.freeText} />
         <Location />
-        <Languages />
+        <div class="row">
+    <div class="col-sm">
+    <NativeLanguages />
+    </div>
+    <div class="col-sm">
+    <LearningLanguages />
+    </div>
+  </div>    
         <Interests />
         <div className='form-group'>
           <button

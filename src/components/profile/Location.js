@@ -18,7 +18,7 @@ function Location() {
                 name="location"
                 className="form-control large"
             >
-                <option value="" disabled selected></option>
+                {/* <option value="" disabled selected></option> */}
                 {location.map((city) => (
                     <option
                         key={city}

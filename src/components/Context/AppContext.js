@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from 'react';
 
 const initialState = {
-  user :  { _id: localStorage.getItem('userId') },
+  user: { _id: localStorage.getItem('userId') },
   profile: {},
   unsavedProfileState: {},
   isLoggedIn: false,
@@ -14,7 +14,7 @@ const AppContextProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    
+
     const requestOptions = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
@@ -43,7 +43,7 @@ const AppContextProvider = ({ children }) => {
           }));
         });
 
-        console.log(requestOptions);
+      console.log(requestOptions);
 
       // fetch profile on page load
       fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
@@ -90,18 +90,46 @@ const AppContextProvider = ({ children }) => {
     localStorage.setItem('userId', null);
     setState(prev => ({ ...prev, user: null }));
     setState(prev => ({ ...prev, isLoggedIn: false }));
-    const cleanInitialState = {...initialState};
+    const cleanInitialState = { ...initialState };
     cleanInitialState.user = {}
     setState(cleanInitialState);
   };
   //Update user
   const updateProfile = async () => {
-    const change = {...state.unsavedProfileState}
+    const change = { ...state.unsavedProfileState }
     // if (state.unsavedProfileState.days) {
     //   const bdStr = state.unsavedProfileState.days + " " + state.unsavedProfileState.months + " " + state.unsavedProfileState.years
     //   const birthday = Date.parse(bdStr);
     //   change.birthday = birthday;
     // }
+    if (state.unsavedProfileState.birthday) {
+      var DOB = state.unsavedProfileState.birthday;
+      var millisecondsBetweenDOBAnd1970 = Date.parse(DOB);
+      var millisecondsBetweenNowAnd1970 = Date.now();
+      var ageInMilliseconds = millisecondsBetweenNowAnd1970 - millisecondsBetweenDOBAnd1970;
+      var milliseconds = ageInMilliseconds;
+      var second = 1000;
+      var minute = second * 60;
+      var hour = minute * 60;
+      var day = hour * 24;
+      var month = day * 30;
+      var year = day * 365;
+      var years = Math.round(milliseconds / year);
+      var months = years * 12;
+      var days = years * 365;
+      var hours = Math.round(milliseconds / hour);
+      var seconds = Math.round(milliseconds / second);
+      function printResults() {
+        var message = "Age in Years : " + years +
+          "</br>Age in Months : " + months +
+          "</br>Age in Days : " + days +
+          "</br>Age in Hours : " + hours +
+          "</br>Age in Seconds : " + seconds +
+          "</br>Age in Milliseconds : " + milliseconds;
+          console.log(message)
+      }
+    }
+
     const requestOptions = {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },

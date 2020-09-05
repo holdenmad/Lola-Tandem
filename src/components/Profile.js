@@ -25,6 +25,24 @@ const Profile = () => {
       );
   }, []);
 
+
+  if (state.profile.birthday) {
+    var DOB = state.profile.birthday;
+    var millisecondsBetweenDOBAnd1970 = Date.parse(DOB);
+    console.log(millisecondsBetweenDOBAnd1970);
+    var millisecondsBetweenNowAnd1970 = Date.now();
+    var ageInMilliseconds = millisecondsBetweenNowAnd1970 - millisecondsBetweenDOBAnd1970;
+    var milliseconds = ageInMilliseconds;
+    var second = 1000;
+    var minute = second * 60;
+    var hour = minute * 60;
+    var day = hour * 24;
+    var month = day * 30;
+    var year = day * 365;
+    var years = Math.round(milliseconds / year);
+}
+
+
   return (
     <div>
       {/* This is the bootstrap code with profile info */}
@@ -71,9 +89,6 @@ const Profile = () => {
                   <li className='list-group-item border-0'>
                     Learning: {`${state.profile.learnlangs}`}
                   </li>
-                  {/* <li className='list-group-item'>
-            Other: {`${user.otherlangs}`}
-          </li> */}
                 </div>
               </div>
             </ul>
@@ -84,8 +99,8 @@ const Profile = () => {
             <li>Name: {state.user ? state.user.name : null}</li>
             <li>Gender: {state.profile ? state.profile.gender : null}</li>
             <li>Location: {state.profile ? state.profile.location : null}</li>
-            {/* <li>Birthday: {state.profile ? state.profile.days + " " + state.profile.months + " " + state.profile.years : null}</li> */}
-            <li>Birthday: {state.profile ? state.profile.birthday : null}</li>
+            {/* <li>Birthday: {state.profile ? state.profile.birthday : null}</li> */}
+            <li>Age: {state.profile ? years : null}</li>
             <li>
               Native Languages: {state.profile ? state.profile.nativelang : null}
             </li>

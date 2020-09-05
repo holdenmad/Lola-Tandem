@@ -5,29 +5,29 @@ import { languages } from './data/languages';
 
 
 function LearningLanguages() {
-    const { state, setState, handleProfileFormChange } = useContext(AppContext);
+    const { state, handleProfileFormChange } = useContext(AppContext);
     const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.learnlangs ||
         state.profile && state.profile.learnlangs || null);
-    const dateChanged = (value) => {
+    const nativeChanged = (value) => {
         console.log(value);
-        setBDate({ date: value })
+        setNative({ lang: value })
         const result = { target: { name: "learnlangs", value } }
         handleProfileFormChange(result)
     }
     console.log(value);
-    const initialState = { date: value };
-    const [bDate, setBDate] = useState(initialState)
+    const initialState = { lang: value };
+    const [native, setNative] = useState(initialState)
 
     return (
         <div>
             <label className="heading">Learning Language</label>
             <SelectSearch
                 options={languages}
-                onChange={dateChanged}
+                onChange={nativeChanged}
                 search
                 placeholder="Learning Language"
                 className="select-search"
-                value={bDate.date}
+                value={native.lang}
                 name="learnlangs"
                 selected={languages === languages.value ? true : false}
                 key={languages.value}

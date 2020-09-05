@@ -8,26 +8,26 @@ function NativeLanguages() {
     const { state, setState, handleProfileFormChange } = useContext(AppContext);
     const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.nativelang ||
         state.profile && state.profile.nativelang || null);
-    const dateChanged = (value) => {
+    const learnChanged = (value) => {
         console.log(value);
-        setBDate({ date: value })
+        setLearn({ lang: value })
         const result = { target: { name: "nativelang", value } }
         handleProfileFormChange(result)
     }
     console.log(value);
-    const initialState = { date: value };
-    const [bDate, setBDate] = useState(initialState)
+    const initialState = { lang: value };
+    const [learn, setLearn] = useState(initialState)
 
     return (
         <div>
             <label className="heading">Native Language</label>
                 <SelectSearch
                     options={languages}
-                    onChange={dateChanged}
+                    onChange={learnChanged}
                     search
                     placeholder="Native Language"
                     className="select-search"
-                    value={bDate.date}
+                    value={learn.lang}
                     name="nativelang"
                     selected={languages === languages.value ? true : false}
                     key={languages.value}

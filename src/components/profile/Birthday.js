@@ -14,7 +14,7 @@ for (let year = 2015; year > 1900; year--) {
 
 function Birthday() {
     const { state, setState, handleProfileFormChange } = useContext(AppContext);
-    const [value, setValue] = useState("female");
+    const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.days || state.profile && state.profile.days || null);
 
 
     return (
@@ -25,16 +25,15 @@ function Birthday() {
                     onChange={handleProfileFormChange}
                     as="select"
                     name="days"
-                    id="days"
                     className="form-control small"
                 >
-                    <option value="" disabled selected>Day</option>
+                    {/* <option value="" disabled selected>Day</option> */}
 
                     {days.map((day) => (
                         <option
                             key={day}
                             selected={day === value ? true : false}
-                            value={day}
+                            value={value}
                         >
                             {day}
                         </option>
@@ -44,16 +43,16 @@ function Birthday() {
                     onChange={handleProfileFormChange}
                     as="select"
                     name="months"
-                    id="months"
                     className="form-control medium"
                 >
-                    <option value="" disabled selected>Month</option>
+                    {/* <option value="" disabled selected>Month</option> */}
 
                     {months.map((month) => (
                         <option
                             key={month}
                             selected={month === value ? true : false}
                             value={month}
+                            playceholder="months"
                         >
                             {month}
                         </option>
@@ -63,10 +62,9 @@ function Birthday() {
                     onChange={handleProfileFormChange}
                     as="select"
                     name="years"
-                    id="years"
                     className="form-control small"
                 >
-                    <option value="" disabled selected>Year</option>
+                    {/* <option value="" disabled selected>Year</option> */}
 
                     {years.map((year) => (
                         <option

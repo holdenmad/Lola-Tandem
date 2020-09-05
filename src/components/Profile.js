@@ -79,28 +79,24 @@ const Profile = () => {
           {/* Actual code to use to get the profile info */}
           <ul>
             <li>Name: {state.user.name}</li>
-
             <li>Gender: {state.profile ? state.profile.gender : null}</li>
             <li>Location: {state.profile ? state.profile.location : null}</li>
-            <li>Birthday: {state.profile ? state.profile.birthday : null}</li>
+            <li>Birthday: {state.profile ? state.profile.days + " " + state.profile.months + " " + state.profile.years : null}</li>
             <li>
-              Native Languages: {state.profile ? state.profile.birthday : null}
+              Native Languages: {state.profile ? state.profile.nativelang : null}
             </li>
             <li>
-              Other Languages: {state.profile ? state.profile.nativelang : null}
-            </li>
-            <li>
-              Languages Learning:{' '}
-              {state.profile ? state.profile.learninglang : null}
+              Languages Learning: {state.profile ? state.profile.learnlangs : null}
+
             </li>
             <li>Interests: {state.profile ? state.profile.interests : null}</li>
             <li>About Text: {state.profile ? state.profile.freetext : null}</li>
             <li>Photot: {state.profile ? state.profile.profileImg : null}</li>
           </ul>
           <Link to='./editProfile'>
-            <button className='btn btn-primary m-3'>Edit</button>
-          </Link>
-        </div>
+              <button className='btn btn-primary m-3'>Edit</button>
+           </Link>
+
       </div>
     </div>
   );

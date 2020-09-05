@@ -90,12 +90,18 @@ const AppContextProvider = ({ children }) => {
   };
   //Update user
   const updateProfile = () => {
+    const change = {...state.unsavedProfileState}
+    if (state.unsavedProfileState.days) {
+      const bdStr = state.unsavedProfileState.days + " " + state.unsavedProfileState.months + " " + state.unsavedProfileState.years
+      const birthday = Date.parse(bdStr);
+      change.birthday = birthday;
+    }
     const requestOptions = {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(state.unsavedProfileState)
+      body: JSON.stringify(change)
     };
-    console.log();
+    console.log(requestOptions.body);
     fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
       .then(function (res) {
         console.log(res);
@@ -109,7 +115,7 @@ const AppContextProvider = ({ children }) => {
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
 
   const handleProfileFormChange = e => {
-    console.log("helloo", e.target.name, e.target.selected);
+    // console.log("helloo", e.target.name, e.target.selected);
     const key = e.target.name;
     const newState = { ...state };
     newState.unsavedProfileState = {

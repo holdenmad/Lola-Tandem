@@ -36,7 +36,7 @@ const Profile = () => {
           <div className='card-body bg-info d-flex flex-row'>
             <div className='flex-grow-1'>
               <p className='card-title nameText text-primary'>
-                {`${state.profile.name}`}, <small>29</small>
+                {`${state.user ? state.user.name : null}`}, <small>29</small>
               </p>
               <p className='card-text'>
                 <i>Location: {`${state.profile.location}`}</i>
@@ -84,7 +84,8 @@ const Profile = () => {
             <li>Name: {state.user ? state.user.name : null}</li>
             <li>Gender: {state.profile ? state.profile.gender : null}</li>
             <li>Location: {state.profile ? state.profile.location : null}</li>
-            <li>Birthday: {state.profile ? state.profile.days + " " + state.profile.months + " " + state.profile.years : null}</li>
+            {/* <li>Birthday: {state.profile ? state.profile.days + " " + state.profile.months + " " + state.profile.years : null}</li> */}
+            <li>Birthday: {state.profile ? state.profile.birthday : null}</li>
             <li>
               Native Languages: {state.profile ? state.profile.nativelang : null}
             </li>

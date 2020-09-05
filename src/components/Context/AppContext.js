@@ -97,11 +97,11 @@ const AppContextProvider = ({ children }) => {
   //Update user
   const updateProfile = async () => {
     const change = {...state.unsavedProfileState}
-    if (state.unsavedProfileState.days) {
-      const bdStr = state.unsavedProfileState.days + " " + state.unsavedProfileState.months + " " + state.unsavedProfileState.years
-      const birthday = Date.parse(bdStr);
-      change.birthday = birthday;
-    }
+    // if (state.unsavedProfileState.days) {
+    //   const bdStr = state.unsavedProfileState.days + " " + state.unsavedProfileState.months + " " + state.unsavedProfileState.years
+    //   const birthday = Date.parse(bdStr);
+    //   change.birthday = birthday;
+    // }
     const requestOptions = {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
@@ -126,13 +126,14 @@ const AppContextProvider = ({ children }) => {
 
   const handleProfileFormChange = e => {
     // console.log("helloo", e.target.name, e.target.selected);
+    console.log(e);
     const key = e.target.name;
     const newState = { ...state };
     newState.unsavedProfileState = {
       ...newState.unsavedProfileState,
       [key]: e.target.value
     };
-    console.log(key, newState);
+    console.log(key, e.target.value);
     setState(newState);
   };
 

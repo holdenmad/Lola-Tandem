@@ -254,3 +254,30 @@
     line-height: 2;
     font-size: 20px;
 }
+
+.color {
+    color: rgba(255, 131, 6, 0.404);
+    /* font-weight: bold; */
+    /* font-family: 'Righteous', cursive; */
+    /* font-family: 'Rock Salt', cursive; */
+    /* font-family: 'Indie Flower', cursive; */
+    /* font-family: 'Handlee', cursive; */
+    /* font-family: 'Josefin Slab', serif; */
+    font-family: 'Lobster', cursive;
+    /* font-family: 'Merienda', cursive; */
+    /* font-family: 'Neucha', cursive; */
+    /* font-family: 'Poiret One', cursive; */
+
+    /* font-family: 'Architects Daughter', cursive; */
+    /* font-family: 'Bad Script', cursive; */
+    /* font-family: 'Bangers', cursive; */
+    /* font-family: 'Caveat', cursive; */
+    /* font-family: 'Fredericka the Great', cursive; */
+    /* font-family: 'Hanalei', cursive; */
+    /* font-family: 'Kosugi Maru', sans-serif; */
+    /* font-family: 'Niconne', cursive; */
+    /* font-family: 'Questrial', sans-serif; */
+    /* font-family: 'Rajdhani', sans-serif; */
+    /* font-family: 'Sacramento', cursive; */
+    /* font-family: 'Special Elite', cursive; */
+}

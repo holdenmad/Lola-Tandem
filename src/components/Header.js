@@ -8,7 +8,7 @@ function Header() {
     <div>
       <nav className='navbar navbar-expand-sm navbar-light bg-primary'>
         <Link className='navbar-brand' to='/dashboard'>
-          <span className='display-4'>Lola</span>
+          <span className='display-4 color'>lOlá</span>
         </Link>
         <button
           className='navbar-toggler'

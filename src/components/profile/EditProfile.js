@@ -19,12 +19,13 @@ export default function EditProfile({ history, value, _id }) {
   const { state, setState, updateProfile } = useContext(AppContext);
   //   const user = accountService.userValue;
   const initialValue = {
-    freetext: '',
     Avatar: '',
     Gender: '',
     Birthday: '',
+    FreeText: '',
     Location: '',
-    Languages: '',
+    NativeLanguages: '',
+    LearningLanguages: '',
     Interests: ''
   };
   const [formState, setFormState] = useState(initialValue);
@@ -36,9 +37,9 @@ export default function EditProfile({ history, value, _id }) {
     try {
       await updateProfile();
     } catch (error) {
-       console.log(error)
+      console.log(error)
     }
-    finally{
+    finally {
       setIsSubmitting(false);
     }
   };
@@ -52,13 +53,13 @@ export default function EditProfile({ history, value, _id }) {
         <FreeText value={formState.freeText} />
         <Location />
         <div class="row">
-    <div class="col-sm">
-    <NativeLanguages />
-    </div>
-    <div class="col-sm">
-    <LearningLanguages />
-    </div>
-  </div>    
+          <div class="col-sm">
+            <NativeLanguages />
+          </div>
+          <div class="col-sm">
+            <LearningLanguages />
+          </div>
+        </div>
         <Interests />
         <div className='form-group'>
           <button

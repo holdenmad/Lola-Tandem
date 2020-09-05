@@ -4,7 +4,8 @@ import SelectSearch from 'react-select-search';
 
 import Gender from './Gender';
 import Avatar from './Avatar';
-import { Birthday } from './Birthday';
+// import { Birthday } from './Birthday';
+import Bday from './Bday';
 import FreeText from './FreeText';
 import Interests from './Interests';
 import Languages from './Languages';
@@ -46,7 +47,8 @@ export default function EditProfile({ history, value, _id }) {
       <form onSubmit={handleSubmit}>
         <Avatar />
         <Gender />
-        <Birthday />
+        {/* <Birthday /> */}
+        <Bday />
         <FreeText value={formState.freeText} />
         <Location />
         <Languages />

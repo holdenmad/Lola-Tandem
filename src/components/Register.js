@@ -22,7 +22,7 @@ const Register = () => {
     authenticate(event, formState, 'register');
   };
 
-  return !state.isLoggedIn ? (
+  return  !state.isLoggedIn ? (
     <div>
       <div className='row mt-5'>
         <div className='col-md-6 m-auto'>
@@ -91,10 +91,10 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </div>
-  ) : (
+    </div> 
+    ) : (
     <Redirect to='/dashboard' />
-  );
+  ) 
 };
 
 export default Register;

@@ -11,10 +11,13 @@ const Profile = () => {
   console.log(state, 'test');
 
   useEffect(() => {
+    if (!state.user) return;
+
     const requestOptions = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
+    console.log(state);
     fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
       .then(res => res.json())
       .then(profile =>
@@ -78,7 +81,7 @@ const Profile = () => {
 
           {/* Actual code to use to get the profile info */}
           <ul>
-            <li>Name: {state.user.name}</li>
+            <li>Name: {state.user ? state.user.name : null}</li>
             <li>Gender: {state.profile ? state.profile.gender : null}</li>
             <li>Location: {state.profile ? state.profile.location : null}</li>
             <li>Birthday: {state.profile ? state.profile.days + " " + state.profile.months + " " + state.profile.years : null}</li>
@@ -98,6 +101,7 @@ const Profile = () => {
            </Link>
 
       </div>
+    </div>
     </div>
   );
 };

@@ -16,11 +16,12 @@ const Login = () => {
     });
   };
 
-  useEffect(() => {
+/*   useEffect(() => {
     console.log('isLoggedIn', state.isLoggedIn);
   }, [state.isLoggedIn]);
-
+ */
   const handleSubmit = event => {
+    console.log(formState);
     authenticate(event, formState, 'login');
     //redirect to dashboard on successful login
   };

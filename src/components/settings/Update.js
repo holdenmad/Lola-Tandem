@@ -28,7 +28,7 @@ function Update({ history }) {
   function onSubmit(fields, { setStatus, setSubmitting }) {
     setStatus();
     accountService
-      .update(user.id, fields)
+      .update(user._id, fields)
       .then(() => {
         alertService.success("Update successful", {
           keepAfterRouteChange: true,
@@ -46,7 +46,7 @@ function Update({ history }) {
     if (confirm("Are you sure?")) {
       setIsDeleting(true);
       accountService
-        .delete(user.id)
+        .delete(user._id)
         .then(() => alertService.success("Account deleted successfully"));
     }
   }

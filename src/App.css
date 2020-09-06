@@ -91,12 +91,12 @@
     width: 200px;
     margin-top: 10px;
     margin-left: 20px;
-    /* border: 4px solid #eba040; */
-    border: 4px solid #4a9fbc83;
+    border: 4px solid #eba040;
+    /* border: 4px solid #4a9fbc83; */
     padding: 10px;
     text-align: center;
-    /* color: #eba040; */
-    color: #4aa0bc;
+    color: #eba040;
+    /* color: #4aa0bc; */
     font-family: arial;
     position: relative;
     border-radius: 10px;
@@ -106,9 +106,9 @@
     width: 0px;
     height: 0px;
     position: absolute;
-    border-left: 10px solid #4a9fbc83;
+    border-left: 10px solid #eba040;
     border-right: 10px solid transparent;
-    border-top: 10px solid #4a9fbc83;
+    border-top: 10px solid #eba040;
     border-bottom: 10px solid transparent;
     right: -20px;
     top: 6px;
@@ -129,12 +129,12 @@
     width: 200px;
     margin-top: 10px;
     margin-left: 20px;
-    /* border: 4px solid #33cf33c7; */
-    border: 4px solid #4a9fbc83;
+    border: 4px solid #33cf33c7;
+    /* border: 4px solid #4a9fbc83; */
     padding: 10px;
     text-align: center;
-    /* color: #33cf33c7; */
-    color: #4aa0bc;
+    color: #33cf33c7;
+    /* color: #4aa0bc; */
     font-family: arial;
     position: relative;
     border-radius: 10px;
@@ -144,9 +144,9 @@
     width: 0px;
     height: 0px;
     position: absolute;
-    border-right: 10px solid #4a9fbc83;
+    border-right: 10px solid #33cf33c7;
     border-left: 10px solid transparent;
-    border-bottom: 10px solid #4a9fbc83;
+    border-bottom: 10px solid #33cf33c7;
     border-top: 10px solid transparent;
     left: -20px;
     bottom: 6px;
@@ -215,8 +215,8 @@
     padding: 5px 25px;
 }
   .other-heading {
-    border-bottom: 3px solid rgba(83, 120, 175, 0.493);
-    /* border-left: 3px solid rgba(83, 120, 175, 0.616); */
+    /* border-bottom: 3px solid rgba(83, 120, 175, 0.493); */
+    border-left: 3px solid rgba(83, 120, 175, 0.616);
     border-radius: 150px 0px 150px 0px;
     width: 440px;
     background-color: rgba(83, 120, 175, 0.233);

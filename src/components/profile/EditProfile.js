@@ -53,39 +53,81 @@ export default function EditProfile({ history, value, _id }) {
   return (
     <div className='d-flex justify-content-center'>
       <form onSubmit={handleSubmit}>
-        <Avatar />
-        <Gender />
-        <Birthday />
-        <FreeText value={formState.freetext} />
-        <FreeText2 value={formState.freetext2} />
-        <FreeText3 value={formState.freetext3} />
-        {/* <FreetextTest value={formState.freetext}/> */}
-        <Location />
-        <div class="row">
-          <div class="col-sm">
-            <NativeLanguages />
-          </div>
-          <div class="col-sm">
-            <LearningLanguages />
-          </div>
-        </div>
-        <Interests />
-        <div className='form-group'>
-          <button
-            type='submit'
-            disabled={isSubmitting}
-            className='btn btn-outline-success mr-2'
+        <div className='Profile d-flex justify-content-center'>
+          <div
+            className='card border border-info shadow m-5'
+            style={{ width: '50rem' }}
           >
-            {isSubmitting && (
-              <span className='spinner-border spinner-border-sm mr-1'></span>
-            )}{' '}
-            Update
-          </button>
-          <Link to='.' className='btn btn-link'>
-            Cancel
-          </Link>
+            <div className='card-body bg-info d-flex flex-row'>
+              <div className='flex-grow-1'>
+                <p className='card-title nameText text-primary'>
+                  {`${state.user ? state.user.name : null}`}
+                </p>
+
+              </div>
+
+              <div className='justify-content-end'>
+                <Avatar />
+              </div>
+            </div>
+
+            <div aria-label='Profile information of user'>
+              <div className="profile mb-3">
+                <div class="row mb-3">
+                  <div class="col-sm">
+                    <Location />
+                  </div>
+                  <div class="col-sm">
+                    <Gender />
+                  </div>
+                  <div class="col-sm">
+                    <Birthday />
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm">
+                    <NativeLanguages />
+                  </div>
+                  <div class="col-sm">
+                    <LearningLanguages />
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-sm">
+                    <Interests />
+                  </div>
+                  <div class="col-sm">
+                  </div>
+                </div>
+                <FreeText value={formState.freetext} />
+                <FreeText2 value={formState.freetext2} />
+                <FreeText3 value={formState.freetext3} />
+              </div>
+            </div>
+            <Link to='./profile'>
+            <div className='form-group d-flex justify-content-end'>
+              <button
+                type='submit'
+                disabled={isSubmitting}
+                className='btn btn-outline-success mr-2'
+              >
+                {isSubmitting && (
+                  <span className='spinner-border spinner-border-sm mr-1'></span>
+                )}{' '}
+              Update
+              </button>
+            </div>
+              </Link>
+
+          </div>
+
+
+
+
         </div>
       </form>
-    </div>
+    </div >
+
   );
 }

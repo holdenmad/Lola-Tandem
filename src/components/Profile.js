@@ -57,8 +57,8 @@ const Profile = () => {
                 {`${state.user ? state.user.name : null}`}, <small>{state.profile ? years : null} years old</small>
               </p>
               <p className='card-text'>
-                <i className="pr-2">Location: {`${state.profile ? state.profile.location : null}`}</i>
-                <i>Gender: {`${state.profile ? state.profile.gender : null}`}</i>
+                <i className="pr-2">{`${state.profile ? state.profile.location : null}`},</i>
+                <i>{`${state.profile ? state.profile.gender : null}`}</i>
               </p>
 
             </div>
@@ -71,7 +71,25 @@ const Profile = () => {
             </div>
           </div>
           <div aria-label='Profile information of user'>
-            <div className="">
+            <div className="profile">
+              <div class="row mt-4">
+                <div class="col-5">
+                  <h2 className="d-flex justify-content-end pt-3 iam">I am...</h2>
+                </div>
+                <div class="col-7">
+                  <div class="spacing">
+                    ...native in<span className="font-weight-bold pl-1">{` ${state.profile ? state.profile.nativelang : null}`}</span>
+                  </div>
+                  <div class="spacing">
+                    ...learning<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.learnlangs : null}`}</span>
+                  </div>
+                  <div class="spacing">
+                    ...interested in<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.interests : null}`}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <div className="profile">
               <div class="row mt-3">
                 <div class="col">
                 </div>
@@ -81,7 +99,6 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-
               <div class="row">
                 <div class="col-5">
                   <div class="box1 sb1">
@@ -89,7 +106,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <div class="col-7">
-                  <h2 className="d-flex justify-content-start pt-3">I am...</h2>
+                  <h2 className="d-flex justify-content-start pt-3 iam">I am...</h2>
                 </div>
               </div>
               <div class="row">
@@ -97,33 +114,25 @@ const Profile = () => {
                   ...interested in<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.interests : null}`}</span>
                 </div>
               </div>
-            </div>     
+            </div> */}
 
-
-            <div className="mt-5">
-              <h2 className="h4 ml-3 mr-3 about-heading">About me</h2>
-              <p className="pl-4 pr-5">{`${state.profile ? state.profile.freetext : null}`}</p>
+            <div className="profile">
+              <div className="mt-5">
+                {/* <h2 className="h4 ml-3 mr-3 about-heading">About me</h2> */}
+                <h2 className="h4 ml-3 mr-3 heading">About me</h2>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext : null}`}</p>
+              </div>
+              <div className="mt-5">
+                {/* <h2 className="h4 ml-3 mr-3 motivation-heading">My motivatin for learning {`${state.profile ? state.profile.learnlangs : null}`}</h2> */}
+                <h2 className="h4 ml-3 mr-3 heading">My motivatin for learning {`${state.profile ? state.profile.learnlangs : null}`}</h2>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext2 : null}`}</p>
+              </div>
+              <div className="mt-5">
+                {/* <h2 className="h4 ml-3 mr-3 expectation-heading">My expectations for a lola-Tandem / meeting</h2> */}
+                <h2 className="h4 ml-3 mr-3 heading">My expectations for a lola-Tandem / meeting</h2>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext3 : null}`}</p>
+              </div>
             </div>
-            <div className="mt-5">
-              <h2 className="h4 ml-3 mr-3 motivation-heading">My motivatin for learning {`${state.profile ? state.profile.learnlangs : null}`}</h2>
-              <p className="pl-4 pr-5">{`${state.profile ? state.profile.freetext2 : null}`}</p>
-            </div>
-            <div className="mt-5">
-              <h2 className="h4 ml-3 mr-3 expectation-heading">My expectations for a lola-Tandem / meeting</h2>
-              <p className="pl-4 pr-5">{`${state.profile ? state.profile.freetext3 : null}`}</p>
-            </div>
-
-            {/* <ul className='list-group list-group-flush'>
-              <li className='list-group-item border-0'>
-                About me: <br />{`${state.profile ? state.profile.freetext : null}`}
-              </li>
-              <li className='list-group-item border-0'>
-                My motivation: <br />{`${state.profile ? state.profile.freetext2 : null}`}
-              </li>
-              <li className='list-group-item border-0'>
-                My wish for a Lola-Tandem: <br />{`${state.profile ? state.profile.freetext3 : null}`}
-              </li>
-            </ul> */}
           </div>
           <Link to='./editProfile'>
             <div className='d-flex justify-content-end'>

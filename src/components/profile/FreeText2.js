@@ -18,7 +18,7 @@ function FreeText2() {
     
     return (
         <div>
-            <label className="heading" htmlFor="freetext2">What is your motivation for learning the language you are looking for a lola-tandem partner?</label>
+            <label className="heading" htmlFor="freetext2">What is your motivation for learning the language?</label>
             <textarea
                 className="form-control"
                 id="freetext2"

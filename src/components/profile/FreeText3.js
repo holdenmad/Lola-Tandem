@@ -18,7 +18,7 @@ function FreeText3() {
     
     return (
         <div>
-            <label className="heading" htmlFor="freetext3">What expectations do you have for a lola-tandem partner?</label>
+            <label className="heading" htmlFor="freetext3">What expectations do you have for a lola-Tandem?</label>
             <textarea
                 className="form-control"
                 id="freetext3"

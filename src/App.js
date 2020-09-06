@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
+import './styles/searchbar.css';
 import Login from './components/Login';
 import Register from './components/Register';
 import Welcome from './components/Welcome';

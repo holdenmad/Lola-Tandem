@@ -71,7 +71,13 @@ const Profile = () => {
           <div aria-label='Profile information of user'>
             <ul className='list-group list-group-flush'>
               <li className='list-group-item border-0'>
-                About: {`${state.profile ? state.profile.freetext : null}`}
+                About you: <br />{`${state.profile ? state.profile.freetext : null}`}
+              </li>
+              <li className='list-group-item border-0'>
+                About your interests: <br />{`${state.profile ? state.profile.freetext2 : null}`}
+              </li>
+              <li className='list-group-item border-0'>
+               Your wish for a Tandem: <br />{`${state.profile ? state.profile.freetext3 : null}`}
               </li>
               <div className='row border-0'>
                 <div className='col-7 border-0'>

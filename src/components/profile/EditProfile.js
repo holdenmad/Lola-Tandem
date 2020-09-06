@@ -7,6 +7,9 @@ import Avatar from './Avatar';
 import Birthday from './Birthday';
 // import BdayOld from './BdayOld';
 import FreeText from './FreeText';
+import FreeText2 from './FreeText2';
+import FreeText3 from './FreeText3';
+// import FreetextTest from './FreetextTest';
 import Interests from './Interests';
 import NativeLanguages from './NativeLang';
 import LearningLanguages from './LearnLang';
@@ -23,6 +26,9 @@ export default function EditProfile({ history, value, _id }) {
     Gender: '',
     Birthday: '',
     FreeText: '',
+    FreeText2: '',
+    FreeText3: '',
+    // FreetextTest: '',
     Location: '',
     NativeLanguages: '',
     LearningLanguages: '',
@@ -50,7 +56,10 @@ export default function EditProfile({ history, value, _id }) {
         <Avatar />
         <Gender />
         <Birthday />
-        <FreeText value={formState.freeText} />
+        <FreeText value={formState.freetext} />
+        <FreeText2 value={formState.freetext2} />
+        <FreeText3 value={formState.freetext3} />
+        {/* <FreetextTest value={formState.freetext}/> */}
         <Location />
         <div class="row">
           <div class="col-sm">

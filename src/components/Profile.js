@@ -45,16 +45,16 @@ const Profile = () => {
       {/* This is the bootstrap code with profile info */}
       <div className='Profile d-flex justify-content-center'>
         <div
-          className='card border border-info shadow m-5'
+          className='card cardcolor shadow m-5'
           style={{ width: '40rem' }}
         >
-          <div className='card-body bg-info d-flex flex-row'>
+          <div className='card-body d-flex flex-row'>
             <div className='flex-grow-1'>
-              <p className='card-title nameText text-primary'>
+              <p className='card-title nameText text-light'>
                 {`${state.user ? state.user.name : null}`},{' '}
                 <small>{state.profile ? years : null} years old</small>
               </p>
-              <p className='card-text'>
+              <p className='card-text strong-orange'>
                 <i className='pr-2'>
                   {`${state.profile ? state.profile.location : null}`},
                 </i>
@@ -70,7 +70,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div aria-label='Profile information of user'>
+          <div className="bg-light" aria-label='Profile information of user'>
             {/* TEXT VERSION OF TOP OF PROFILE */}
             {/* <div className="profile">
               <div class="row mt-4">
@@ -131,17 +131,17 @@ const Profile = () => {
 
             <div className="profile">
               <div className="mt-5">
-                <h2 className="h5 ml-3 mr-3 about-heading">About me</h2>
+                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 about-heading">About me</h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">About me</h2> */}
                 <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext : null}`}</p>
               </div>
               <div className="mt-5">
-                <h2 className="h5 ml-3 mr-3 motivation-heading">My motivatin for learning</h2>
+                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 motivation-heading">My motivation for learning</h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">My motivatin for learning {`${state.profile ? state.profile.learnlangs : null}`}</h2> */}
                 <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext2 : null}`}</p>
               </div>
               <div className="mt-5">
-                <h2 className="h5 ml-3 mr-3 expectation-heading">My expectations for a lola-Tandem / meeting</h2>
+                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">My ideal tandem</h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">My expectations for a lola-Tandem / meeting</h2> */}
                 <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext3 : null}`}</p>
 
@@ -149,7 +149,7 @@ const Profile = () => {
             </div>
           </div>
           <Link to='./editProfile'>
-            <div className='d-flex justify-content-end'>
+            <div className='d-flex justify-content-end bg-light'>
               <button className='btn btn-primary m-3'>Edit</button>
             </div>
           </Link>

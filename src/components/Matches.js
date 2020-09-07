@@ -27,7 +27,7 @@ const Matches = () => {
     //how to change text if there are no matches?
     // matches === null ? (
     <div className='m-4'>
-      <h2 class='text-center'>Your best matches!</h2>
+      <h2 class='text-center p-3 text-light'>Your best matches!</h2>
       <div>
         {matches.map(match => (
           <div className='m-4'>

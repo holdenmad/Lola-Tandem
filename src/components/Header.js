@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AppContext } from './Context/AppContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
@@ -23,21 +23,21 @@ function Header() {
   }, []);
   return (
     <div className="navbarBG">
-      <Navbar className="mt-4">
-        <Navbar.Brand href="/dashboard"><span className='display-4 pr-5 logo'>Lola</span></Navbar.Brand>
+      <Navbar className="pt-4 ">
+        <Navbar.Brand href="/dashboard"><span className='display-3 ml-3 pr-5 logo'>Lola</span></Navbar.Brand>
         <Navbar.Toggle />
-        <Nav className="mr-auto">
-          <Nav.Link href="/dashboard">Home</Nav.Link>
-          <Nav.Link href="/matches">Matches</Nav.Link>
-          <Nav.Link href="/messages">Messages</Nav.Link>
-          <Nav.Link href="/profile">Profile</Nav.Link>
-          <Nav.Link href="/settings">Settings</Nav.Link>
+        <Nav className="mr-auto text-light">
+          <Nav.Link className="text-light header-nav-text"  href="/dashboard">Home</Nav.Link>
+          <Nav.Link className="text-light header-nav-text"  href="/matches">Matches</Nav.Link>
+          <Nav.Link className="text-light header-nav-text" href="/messages">Messages</Nav.Link>
+          <Nav.Link className="text-light header-nav-text" href="/profile">Profile</Nav.Link>
+          <Nav.Link className="text-light header-nav-text" href="/settings">Settings</Nav.Link>
         </Nav>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-          <Nav.Link href="/profile">  {`${state.user ? state.user.name : null}`}</Nav.Link>
+          <Nav.Link className="text-light" href="/profile">  {`${state.user ? state.user.name : null}`}</Nav.Link>
           </Navbar.Text>
-          <Nav.Link onClick={logOut} href="/"><i class="fas fa-power-off"></i></Nav.Link>
+          <Nav.Link onClick={logOut} href="/"><i class="fas fa-power-off strong-orange"></i></Nav.Link>
         </Navbar.Collapse>
       </Navbar>
 

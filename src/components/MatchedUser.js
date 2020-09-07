@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const MatchedUser = ({ match: { user } }) => {
   return (
-    <div className='d-flex justify-content-center'>
+    <div className='d-flex justify-content-center '>
       <Link className="matchlink" to='/matchedUserProfile'>
         <div
-          className='card border border-info shadow matchlink1'
+          className='card border border-black-50 shadow matchlink1'
           style={{ width: '40rem' }}
         >
           <div className='card-body bg-light d-flex flex-row matchlink1'>
-            <div className='flex-grow-1'>
+            <div className='flex-grow-1 '>
               <p className='card-title nameText'>
                 {`${user.name}`}, <small>29</small>
               </p>

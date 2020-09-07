@@ -20,14 +20,14 @@ const Matches = () => {
       .catch(err => console.log(err));
   }, []);
 
-  console.log(state.matches);
+  // console.log(state.matches);
   const { matches } = state;
-
+  
   return (
-    //how to change text if there are no matches? 
-  // matches === null ? (
+    //how to change text if there are no matches?
+    // matches === null ? (
     <div className='m-4'>
-      <h2 class='text-center'>Your best matches!</h2>
+      <h2 class='text-center p-3 text-light'>Your best matches!</h2>
       <div>
         {matches.map(match => (
           <div className='m-4'>
@@ -36,10 +36,10 @@ const Matches = () => {
         ))}
       </div>
     </div>
-  // ) : (
-  //   <div className='justify-content-center d-flex'>
-  //     <p className='display-4 '>You have no matches!</p>
-  //   </div>
+    // ) : (
+    //   <div className='justify-content-center d-flex'>
+    //     <p className='display-4 '>You have no matches!</p>
+    //   </div>
   );
 };
 

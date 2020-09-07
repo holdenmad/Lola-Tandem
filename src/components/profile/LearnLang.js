@@ -12,12 +12,12 @@ function LearningLanguages() {
   );
   const learnChanged = value => {
     console.log(value);
-    setLearn({ lang: value });
+    setLearn(value);
     const result = { target: { name: 'learnlangs', value } };
     handleProfileFormChange(result);
   };
   console.log(value);
-  const initialState = { lang: value };
+  const initialState = value ;
   const [learn, setLearn] = useState(initialState);
 
   return (
@@ -25,13 +25,13 @@ function LearningLanguages() {
       <label className='heading'>Learning Language</label>
       <SelectSearch
         options={languages}
-        onChange={learnChanged}
         search
+        multiple
         placeholder='Learning Language'
-        className='select-search'
-        value={learn.lang}
+        className='select-search select-search--multiple'
         name='learnlangs'
-        selected={languages === languages.value ? true : false}
+        value={learn}
+        onChange={learnChanged}
         key={languages.value}
       />
     </div>

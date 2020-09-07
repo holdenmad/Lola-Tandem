@@ -22,7 +22,7 @@ function Gender() {
         {genders.map(gender => (
           <option
             key={gender}
-            selected={gender === value ? true : false}
+            defaultValue={gender === value ? true : false}
             value={gender}
           >
             {gender}

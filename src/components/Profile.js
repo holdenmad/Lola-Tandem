@@ -129,7 +129,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <Link to='./editProfile'>
+          <Link to='./editprofile'>
             <div className='d-flex justify-content-end bg-light'>
               <button className='btn btn-primary m-3'>Edit</button>
             </div>

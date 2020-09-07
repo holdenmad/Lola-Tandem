@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const MatchedUser = ({ match: { user } }) => {
   return (
     <div className='d-flex justify-content-center'>
@@ -59,6 +60,7 @@ const MatchedUser = ({ match: { user } }) => {
                 <i className="far fa-comments fa-2x"></i>
               </button>
             </Link>
+
           </div>
         </div>
       </Link>

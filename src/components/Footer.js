@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className='footer'>
+    <div className='footer navbarBG'>
       <p>©Copyright</p>
       <a href='https://github.com/juliamj/Lola-client'>
         <i class='fab fa-github'></i>

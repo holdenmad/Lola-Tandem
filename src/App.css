@@ -7,6 +7,15 @@
 /* font-family: 'Raleway', sans-serif; */
 font-family: 'Kumbh Sans', sans-serif;
 }
+
+body {
+  background-image: url('./assets/wigglesyellow.png'); 
+  background-size: contain;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Dosis', sans-serif;
+}
 .small {
     width: 80px;
 }
@@ -69,7 +78,8 @@ font-family: 'Kumbh Sans', sans-serif;
 }
 
 .logo {
-    color: rgba(83, 120, 175, 0.616);
+    /* color: rgba(83, 120, 175, 0.616); */
+    color: #eba040;
     /* font-weight: bold; */
     /* font-family: 'Niconne', cursive; */
     font-family: 'Sacramento', cursive;
@@ -178,7 +188,7 @@ font-family: 'Kumbh Sans', sans-serif;
   width: 300px;
   margin: 20px auto;
   /* background: #00bfb6; */
-  background: #4aa0bc;
+  background: rgba(83, 120, 175, 0.616);
   padding: 20px;
   text-align: center;
   color: #fff;
@@ -191,10 +201,10 @@ font-family: 'Kumbh Sans', sans-serif;
     width: 0px;
     height: 0px;
     position: absolute;
-    border-left: 10px solid #4aa0bc;
+    border-left: 10px solid rgba(83, 120, 175, 0.616);
     border-right: 10px solid transparent;
     border-top: 10px solid transparent;
-    border-bottom: 10px solid #4aa0bc;
+    border-bottom: 10px solid rgba(83, 120, 175, 0.616);
     right: 90px;
     top: -20px;
   }
@@ -203,25 +213,28 @@ font-family: 'Kumbh Sans', sans-serif;
     border-bottom: 3px solid #eba040;
     /* border-left: 3px solid rgba(83, 120, 175, 0.616); */
     border-radius: 150px 0px 150px 0px;
-    width: 160px;
+    width: 60%;
     background-color: #eba14044;
     padding: 5px 25px;
+    letter-spacing: 1.4px;
 }
   .motivation-heading {
     border-bottom: 3px solid #33cf33c7;
     /* border-left: 3px solid rgba(83, 120, 175, 0.616); */
     border-radius: 150px 0px 150px 0px;
-    width: 290px;
+    width: 60%;
     background-color: #33cf3334;
     padding: 5px 25px;
+    letter-spacing: 1.4px;
 }
   .expectation-heading {
     border-bottom: 3px solid rgba(83, 120, 175, 0.781);
     /* border-left: 3px solid rgba(83, 120, 175, 0.616); */
     border-radius: 150px 0px 150px 0px;
-    width: 460px;
+    width: 60%;
     background-color: rgba(83, 120, 175, 0.233);
     padding: 5px 25px;
+    letter-spacing: 1.4px;
 }
   .other-heading {
     /* border-bottom: 3px solid rgba(83, 120, 175, 0.493); */
@@ -256,8 +269,18 @@ font-family: 'Kumbh Sans', sans-serif;
 } */
 
 .navbarBG {
-  /* background-color: #eba14044; */
-  border-bottom: 2px solid rgba(83, 120, 175, 0.233);
-  box-shadow: 0 4px 6px 0 rgba(34, 60, 80, .16);
+  /* background-color:  #FFE784; */
+  /* background-image: url('./assets/lightorangestarbg.png'); */
+  /* background-image: url('./assets/wigglesyellow.png'); */
+  /* background-size: contain; */
+  /* border-bottom: 1px solid rgba(83, 120, 175, 0.233);
+  box-shadow: 0 4px 6px 0 rgba(34, 60, 80, .16); */
 }
 
+.cardcolor {
+  background-color: #eba040;
+  /* background-image: url('./assets/wigglesyellow.png'); */
+  /* background-size: contain; */
+  border-bottom: 1px solid rgba(83, 120, 175, 0.233);
+  /* box-shadow: 0 4px 6px 0 rgba(34, 60, 80, .16); */
+}

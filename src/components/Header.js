@@ -23,7 +23,7 @@ function Header() {
   }, []);
   return (
     <div className="navbarBG">
-      <Navbar className="mt-4">
+      <Navbar className="pt-4 ">
         <Navbar.Brand href="/dashboard"><span className='display-4 pr-5 logo'>Lola</span></Navbar.Brand>
         <Navbar.Toggle />
         <Nav className="mr-auto">

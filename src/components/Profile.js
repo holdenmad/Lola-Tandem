@@ -71,32 +71,13 @@ const Profile = () => {
           </div>
 
           <div className="bg-light" aria-label='Profile information of user'>
-            {/* TEXT VERSION OF TOP OF PROFILE */}
-            {/* <div className="profile">
-              <div class="row mt-4">
-                <div class="col-5">
-                  <h2 className="d-flex justify-content-end pt-3 iam">I am...</h2>
-                </div>
-                <div class="col-7">
-                  <div class="spacing">
-                    ...native in<span className="font-weight-bold pl-1">{` ${state.profile ? state.profile.nativelang : null}`}</span>
-                  </div>
-                  <div class="spacing">
-                    ...learning<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.learnlangs : null}`}</span>
-                  </div>
-                  <div class="spacing">
-                    ...interested in<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.interests : null}`}</span>
-                  </div>
-                </div>
-              </div>
-            </div> */}
 
             {/* BUBBLE VERSION OF TOP OF PROFILE */}
             <div className='profile'>
-              <div class='row mt-3'>
-                <div class='col'></div>
-                <div class='col'>
-                  <div class='box2 sb2'>
+              <div className='row mt-3'>
+                <div className='col'></div>
+                <div className='col'>
+                  <div className='box2 sb2'>
                     ...learning
                     <span className='font-weight-bold pl-1'>{`${
                       state.profile ? state.profile.learnlangs : null
@@ -104,23 +85,23 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-              <div class='row'>
-                <div class='col-5'>
-                  <div class='box1 sb1'>
+              <div className='row'>
+                <div className='col-5'>
+                  <div className='box1 sb1'>
                     ...native in
                     <span className='font-weight-bold pl-1'>{` ${
                       state.profile ? state.profile.nativelang : null
                     }`}</span>
                   </div>
                 </div>
-                <div class='col-7'>
+                <div className='col-7'>
                   <h2 className='d-flex justify-content-start pt-3 iam'>
                     I am...
                   </h2>
                 </div>
               </div>
-              <div class='row'>
-                <div class='box3 sb3'>
+              <div className='row'>
+                <div className='box3 sb3'>
                   ...interested in
                   <span className='font-weight-bold pl-1'>{`${
                     state.profile ? state.profile.interests  : null

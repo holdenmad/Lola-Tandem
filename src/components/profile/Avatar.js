@@ -12,8 +12,8 @@ function Avatar() {
 
   return (
     <div>
-      <div className='form-group'>
-        <label className='heading'>Profile Photo</label> <br />
+      <div className='form-group text-light'>
+        <label className='heading text-light'>Profile Photo</label> <br />
         <img src='{state.user.profileImg}' alt='profile-photo' width='100px' />
         <FileUpload />
       </div>

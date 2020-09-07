@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState,  useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { AppContext } from './Context/AppContext';
 
@@ -16,10 +16,6 @@ const Login = () => {
     });
   };
 
-/*   useEffect(() => {
-    console.log('isLoggedIn', state.isLoggedIn);
-  }, [state.isLoggedIn]);
- */
   const handleSubmit = event => {
     console.log(formState);
     authenticate(event, formState, 'login');

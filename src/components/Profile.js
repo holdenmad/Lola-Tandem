@@ -66,7 +66,7 @@ const Profile = () => {
               <img
                 src={`${state.profile.profileImg}`}
                 className='card-img-top '
-                alt={`${state.profile.name}`}
+                alt={`${state.user.name}`}
               />
             </div>
           </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal, InputGroup, FormControl } from 'react-bootstrap';
 
-function Example() {
+function Message() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -38,4 +38,4 @@ function Example() {
     );
 }
 
-export default Example;
+export default Message;

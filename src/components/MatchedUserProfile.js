@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from './Context/AppContext';
-import Example from './Example';
+import Message from './Message';
 
 const MatchedUserProfile = () => {
     const { state, setState } = useContext(AppContext);
@@ -134,7 +134,7 @@ const MatchedUserProfile = () => {
                         </div>
                     </div>
                     <div className='card-body'>
-                        <Example />
+                        <Message />
                         <Link to='./matches'>
                             <div className='d-flex justify-content-start'>
                                 <button className='btn btn-primary m-3'><i class="fas fa-arrow-left"></i></button>

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../Context/AppContext";
 
 function FreeText3() {
-    const { state, handleProfileFormChange } = useContext(AppContext);
+    const { state, setState, handleProfileFormChange } = useContext(AppContext);
     const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.freetext3 ||
         state.profile && state.profile.freetext3 || null);
     

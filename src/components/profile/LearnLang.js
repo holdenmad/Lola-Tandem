@@ -4,7 +4,7 @@ import SelectSearch from 'react-select-search';
 import { languages } from './data/languages';
 
 function LearningLanguages() {
-  const { state, handleProfileFormChange } = useContext(AppContext);
+  const { state, setState, handleProfileFormChange } = useContext(AppContext);
   const [value, setValue] = useState(
     (state.unsavedProfileState && state.unsavedProfileState.learnlangs) ||
       (state.profile && state.profile.learnlangs) ||

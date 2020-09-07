@@ -7,9 +7,9 @@ const Welcome = () => {
     <div className="background">
       <div className="row mt-5">
         <div className="col-md-6 m-auto">
-          <div className="card card-body text-center">
-            <h1>Lola
-              <i className="far fa-comments fa-2x"></i>
+          <div className="card card-body text-center cardcolor">
+            <h1 className="logo">Lola
+              {/* <i className="far fa-comments fa-2x"></i> */}
             </h1>
             <p>Create an account or login</p>
             <Link

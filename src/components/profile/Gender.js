@@ -4,7 +4,7 @@ import { AppContext } from '../Context/AppContext';
 const genders = ['', 'other', 'female', 'male'];
 
 function Gender() {
-  const { state,  handleProfileFormChange } = useContext(AppContext);
+  const { state, setState, handleProfileFormChange } = useContext(AppContext);
   //updating unsaved profile state
 
   // const [value, setValue] = useState(state.profile.gender)

@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from './Context/AppContext';
 import Message from './Message';
+import Message2 from './Message2';
 
 const MatchedUserProfile = () => {
     const { state, setState } = useContext(AppContext);
@@ -44,6 +45,12 @@ const MatchedUserProfile = () => {
             className='card cardcolor shadow m-5'
             style={{ width: '40rem' }}
           >
+                              <div className="d-flex justify-content-between">
+                                        <Link to='./matches' className="link2">
+                                <i class="fas fa-arrow-left"></i> 
+                        </Link>  
+                <Message2 /> 
+                </div>
             <div className='card-body d-flex flex-row'>
               <div className='flex-grow-1'>
                 <p className='card-title nameText text-light'>

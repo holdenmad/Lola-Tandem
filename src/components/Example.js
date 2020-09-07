@@ -11,9 +11,8 @@ function Example() {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Launch static backdrop modal
-        </Button>
-
+                Send a Message
+            </Button>
             <Modal
                 show={show}
                 onHide={handleClose}
@@ -31,7 +30,7 @@ function Example() {
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
-            </Button>
+                </Button>
                     <Button variant="primary">Send</Button>
                 </Modal.Footer>
             </Modal>

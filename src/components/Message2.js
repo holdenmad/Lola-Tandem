@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal, InputGroup, FormControl } from 'react-bootstrap';
 import { AppContext } from './Context/AppContext';
 
-function Message() {
+function Message2() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -26,8 +26,8 @@ function Message() {
 
     return (
         <>
-            <Button variant="transparent link" onClick={handleShow}>
-                Send {`${state.user ? state.user.name : null}`} a Message <i class="far fa-comments"></i> 
+            <Button variant="transparent link2" onClick={handleShow}>
+                <i class="far fa-comments"></i> 
             </Button>
             <Modal
                 show={show}
@@ -54,4 +54,4 @@ function Message() {
     );
 }
 
-export default Message;
+export default Message2;

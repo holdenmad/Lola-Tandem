@@ -4,9 +4,22 @@ const initialState = {
   user: { _id: localStorage.getItem('userId') },
   profile: {},
   unsavedProfileState: {},
+  interests: [],
   isLoggedIn: false,
   matches: []
 };
+
+const interests = [
+  { name: 'interests', id: 1, value: 'Sports', isChecked: false },
+  { name: 'interests', id: 2, value: 'Teamsports', isChecked: false },
+  { name: 'interests', id: 3, value: 'Extreme Sports', isChecked: false },
+  { name: 'interests', id: 4, value: 'Skating', isChecked: false },
+  { name: 'interests', id: 5, value: 'Running', isChecked: false },
+  { name: 'interests', id: 6, value: 'Fitness', isChecked: false },
+  { name: 'interests', id: 7, value: 'Yoga', isChecked: false },
+  { name: 'interests', id: 8, value: 'Music', isChecked: false }
+];
+
 
 export const AppContext = createContext();
 
@@ -14,7 +27,6 @@ const AppContextProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-
     const requestOptions = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
@@ -135,13 +147,15 @@ const AppContextProvider = ({ children }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(change)
     };
-    console.log(requestOptions.body);
-    await fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+    await fetch(
+      `http://localhost:5000/profiles/${state.user._id}`,
+      requestOptions
+    )
       .then(function (res) {
         console.log(res);
 
         const newState = { ...state, ...state.unsavedProfileState };
-        newState.unsavedProfileState = {}
+        newState.unsavedProfileState = {};
         setState(newState);
       })
       .catch(function (err) {
@@ -149,19 +163,17 @@ const AppContextProvider = ({ children }) => {
       });
   };
 
-
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
-
+  //Either push each checked item into an array to be put into the state, or change the handle to progressively update the unsavedProfile state to reflect each change
   const handleProfileFormChange = e => {
-    // console.log("helloo", e.target.name, e.target.selected);
-    console.log(e);
+    // console.log('Test handleProfileFormChange', e.target.name, e.target.value);
     const key = e.target.name;
     const newState = { ...state };
     newState.unsavedProfileState = {
       ...newState.unsavedProfileState,
       [key]: e.target.value
     };
-    console.log(key, e.target.value);
+    console.log('Test handleProfileFormChange', ': ', key, e.target.value);
     setState(newState);
   };
 
@@ -172,6 +184,7 @@ const AppContextProvider = ({ children }) => {
           authenticate,
           handleProfileFormChange,
           updateProfile,
+          interests,
           logOut,
           state,
           setState

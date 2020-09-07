@@ -4,6 +4,8 @@ import { AppContext } from '../../Context/AppContext';
 
 const FileUpload = () => {
   const { state, setState, handleProfileFormChange } = useContext(AppContext);
+  const [file, setFile] = useState();
+  const [fileName, setFileName] = useState();
   //fetch request from server for multer logic
   //   useEffect(() => {
   //     const requestOptions = {
@@ -18,43 +20,48 @@ const FileUpload = () => {
   //   }, []);
 
   const onFileChange = e => {
-    setState({ ...state, profileImg: e.target.files[0] });
-    console.log(state, e.target.files[0]);
+    setFile(e.target.files[0]);
+    setFileName(e.target.files[0].name);
+    console.log('Test', file, fileName);
   };
 
-  const onSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     const profileData = new FormData(); //what is this?
-    profileData.append('profileImg', state.profileImg); //can we use this?
-    console.log(state);
+    profileData.append('file', file); //can we use this?
+    console.log(file, fileName);
     //how to write "If there is a profileImg, change it, if there isn't one, create it"?
     const requestOptions = {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' }
+      method: 'POST',
+      body: profileData
     };
-    fetch(`http://localhost:5000/profiles/${state.user._id}`, profileData, requestOptions)
-      .then(res => res.json())
-      .then(profile =>
-        setState(previousState => ({ ...previousState, profile }))
-      );
-   
+    fetch(
+      `http://localhost:5000/profiles/upload/${state.user._id}`,
+      requestOptions
+    )
+      .then(res => console.log(res))
+      // .then(profile =>
+      //   console.log(profile)
+      // );
   };
 
-  console.log(state.profile);
+  // console.log(state.profile);
 
   return (
     <div className='container'>
       <div className='row'>
-        <form onSubmit={onSubmit}>
-          <div className='form-group'>
-            <input type='file' onChange={onFileChange} />
-          </div>
-          <div className='form-group'>
-            <button className='btn btn-primary' type='submit'>
-              Upload
-            </button>
-          </div>
-        </form>
+        <div className='form-group'>
+          <input type='file' onChange={onFileChange} />
+        </div>
+        <div className='form-group'>
+          <button
+            className='btn btn-outline-primary'
+            type='submit'
+            onClick={handleSubmit}
+          >
+            Upload
+          </button>
+        </div>
       </div>
     </div>
   );

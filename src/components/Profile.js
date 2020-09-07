@@ -8,7 +8,7 @@ const Profile = () => {
   // Fetch request from MongoDB for Profile information
   // map that information into return statement below for each user that matches the {id} req.params
   const { state, setState } = useContext(AppContext);
-  console.log(state, 'test');
+  // console.log(state, 'test');
 
   useEffect(() => {
     if (!state.user) return;

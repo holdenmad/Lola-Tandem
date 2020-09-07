@@ -9,8 +9,12 @@ import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import EditProfile from './components/profile/EditProfile';
 import Matches from './components/Matches';
+
+import About from './components/About';
+
 import MatchedUserProfile from './components/MatchedUserProfile';
 import Messages from './components/Messages';
+
 
 // import UserProfileView from './components/profile/UserProfileView';
 import Header from './components/Header';
@@ -20,13 +24,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const token = localStorage.getItem('x-auth-token');
 
-
 const isAuthenticated = () => {
   if (token === null || token === undefined || token === false) {
-   console.log("a");
+    console.log('a');
     return false;
   } else {
-    
     return token;
   }
 };
@@ -51,7 +53,7 @@ function App() {
       {state.isLoggedIn && <Header />}
       <Switch>
         <Route exact path='/'>
-        {!state.isLoggedIn && <Welcome /> || <Dashboard />}
+          {(!state.isLoggedIn && <Welcome />) || <Dashboard />}
         </Route>
         <Route exact path='/users/register'>
           <Register />
@@ -59,6 +61,10 @@ function App() {
         <Route exact path='/users/login'>
           <Login />
         </Route>
+        <Route exact path='about'>
+          <About />
+        </Route>
+
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/profile' component={Profile} />
         <PrivateRoute exact path='/editprofile' component={EditProfile} />
@@ -66,9 +72,8 @@ function App() {
         <PrivateRoute exact path='/matchedUserProfile' component={MatchedUserProfile} />
         <PrivateRoute exact path='/messages' component={Messages} />
         {/* <PrivateRoute exact path='/settings' component={Settings} /> */}
-
       </Switch>
-      {state.isLoggedIn && <Footer /> }
+      {state.isLoggedIn && <Footer />}
     </div>
   );
 }

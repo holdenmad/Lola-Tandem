@@ -55,7 +55,7 @@ const FileUpload = () => {
         </div>
         <div className='form-group'>
           <button
-            className='btn btn-outline-primary'
+            className='btn btn-warning'
             type='submit'
             onClick={handleSubmit}
           >

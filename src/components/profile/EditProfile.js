@@ -43,9 +43,8 @@ export default function EditProfile({ history, value, _id }) {
     try {
       await updateProfile();
     } catch (error) {
-      console.log(error)
-    }
-    finally {
+      console.log(error);
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -54,16 +53,12 @@ export default function EditProfile({ history, value, _id }) {
     <div className='d-flex justify-content-center'>
       <form onSubmit={handleSubmit}>
         <div className='Profile d-flex justify-content-center'>
-          <div
-            className='card border border-info shadow m-5'
-            style={{ width: '50rem' }}
-          >
-            <div className='card-body bg-info d-flex flex-row'>
-              <div className='flex-grow-1'>
-                <p className='card-title nameText text-primary'>
+          <div className='card cardcolor shadow m-5' style={{ width: '50rem' }}>
+            <div className='card-body d-flex flex-row '>
+              <div className='flex-grow-1 '>
+                <p className='card-title nameText text-light'>
                   {`${state.user ? state.user.name : null}`}
                 </p>
-
               </div>
 
               <div className='justify-content-end'>
@@ -71,63 +66,57 @@ export default function EditProfile({ history, value, _id }) {
               </div>
             </div>
 
-            <div aria-label='Profile information of user'>
-              <div className="profile mb-3">
-                <div class="row mb-3">
-                  <div class="col-sm">
+            <div aria-label='Profile information of user' className='bg-light '>
+              <div className='profile mb-3'>
+                <div className='row mb-3'>
+                  <div className='col-sm'>
                     <Location />
                   </div>
-                  <div class="col-sm">
+                  <div className='col-sm'>
                     <Gender />
                   </div>
-                  <div class="col-sm">
+                  <div className='col-sm'>
                     <Birthday />
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <div class="col-sm">
+                <div className='row mb-3'>
+                  <div className='col-sm'>
                     <NativeLanguages />
                   </div>
-                  <div class="col-sm">
+                  <div className='col-sm'>
                     <LearningLanguages />
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <div class="col-sm">
+                <div className='row mb-3'>
+                  <div className='col-sm'>
                     <Interests />
                   </div>
-                  <div class="col-sm">
-                  </div>
+                  <div className='col-sm'></div>
                 </div>
                 <FreeText value={formState.freetext} />
                 <FreeText2 value={formState.freetext2} />
                 <FreeText3 value={formState.freetext3} />
               </div>
             </div>
-            <Link to='./profile'>
-            <div className='form-group d-flex justify-content-end'>
-              <button
-                type='submit'
-                disabled={isSubmitting}
-                className='btn btn-outline-success mr-2'
-              >
-                {isSubmitting && (
-                  <span className='spinner-border spinner-border-sm mr-1'></span>
-                )}{' '}
-              Update
-              </button>
-            </div>
+
+            <div className='form-group d-flex justify-content-end bg-light'>
+              <Link className='bg-light' to='./profile'>
+                <button
+                  type='submit'
+                  disabled={isSubmitting}
+                  className='btn btn-outline-success mr-2 '
+                >
+                  {isSubmitting && (
+                    <span className='spinner-border spinner-border-sm mr-1 bg-light'></span>
+                  )}{' '}
+                  Update
+                </button>
               </Link>
-
+            </div>
           </div>
-
-
-
-
         </div>
       </form>
-    </div >
-
+    </div>
   );
 }

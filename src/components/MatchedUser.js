@@ -7,10 +7,10 @@ const MatchedUser = ({ match: { user } }) => {
     <div className='d-flex justify-content-center '>
       <Link className="matchlink" to='/matchedUserProfile'>
         <div
-          className='card border border-black-50 shadow matchlink1'
+          className='card shadow matchlink1'
           style={{ width: '40rem' }}
         >
-          <div className='card-body bg-light d-flex flex-row matchlink1'>
+          <div className='card-body d-flex flex-row matchlink1'>
             <div className='flex-grow-1 '>
               <p className='card-title nameText'>
                 {`${user.name}`}, <small>29</small>
@@ -49,7 +49,19 @@ const MatchedUser = ({ match: { user } }) => {
               </div>
             </div>
           </ul>
-          <div className='card-body'>
+
+
+          <div className='card-body '>
+            {/* <Link to='#'>
+              <button className='card-link btn btn-outline-success mr-2'>
+                <i class="fas fa-plus"></i> Add to Friends
+              </button>
+            </Link> */}
+            <Link to='./messages'>
+              <button className='card-link btn btn-outline-success mr-2'>
+                <i className="far fa-comments fa-2x"></i>
+              </button>
+            </Link>
           </div>
         </div>
       </Link>

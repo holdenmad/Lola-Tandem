@@ -24,7 +24,7 @@ function Header() {
   return (
     <div className="navbarBG">
       <Navbar className="pt-4 ">
-        <Navbar.Brand href="/dashboard"><span className='display-4 pr-5 logo'>Lola</span></Navbar.Brand>
+        <Navbar.Brand href="/dashboard"><span className='display-3 ml-3 pr-5 logo'>Lola</span></Navbar.Brand>
         <Navbar.Toggle />
         <Nav className="mr-auto text-light">
           <Nav.Link className="text-light header-nav-text"  href="/dashboard">Home</Nav.Link>

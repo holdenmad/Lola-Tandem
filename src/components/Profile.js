@@ -45,12 +45,12 @@ const Profile = () => {
       {/* This is the bootstrap code with profile info */}
       <div className='Profile d-flex justify-content-center'>
         <div
-          className='card cardcolor  shadow m-5'
+          className='card cardcolor shadow m-5'
           style={{ width: '40rem' }}
         >
           <div className='card-body d-flex flex-row'>
             <div className='flex-grow-1'>
-              <p className='card-title nameText slate-blue'>
+              <p className='card-title nameText text-light'>
                 {`${state.user ? state.user.name : null}`},{' '}
                 <small>{state.profile ? years : null} years old</small>
               </p>

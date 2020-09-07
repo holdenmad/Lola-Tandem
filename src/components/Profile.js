@@ -45,16 +45,16 @@ const Profile = () => {
       {/* This is the bootstrap code with profile info */}
       <div className='Profile d-flex justify-content-center'>
         <div
-          className='card border border-black-50 shadow m-5'
+          className='card cardcolor  shadow m-5'
           style={{ width: '40rem' }}
         >
-          <div className='card-body cardcolor d-flex flex-row'>
+          <div className='card-body d-flex flex-row'>
             <div className='flex-grow-1'>
-              <p className='card-title nameText text-black-50'>
+              <p className='card-title nameText slate-blue'>
                 {`${state.user ? state.user.name : null}`},{' '}
                 <small>{state.profile ? years : null} years old</small>
               </p>
-              <p className='card-text'>
+              <p className='card-text strong-orange'>
                 <i className='pr-2'>
                   {`${state.profile ? state.profile.location : null}`},
                 </i>
@@ -70,7 +70,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div aria-label='Profile information of user'>
+          <div className="bg-light" aria-label='Profile information of user'>
             {/* TEXT VERSION OF TOP OF PROFILE */}
             {/* <div className="profile">
               <div class="row mt-4">
@@ -149,7 +149,7 @@ const Profile = () => {
             </div>
           </div>
           <Link to='./editProfile'>
-            <div className='d-flex justify-content-end'>
+            <div className='d-flex justify-content-end bg-light'>
               <button className='btn btn-primary m-3'>Edit</button>
             </div>
           </Link>

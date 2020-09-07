@@ -9,8 +9,8 @@ font-family: 'Kumbh Sans', sans-serif;
 }
 
 body {
-  background-image: url('./assets/wigglesyellow.png'); 
-  background-size: contain;
+  background-image: url('./assets/angulargradient.png'); 
+  background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 15px;
 }
 .footer {
-    background: rgba(0, 0, 0, 0.356);
+    /* background: rgba(0, 0, 0, 0.356); */
 	color: white;
 	font-size: 20px;
     padding: 20px;
@@ -278,9 +278,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cardcolor {
-  background-color: #eba040;
+  background-color:  #ffffff00;
   /* background-image: url('./assets/wigglesyellow.png'); */
   /* background-size: contain; */
   border-bottom: 1px solid rgba(83, 120, 175, 0.233);
   /* box-shadow: 0 4px 6px 0 rgba(34, 60, 80, .16); */
+}
+
+.strong-orange {
+  color: #eba040;
+}
+
+.slate-blue {
+  color: rgb(219, 233, 255);
+}
+
+.icon-large {
+  font-size: 2rem;
+}
+
+.header-nav-text {
+  font-size: 1.3rem;
+  /* letter-spacing: 1.3px; */
+}
+
+.navActive :active {
+  border: 1px border white;
+  border-radius: 10px;
 }

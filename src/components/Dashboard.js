@@ -13,17 +13,15 @@ function Dashboard() {
         <div className='row'>
           <div className='col-lg'>
             <p className='p-5 ml-5 text'>
-              Sugar plum fruitcake ice cream cookie. Powder tart topping tootsie
-              roll cupcake danish jelly-o. Dessert pastry halvah. Ice cream
-              cookie marshmallow lemon drops tootsie roll caramels candy.
-              Chocolate pastry danish apple pie dessert toffee cookie brownie
-              croissant. Jelly tart I love sesame snaps I love pie apple pie I
-              love. <br /> <br />
-              Brownie dessert liquorice croissant tiramisu. I love marzipan
-              jelly wafer halvah. Bear claw tiramisu lollipop I love croissant
-              biscuit chocolate bar. Cotton candy croissant tootsie roll. Pie
-              candy canes bonbon cake. Chupa chups candy canes donut sweet. Cake
-              sweet jujubes marzipan.
+              Thanks for using our site to help you on your language learning
+              journey! If you're here, you want to chat with real people who
+              live in your city, but are tired of boring conversations in your
+              target language. <br /> <br />
+              With <i>Lola</i>, you'll be able to find language tandem partners
+              based on your common interests, so you can have your language
+              tandem while doing something you both love.
+              <br/><br/>
+              Let's get started! 
             </p>
           </div>
           <div className='col-lg'>

@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import EditProfile from './components/profile/EditProfile';
 import Matches from './components/Matches';
+import About from './components/About';
 
 // import UserProfileView from './components/profile/UserProfileView';
 import Header from './components/Header';

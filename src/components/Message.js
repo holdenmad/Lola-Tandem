@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Modal, InputGroup, FormControl } from 'react-bootstrap';
+import { AppContext } from './Context/AppContext';
 
 function Message() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const { state, setState } = useContext(AppContext);
+  
+    useEffect(() => {
+      if (!state.user) return;
+  
+      const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      };
+      fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+        .then(res => res.json())
+        .then(profile =>
+          setState(previousState => ({ ...previousState, profile }))
+        );
+    }, []);
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
-                Send a Message
+            <Button variant="transparent link" onClick={handleShow}>
+                Send {`${state.user ? state.user.name : null}`} a Message <i class="far fa-comments"></i> 
             </Button>
             <Modal
                 show={show}
@@ -20,7 +36,7 @@ function Message() {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Send a Message</Modal.Title>
+                    <Modal.Title>Send {`${state.user ? state.user.name : null}`} a Message</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <InputGroup>

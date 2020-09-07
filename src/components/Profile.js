@@ -92,51 +92,42 @@ const Profile = () => {
             </div> */}
 
             {/* BUBBLE VERSION OF TOP OF PROFILE */}
-            <div className='profile'>
-              <div class='row mt-3'>
-                <div class='col'></div>
-                <div class='col'>
-                  <div class='box2 sb2'>
-                    ...learning
+            <div className='profile mt-4'>
+              <div className="d-flex justify-content-end">
+                <div className='box2 sb2'>
+                  ...learning
                     <span className='font-weight-bold pl-1'>{`${
-                      state.profile ? state.profile.learnlangs : null
+                    state.profile ? state.profile.learnlangs : null
                     }`}</span>
-                  </div>
                 </div>
               </div>
-              <div class='row'>
-                <div class='col-5'>
-                  <div class='box1 sb1'>
-                    ...native in
+              <div className="d-flex">
+                <div className='box1 sb1 mr-5'>
+                  ...native in
                     <span className='font-weight-bold pl-1'>{` ${
-                      state.profile ? state.profile.nativelang : null
+                    state.profile ? state.profile.nativelang : null
                     }`}</span>
-                  </div>
-                </div>
-                <div class='col-7'>
-                  <h2 className='d-flex justify-content-start pt-3 iam'>
-                    I am...
-                  </h2>
-                </div>
+                </div>                
+                <h2 className='d-flex justify-content-start pt-3 iam'>
+                  I am...
+                    </h2>
               </div>
-              <div class='row'>
-                <div class='box3 sb3'>
-                  ...interested in
+              <div className='box3 sb3'>
+                ...interested in
                   <span className='font-weight-bold pl-1'>{`${
-                    state.profile ? state.profile.interests  : null
+                  state.profile ? state.profile.interests : null
                   }`}</span>
-                </div>
               </div>
             </div>
 
             <div className="profile">
               <div className="mt-5">
-                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 about-heading">About me</h2>
-                {/* <h2 className="h4 ml-3 mr-3 heading">About me</h2> */}
+                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">About me</h2>
+                {/* <h2 className="h4 ml-3 mr-3 heading">expectation me</h2> */}
                 <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext : null}`}</p>
               </div>
               <div className="mt-5">
-                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 motivation-heading">My motivation for learning</h2>
+                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">My motivation for learning</h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">My motivatin for learning {`${state.profile ? state.profile.learnlangs : null}`}</h2> */}
                 <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext2 : null}`}</p>
               </div>
@@ -148,11 +139,11 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <Link to='./editProfile'>
-            <div className='d-flex justify-content-end bg-light'>
-              <button className='btn btn-primary m-3'>Edit</button>
-            </div>
-          </Link>
+          <div className='d-flex justify-content-end bg-light'>
+            <Link to='./editprofile'>
+              <button className='btn m-3 btn-warning'>Edit</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

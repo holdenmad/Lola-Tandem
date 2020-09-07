@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import Message from './Message';
 
 const MatchedUser = ({ match: { user } }) => {
   return (
@@ -50,17 +50,6 @@ const MatchedUser = ({ match: { user } }) => {
             </div>
           </ul>
           <div className='card-body'>
-            {/* <Link to='#'>
-              <button className='card-link btn btn-outline-success mr-2'>
-                <i class="fas fa-plus"></i> Add to Friends
-              </button>
-            </Link> */}
-            <Link to='./messages'>
-              <button className='card-link btn btn-outline-success mr-2'>
-                <i className="far fa-comments fa-2x"></i>
-              </button>
-            </Link>
-
           </div>
         </div>
       </Link>

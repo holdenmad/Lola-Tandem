@@ -5,7 +5,7 @@ import { interests } from './data/interests';
 
 
 function Interests() {
-    const { state, handleProfileFormChange } = useContext(AppContext);
+    const { state, setState, handleProfileFormChange } = useContext(AppContext);
     const [value, setValue] = useState((state.unsavedProfileState && state.unsavedProfileState.interests) ||
         (state.profile && state.profile.interests) || null);
     const interestChanged = (value) => {

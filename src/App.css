@@ -7,17 +7,6 @@
 /* font-family: 'Raleway', sans-serif; */
 font-family: 'Kumbh Sans', sans-serif;
 }
-<<<<<<< HEAD
-body {
-  /* background-image: url("./components/assets/bg1.jpeg"); */
-  background-image: url("./components/assets/bg2.jpeg");
-  background-size: cover;
-  /* background-size: contain; */
-}
-
-
-=======
-
 body {
   background-image: url('./assets/angulargradient.png'); 
   background-size: cover;
@@ -26,7 +15,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Dosis', sans-serif;
 }
->>>>>>> 60727ef33a6eaac0122ea428af9c7b53710fc7ef
+
+
 .small {
     width: 80px;
 }
@@ -121,11 +111,11 @@ h1, h2, h3, h4, h5, h6 {
     width: 200px;
     margin-top: 10px;
     margin-left: 20px;
-    border: 4px solid #eba040;
+    border: 4px solid rgba(83, 120, 175, 0.781);
     /* border: 4px solid #4a9fbc83; */
     padding: 10px;
     text-align: center;
-    color: #eba040;
+    color: rgba(83, 120, 175, 0.781);
     /* color: #4aa0bc; */
     font-family: arial;
     position: relative;
@@ -136,9 +126,9 @@ h1, h2, h3, h4, h5, h6 {
     width: 0px;
     height: 0px;
     position: absolute;
-    border-left: 10px solid #eba040;
+    border-left: 10px solid rgba(83, 120, 175, 0.781);
     border-right: 10px solid transparent;
-    border-top: 10px solid #eba040;
+    border-top: 10px solid rgba(83, 120, 175, 0.781);
     border-bottom: 10px solid transparent;
     right: -20px;
     top: 6px;
@@ -159,11 +149,11 @@ h1, h2, h3, h4, h5, h6 {
     width: 200px;
     margin-top: 10px;
     margin-left: 20px;
-    border: 4px solid #33cf33c7;
+    border: 4px solid rgba(83, 120, 175, 0.781);
     /* border: 4px solid #4a9fbc83; */
     padding: 10px;
     text-align: center;
-    color: #33cf33c7;
+    color: rgba(83, 120, 175, 0.781);
     /* color: #4aa0bc; */
     font-family: arial;
     position: relative;
@@ -174,9 +164,9 @@ h1, h2, h3, h4, h5, h6 {
     width: 0px;
     height: 0px;
     position: absolute;
-    border-right: 10px solid #33cf33c7;
+    border-right: 10px solid rgba(83, 120, 175, 0.781);
     border-left: 10px solid transparent;
-    border-bottom: 10px solid #33cf33c7;
+    border-bottom: 10px solid rgba(83, 120, 175, 0.781);
     border-top: 10px solid transparent;
     left: -20px;
     bottom: 6px;
@@ -199,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 300px;
   margin: 20px auto;
   /* background: #00bfb6; */
-  background: rgba(83, 120, 175, 0.616);
+  background: rgba(83, 120, 175, 0.781);
   padding: 20px;
   text-align: center;
   color: #fff;
@@ -221,11 +211,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .about-heading {
-    border-bottom: 3px solid #eba040;
+    border-bottom: 3px solid #5e17eb;
     /* border-left: 3px solid rgba(83, 120, 175, 0.616); */
     border-radius: 150px 0px 150px 0px;
     width: 60%;
-    background-color: #eba14044;
+    background-color: #5e17eb31;
     padding: 5px 25px;
     letter-spacing: 1.4px;
 }
@@ -246,6 +236,8 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(83, 120, 175, 0.233);
     padding: 5px 25px;
     letter-spacing: 1.4px;
+    color: rgba(83, 120, 175, 0.781);
+    /* text-transform: capitalize */
 }
   .other-heading {
     /* border-bottom: 3px solid rgba(83, 120, 175, 0.493); */

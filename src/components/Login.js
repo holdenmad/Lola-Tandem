@@ -30,7 +30,7 @@ const Login = () => {
     <div>
       <div className='row mt-5'>
         <div className='col-md-6 m-auto'>
-          <div className='card card-body'>
+          <div className='card card-body cardcolor'>
             <h1 className='text-center mb-3'>
               <i className='fas fa-sign-in-alt'></i> Login
             </h1>

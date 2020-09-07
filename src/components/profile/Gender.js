@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AppContext } from '../Context/AppContext';
 
-const genders = ['', 'other', 'female', 'male', 'd', 'e', 'f'];
+const genders = ['', 'other', 'female', 'male'];
 
 function Gender() {
   const { state,  handleProfileFormChange } = useContext(AppContext);

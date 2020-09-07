@@ -1,0 +1,25 @@
+export const interests =
+    [
+        { name: "Sports", value: "Sports" },
+        { name: "Teamsports", value: "Teamsports" },
+        { name: "Extreme Sports", value: "ExtremeSports" },
+        { name: "Skating", value: "Skating" },
+        { name: "Running", value: "Running" },
+        { name: "Fitness", value: "Fitness" },
+        { name: "Yoga", value: "Yoga" },
+        { name: "Music", value: "Music" },
+        { name: "Concerts", value: "Concerts" },
+        { name: "Playing Instruments", value: "PlayingInstruments" },
+        { name: "Singing", value: "Singing" },
+        { name: "Video Gaming", value: "VideoGaming" },
+        { name: "Board Gaming", value: "BoardGaming" },
+        { name: "Culture", value: "Culture" },
+        { name: "Museums", value: "Museums" },
+        { name: "Reading", value: "Reading" },
+        { name: "Movies/Cinema", value: "MoviesCinema" },
+        { name: "Photography", value: "Photography" },
+        { name: "Cooking", value: "Cooking" },
+        { name: "Painting", value: "Painting" },
+        { name: "Travelling", value: "Travelling" },
+        { name: "Sight Seeing", value: "SightSeeing" }
+    ];

@@ -25,6 +25,24 @@ const Profile = () => {
       );
   }, []);
 
+
+  if (state.profile.birthday) {
+    var DOB = state.profile.birthday;
+    var millisecondsBetweenDOBAnd1970 = Date.parse(DOB);
+    console.log(millisecondsBetweenDOBAnd1970);
+    var millisecondsBetweenNowAnd1970 = Date.now();
+    var ageInMilliseconds = millisecondsBetweenNowAnd1970 - millisecondsBetweenDOBAnd1970;
+    var milliseconds = ageInMilliseconds;
+    var second = 1000;
+    var minute = second * 60;
+    var hour = minute * 60;
+    var day = hour * 24;
+    var month = day * 30;
+    var year = day * 365;
+    var years = Math.round(milliseconds / year);
+  }
+
+
   return (
     <div>
       {/* This is the bootstrap code with profile info */}
@@ -36,11 +54,13 @@ const Profile = () => {
           <div className='card-body bg-info d-flex flex-row'>
             <div className='flex-grow-1'>
               <p className='card-title nameText text-primary'>
-                {`${state.user ? state.user.name : null}`}, <small>29</small>
+                {`${state.user ? state.user.name : null}`}, <small>{state.profile ? years : null} years old</small>
               </p>
               <p className='card-text'>
-                <i>Location: {`${state.profile.location}`}</i>
+                <i className="pr-2">{`${state.profile ? state.profile.location : null}`},</i>
+                <i>{`${state.profile ? state.profile.gender : null}`}</i>
               </p>
+
             </div>
             <div className='justify-content-end'>
               <img
@@ -51,58 +71,79 @@ const Profile = () => {
             </div>
           </div>
           <div aria-label='Profile information of user'>
-            <ul className='list-group list-group-flush'>
-              <li className='list-group-item border-0'>
-                About: {`${state.profile.freetext}`}
-              </li>
-              <div className='row border-0'>
-                <div className='col-7 border-0'>
-                  <li className='list-group-item border-0'>
-                    Gender: {`${state.profile.gender}`}
-                  </li>
-                  <li className='list-group-item border-0'>
-                    Interests: {`${state.profile.interests}`}
-                  </li>
+            <div className="profile">
+              <div class="row mt-4">
+                <div class="col-5">
+                  <h2 className="d-flex justify-content-end pt-3 iam">I am...</h2>
                 </div>
-                <div className='col-5'>
-                  <li className='list-group-item border-0'>
-                    Native: {`${state.profile.nativelang}`}
-                  </li>
-                  <li className='list-group-item border-0'>
-                    Learning: {`${state.profile.learnlangs}`}
-                  </li>
-                  {/* <li className='list-group-item'>
-            Other: {`${user.otherlangs}`}
-          </li> */}
+                <div class="col-7">
+                  <div class="spacing">
+                    ...native in<span className="font-weight-bold pl-1">{` ${state.profile ? state.profile.nativelang : null}`}</span>
+                  </div>
+                  <div class="spacing">
+                    ...learning<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.learnlangs : null}`}</span>
+                  </div>
+                  <div class="spacing">
+                    ...interested in<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.interests : null}`}</span>
+                  </div>
                 </div>
               </div>
-            </ul>
+            </div>
+
+
+            
+            {/* <div className="profile">
+              <div class="row mt-3">
+                <div class="col">
+                </div>
+                <div class="col">
+                  <div class="box2 sb2">
+                    ...learning<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.learnlangs : null}`}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5">
+                  <div class="box1 sb1">
+                    ...native in<span className="font-weight-bold pl-1">{` ${state.profile ? state.profile.nativelang : null}`}</span>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <h2 className="d-flex justify-content-start pt-3 iam">I am...</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="box3 sb3">
+                  ...interested in<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.interests : null}`}</span>
+                </div>
+              </div>
+            </div> */}
+
+            <div className="profile">
+              <div className="mt-5">
+                {/* <h2 className="h4 ml-3 mr-3 about-heading">About me</h2> */}
+                <h2 className="h4 ml-3 mr-3 heading">About me</h2>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext : null}`}</p>
+              </div>
+              <div className="mt-5">
+                {/* <h2 className="h4 ml-3 mr-3 motivation-heading">My motivatin for learning {`${state.profile ? state.profile.learnlangs : null}`}</h2> */}
+                <h2 className="h4 ml-3 mr-3 heading">My motivatin for learning {`${state.profile ? state.profile.learnlangs : null}`}</h2>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext2 : null}`}</p>
+              </div>
+              <div className="mt-5">
+                {/* <h2 className="h4 ml-3 mr-3 expectation-heading">My expectations for a lola-Tandem / meeting</h2> */}
+                <h2 className="h4 ml-3 mr-3 heading">My expectations for a lola-Tandem / meeting</h2>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext3 : null}`}</p>
+              </div>
+            </div>
           </div>
-
-          {/* Actual code to use to get the profile info */}
-          <ul>
-            <li>Name: {state.user ? state.user.name : null}</li>
-            <li>Gender: {state.profile ? state.profile.gender : null}</li>
-            <li>Location: {state.profile ? state.profile.location : null}</li>
-            {/* <li>Birthday: {state.profile ? state.profile.days + " " + state.profile.months + " " + state.profile.years : null}</li> */}
-            <li>Birthday: {state.profile ? state.profile.birthday : null}</li>
-            <li>
-              Native Languages: {state.profile ? state.profile.nativelang : null}
-            </li>
-            <li>
-              Languages Learning: {state.profile ? state.profile.learnlangs : null}
-
-            </li>
-            <li>Interests: {state.profile ? state.profile.interests : null}</li>
-            <li>About Text: {state.profile ? state.profile.freetext : null}</li>
-            <li>Photot: {state.profile ? state.profile.profileImg : null}</li>
-          </ul>
           <Link to='./editProfile'>
-              <button className='btn btn-outline-warning m-3'>Edit</button>
-           </Link>
-
+            <div className='d-flex justify-content-end'>
+              <button className='btn btn-primary m-3'>Edit</button>
+            </div>
+          </Link>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

@@ -23,14 +23,18 @@ function Dashboard() {
   return state.user ? (
     <div className='p-4'>
       <div>
-
-        <h1 className='text-center mb-5 text-light'>Welcome {`${state.user ? state.user.name : null}`}</h1>
-        {/* <img className="image" src="https://trello-attachments.s3.amazonaws.com/5f22b0c744d7080cde4bd7b8/5f50bf1029616c58694df4c4/d3f483afc05c2586c0673df0c73acdd7/hello-in-different-languages-word-cloud-illustration-id1194745913.jpeg" alt="hello" width="200px" /> */}
-
-        {/* <button className='btn btn-secondary' onClick={logOut}>Logout</button> */}
+        <h1 className='text-center mb-5 text-light'>
+          Welcome {`${state.user ? state.user.name : null}`}
+        </h1>
+        <Link className='nav-link navbarText' to='/matches'>
+          <button className='btn btn-warning btn-lg btn-block'>
+            Find a tandem partner
+          </button>
+        </Link>
+        <br/>
         <div className='row'>
           <div className='col-lg'>
-            <p className='p-5 ml-5 text'>
+            <p className='p-5 ml-5 text bg-light'>
               Thanks for using our site to help you on your language learning
               journey! If you're here, you want to chat with real people who
               live in your city, but are tired of boring conversations in your
@@ -38,10 +42,12 @@ function Dashboard() {
               With <i>Lola</i>, you'll be able to find language tandem partners
               based on your common interests, so you can have your language
               tandem while doing something you both love.
-              <br/><br/>
-              Let's get started! 
+              <br />
+              <br />
+              Let's get started!
+              <br />
+              <text className='signature'>J+H</text>
             </p>
-
           </div>
           <div className='col-lg'>
             <img
@@ -52,11 +58,6 @@ function Dashboard() {
             />
           </div>
         </div>
-
-        <Link className='nav-link navbarText' to='/matches'>                   
-        <button className='btn btn-warning btn-lg btn-block' >Find a tandem partner</button>
-                  </Link>
-
       </div>
     </div>
   ) : (

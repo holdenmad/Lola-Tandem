@@ -11,12 +11,12 @@ function NativeLanguages() {
     const nativeChanged = (value) => {
 
         console.log(value);
-        setNative({ lang: value })
+        setNative(value)
         const result = { target: { name: "nativelang", value } }
         handleProfileFormChange(result)
     }
     console.log(value);
-    const initialState = { lang: value };
+    const initialState = value;
     const [native, setNative] = useState(initialState)
 
     return (
@@ -26,11 +26,11 @@ function NativeLanguages() {
                     options={languages}
                     onChange={nativeChanged}
                     search
+                    multiple
                     placeholder="Native Language"
-                    className="select-search"
-                    value={native.lang}
+                    className="select-search select-search--multiple"
+                    value={native}
                     name="nativelang"
-                    selected={languages === languages.value ? true : false}
                     key={languages.value}
                 />
 

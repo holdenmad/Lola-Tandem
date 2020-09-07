@@ -8,6 +8,7 @@
 font-family: 'Kumbh Sans', sans-serif;
 }
 
+
 body {
   background-image: url('./assets/angulargradient.png'); 
   background-size: cover;
@@ -16,6 +17,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Dosis', sans-serif;
 }
+
 .small {
     width: 80px;
 }

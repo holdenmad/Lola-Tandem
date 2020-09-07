@@ -55,8 +55,6 @@ const AppContextProvider = ({ children }) => {
           }));
         });
 
-      console.log(requestOptions);
-
       // fetch profile on page load
       fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
         .then(res => res.json())

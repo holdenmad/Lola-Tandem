@@ -6,9 +6,10 @@ import { languages } from './data/languages';
 
 function NativeLanguages() {
     const { state, setState, handleProfileFormChange } = useContext(AppContext);
-    const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.nativelang ||
-        state.profile && state.profile.nativelang || null);
-    const nativeChanged = (value) => {
+    const [value, setValue] = useState((state.unsavedProfileState && state.unsavedProfileState.nativelang) ||
+        (state.profile && state.profile.nativelang) || null);
+    const learnChanged = (value) => {
+
         console.log(value);
         setNative({ lang: value })
         const result = { target: { name: "nativelang", value } }

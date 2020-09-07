@@ -1,14 +1,49 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from './Context/AppContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Nav } from 'react-bootstrap';
 
 function Header() {
-  const { logOut } = useContext(AppContext);
+  const { logOut, state, setState } = useContext(AppContext);
+
+  useEffect(() => {
+    if (!state.user) return;
+
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    console.log(state);
+    fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+      .then(res => res.json())
+      .then(profile =>
+        setState(previousState => ({ ...previousState, profile }))
+      );
+  }, []);
   return (
-    <div>
-      <nav className='navbar navbar-expand-sm navbar-light bg-primary'>
-        <Link className='navbar-brand' to='/dashboard'>
-          <span className='display-4 color'>lola</span>
+    <div className="navbarBG">
+      <Navbar className="mt-4">
+        <Navbar.Brand href="/dashboard"><span className='display-4 pr-5 logo'>Lola</span></Navbar.Brand>
+        <Navbar.Toggle />
+        <Nav className="mr-auto">
+          <Nav.Link href="/dashboard">Home</Nav.Link>
+          <Nav.Link href="/matches">Matches</Nav.Link>
+          <Nav.Link href="/messages">Messages</Nav.Link>
+          <Nav.Link href="/profile">Profile</Nav.Link>
+          <Nav.Link href="/settings">Settings</Nav.Link>
+        </Nav>
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+          <Nav.Link href="/profile">  {`${state.user ? state.user.name : null}`}</Nav.Link>
+          </Navbar.Text>
+          <Nav.Link onClick={logOut} href="/"><i class="fas fa-power-off"></i></Nav.Link>
+        </Navbar.Collapse>
+      </Navbar>
+
+      {/* <nav className='navbar navbar-expand-sm navbar-light navbarBG'>
+        <Link className='navbar-brand m-3 mr-5' to='/dashboard'>
+          <span className='display-4 color'>Lola</span>
         </Link>
         <button
           className='navbar-toggler'
@@ -61,7 +96,7 @@ function Header() {
             </div>
           </ul>
         </div>
-      </nav>
+      </nav> */}
     </div>
   );
 }

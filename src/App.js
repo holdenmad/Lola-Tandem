@@ -9,11 +9,14 @@ import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import EditProfile from './components/profile/EditProfile';
 import Matches from './components/Matches';
+import MatchedUserProfile from './components/MatchedUserProfile';
+import Messages from './components/Messages';
 
 // import UserProfileView from './components/profile/UserProfileView';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { AppContext } from './components/Context/AppContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const token = localStorage.getItem('x-auth-token');
 
@@ -60,6 +63,8 @@ function App() {
         <PrivateRoute exact path='/profile' component={Profile} />
         <PrivateRoute exact path='/editprofile' component={EditProfile} />
         <PrivateRoute exact path='/matches' component={Matches} />
+        <PrivateRoute exact path='/matchedUserProfile' component={MatchedUserProfile} />
+        <PrivateRoute exact path='/messages' component={Messages} />
         {/* <PrivateRoute exact path='/settings' component={Settings} /> */}
 
       </Switch>

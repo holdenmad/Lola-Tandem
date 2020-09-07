@@ -129,32 +129,22 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className='profile'>
-              <div className='mt-5'>
-                <h2 className='h4 ml-3 mr-3 about-heading'>About me</h2>
+            <div className="profile">
+              <div className="mt-5">
+                <h2 className="h5 ml-3 mr-3 about-heading">About me</h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">About me</h2> */}
-                <p className='pl-4 pr-5 pt-2 spacing'>{`${
-                  state.profile ? state.profile.freetext : null
-                }`}</p>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext : null}`}</p>
               </div>
-              <div className='mt-5'>
-                <h2 className='h4 ml-3 mr-3 motivation-heading'>
-                  My motivation for learning{' '}
-                  {`${state.profile ? state.profile.learnlangs : null}`}
-                </h2>
+              <div className="mt-5">
+                <h2 className="h5 ml-3 mr-3 motivation-heading">My motivatin for learning</h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">My motivatin for learning {`${state.profile ? state.profile.learnlangs : null}`}</h2> */}
-                <p className='pl-4 pr-5 pt-2 spacing'>{`${
-                  state.profile ? state.profile.freetext2 : null
-                }`}</p>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext2 : null}`}</p>
               </div>
-              <div className='mt-5'>
-                <h2 className='h4 ml-3 mr-3 expectation-heading'>
-                  My ideal tandem
-                </h2>
+              <div className="mt-5">
+                <h2 className="h5 ml-3 mr-3 expectation-heading">My expectations for a lola-Tandem / meeting</h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">My expectations for a lola-Tandem / meeting</h2> */}
-                <p className='pl-4 pr-5 pt-2 spacing'>{`${
-                  state.profile ? state.profile.freetext3 : null
-                }`}</p>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext3 : null}`}</p>
+
               </div>
             </div>
           </div>

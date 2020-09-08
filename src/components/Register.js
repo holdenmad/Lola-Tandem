@@ -24,6 +24,12 @@ const Register = () => {
 
   return  !state.isLoggedIn ? (
     <div>
+    <div className='text-light text-center m-5'>
+        <h1>
+          Welcome to <span className='logo display-3'>Lola</span>
+        </h1>
+        <div className='mediumtext'>a language tandem site</div>
+      </div>
       <div className='row mt-5'>
         <div className='col-md-6 m-auto'>
           <div className='card card-body bg-light'>
@@ -86,7 +92,7 @@ const Register = () => {
               </button>
             </form>
             <p className='lead mt-4'>
-              Have An Account? <Link to='/users/login'>Login</Link>
+              Have an account? <Link className="linkPurple" to='/users/login'>Login</Link>
             </p>
           </div>
         </div>

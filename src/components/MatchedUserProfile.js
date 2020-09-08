@@ -124,8 +124,8 @@ const MatchedUserProfile = () => {
             </div>
           </div>
           <div className='d-flex justify-content-between'>
-            <Link to='./matches' className='link'>
-              <i class='fas fa-arrow-left'></i> Check out more Lola-Matches
+            <Link to='/matches' className='link'>
+              <i class='fas fa-arrow-left'></i> Check out more matches
             </Link>
             <Message />
           </div>
@@ -133,7 +133,9 @@ const MatchedUserProfile = () => {
       </div>
     </div>
   ) : (
-    <h1>Loading...</h1>
+    <div className="text-center">
+    <h1 className="text-light">Loading...</h1>
+    </div>
   );
 };
 

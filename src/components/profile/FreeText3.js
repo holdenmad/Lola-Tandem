@@ -18,7 +18,7 @@ function FreeText3() {
     
     return (
         <div>
-            <label className="heading" htmlFor="freetext3">What expectations do you have for a lola-Tandem?</label>
+            <label className="heading" htmlFor="freetext3">What is your ideal tandem?</label>
             <textarea
                 className="form-control"
                 id="freetext3"
@@ -26,7 +26,7 @@ function FreeText3() {
                 onChange={setFreetext3}
                 rows="4"
                 cols="50"
-                placeholder="Your expectations"
+                placeholder="Your ideal tandem"
                 value={(state.unsavedProfileState && state.unsavedProfileState.freetext3) || (state.profile && state.profile.freetext3)}
                 onChange={handleProfileFormChange}
             >

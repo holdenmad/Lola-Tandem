@@ -19,7 +19,7 @@ function FreeText() {
     
     return (
         <div>
-            <label className="heading" htmlFor="freetext">Tell us something about you</label>
+            <label className="heading" htmlFor="freetext">Tell us something about yourself</label>
             <textarea
                 className="form-control"
                 id="freetext"

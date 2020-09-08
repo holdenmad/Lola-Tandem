@@ -1,33 +1,30 @@
 import React from 'react';
 import SelectSearch from 'react-select-search';
-import { cities } from './data/cities';
 
-function Location({val, set}) {
+
+function Dropdown({val, set, title, choices, placeholder}) {
     const changed = (value) => {
         console.log(value);
         set(value)
-        // const result = { target: { name: "location", value } };
-        // console.log("cityChanged");
-        // handleProfileFormChange(result)
     }
 
     return (
         <div>
-            <label className="heading">Location</label>
+            <label className="heading">{title}</label>
             <SelectSearch
-                options={cities}
+                options={choices}
                 search                
-                placeholder="Your location"
+                placeholder={placeholder}
                 className="select-search"
                 name="location"
                 value={val}
                 onChange={changed}
-                key={cities.value}
+                key={choices.value}
             />
 
         </div>
     );
 }
 
-export default Location;
+export default Dropdown;
 

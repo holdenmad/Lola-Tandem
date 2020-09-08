@@ -1,15 +1,15 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import SelectSearch from 'react-select-search';
 
-import Gender from './Gender';
 import Avatar from './Avatar';
 import Birthday from './Birthday';
 import FreeText from './FreeText';
 import Interests from './Interests';
 import Languages from './Languages';
-import Location from './Location';
+import Dropdown from './Dropdown';
 import { AppContext } from '../Context/AppContext';
+import { cities } from './data/cities';
+import { genders } from './data/genders';
 
 
 export default function EditProfile({ history, value, _id }) {
@@ -79,10 +79,10 @@ export default function EditProfile({ history, value, _id }) {
               <div className='profile mb-3'>
                 <div className='row mb-3'>
                   <div className='col-sm'>
-                    <Location val={location} set={setLocation} />
+                    <Dropdown val={location} set={setLocation} title="Location" choices={cities} placeholder="Your location" />
                   </div>
                   <div className='col-sm'>
-                    <Gender val={gender} set={setGender} />
+                    <Dropdown val={gender} set={setGender} title="Gender" choices={genders} placeholder="Your gender" />
                   </div>
                   <div className='col-sm'>
                     <Birthday val={birthday} set={setBirthday} />

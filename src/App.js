@@ -12,10 +12,8 @@ import Matches from './components/Matches';
 
 import About from './components/About';
 
-// import MatchedUserProfile from './components/MatchedUserProfile';
+import MatchedUserProfile from './components/MatchedUserProfile';
 import Messages from './components/Messages';
-
-// import UserProfileView from './components/profile/UserProfileView';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { AppContext } from './components/Context/AppContext';

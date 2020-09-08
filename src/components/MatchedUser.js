@@ -5,7 +5,6 @@ import { AppContext } from './Context/AppContext';
 
 const MatchedUser = ({ match: { user } }) => {
   const { state, setState } = useContext(AppContext);
- 
   useEffect(() => {
     if (!state.user) return;
 

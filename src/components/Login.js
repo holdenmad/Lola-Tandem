@@ -17,7 +17,7 @@ const Login = () => {
   };
 
   const handleSubmit = event => {
-    console.log(formState);
+    // console.log(formState);
     authenticate(event, formState, 'login');
     //redirect to dashboard on successful login
   };

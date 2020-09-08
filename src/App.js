@@ -48,7 +48,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 function App() {
   const { state } = useContext(AppContext);
   return (
-    <div className='App'>
+    <div className='App page-container'>
+    <div className="content-wrap">
       {state.isLoggedIn && <Header />}
       <Switch>
         <Route exact path='/'>
@@ -72,6 +73,7 @@ function App() {
         {/* <PrivateRoute exact path='/settings' component={Settings} /> */}
       </Switch>
       {state.isLoggedIn && <Footer />}
+      </div>
     </div>
   );
 }

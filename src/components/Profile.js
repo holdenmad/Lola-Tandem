@@ -45,7 +45,7 @@ const Profile = () => {
       {/* This is the bootstrap code with profile info */}
       <div className='Profile d-flex justify-content-center'>
         <div
-          className='card cardcolor shadow m-5'
+          className='card royalpurple border border-0 shadow m-5'
           style={{ width: '40rem' }}
         >
           <div className='card-body d-flex flex-row'>

@@ -26,7 +26,7 @@ const Register = () => {
     <div>
       <div className='row mt-5'>
         <div className='col-md-6 m-auto'>
-          <div className='card card-body cardcolor'>
+          <div className='card card-body bg-light'>
             <h1 className='text-center mb-3'>
               <i className='fas fa-user-plus'></i> Register
             </h1>
@@ -81,7 +81,7 @@ const Register = () => {
                 />
               </div>
 
-              <button type='submit' className='btn btn-success btn-block'>
+              <button type='submit' className='btn bg-orange btn-block'>
                 Register
               </button>
             </form>

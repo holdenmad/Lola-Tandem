@@ -74,7 +74,7 @@ const MatchedUser = ({ match: { user } }) => {
 
           <div className='Profile d-flex justify-content-center'>
             <div
-              className='card royalpurple border border-0 shadow m-3'
+              className='card royalpurple-bg border border-0 shadow m-3'
               style={{ width: '40rem' }}
             >
             <div className="">

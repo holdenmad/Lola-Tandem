@@ -31,9 +31,6 @@ const MatchedUser = ({ match: { user } }) => {
 
   return (
     <div className='d-flex justify-content-center '>
-      {/* have matched user id in appcontext?
-    last clicked user profile?
-    userid in url */}
       <Link
         onClick={handleClick}
         className='matchlink'
@@ -63,9 +60,10 @@ const MatchedUser = ({ match: { user } }) => {
 
           <div className='Profile d-flex justify-content-center'>
             <div
-              className='card cardcolor shadow m-3'
+              className='card royalpurple-bg border border-0 shadow m-3'
               style={{ width: '40rem' }}
             >
+            <div className="">
               <div className='card-body d-flex flex-row'>
                 <div className='flex-grow-1'>
                   <p className='card-title nameText text-light'>
@@ -129,6 +127,7 @@ const MatchedUser = ({ match: { user } }) => {
                     }`}</p>
                   </div>
                 </div>
+              </div>
               </div>
             </div>
           </div>

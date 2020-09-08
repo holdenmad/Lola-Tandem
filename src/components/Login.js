@@ -26,7 +26,7 @@ const Login = () => {
     <div>
       <div className='row mt-5'>
         <div className='col-md-6 m-auto'>
-          <div className='card card-body cardcolor'>
+          <div className='card card-body bg-light'>
             <h1 className='text-center mb-3'>
               <i className='fas fa-sign-in-alt'></i> Login
             </h1>
@@ -58,7 +58,7 @@ const Login = () => {
               <button
                 type='submit'
                 onClick={handleSubmit}
-                className='btn btn-success btn-block'
+                className='btn royalpurple-button btn-block'
               >
                 Login
               </button>

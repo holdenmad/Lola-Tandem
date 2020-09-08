@@ -59,6 +59,19 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 20px;
     padding: 20px;
     text-align: center;
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4rem; 
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 4rem; 
 }
 
 .navbarText {
@@ -77,6 +90,10 @@ h1, h2, h3, h4, h5, h6 {
 .text {
     line-height: 2;
     font-size: 20px;
+}
+.mediumtext {
+  line-height: 2;
+  font-size: 20px;
 }
 
 .logo {
@@ -311,15 +328,51 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
 }
 
-.royalpurple {
-  background-color: rbg(94, 42, 231);
+.royalpurple-button {
+  background-color: rgb(94, 42, 231);
+  color: white;
+}
+
+.royalpurple-button:hover {
+  background-image: linear-gradient(rgb(94, 42, 231), rgb(53, 7, 168));
+  color: white;
+}
+
+.royalpurple-bg {
+  background-color: rgb(94, 42, 231);
+}
+
+
+.bg-orange {
+  background-color: #eba040;
+  color: white;
+}
+
+.bg-orange:hover {
+  background-image: linear-gradient(#eba040, #d67e0a);
+  color: white;
+}
+
+.logout {
+  font-size: 1.3rem;
+  
+}
+
+.logout:hover {
+  font-size: 1.5rem;
+
 }
 
 .signature {
   font-size: 3rem;
   font-family: cursive;
-
 }
+
+.welcome-image {
+  width: 50%;
+  float: left;
+}
+
 .link{
   color: black;
   padding-left: 10px;

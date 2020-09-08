@@ -37,66 +37,10 @@ function Header() {
           <Navbar.Text>
           <Nav.Link className="text-light" href="/profile">  {`${state.user ? state.user.name : null}`}</Nav.Link>
           </Navbar.Text>
-          <Nav.Link onClick={logOut} href="/"><i className="fas fa-power-off strong-orange"></i></Nav.Link>
+          <Nav.Link onClick={logOut} href="/"><i className="fas fa-power-off strong-orange logout"></i></Nav.Link>
         </Navbar.Collapse>
       </Navbar>
 
-      {/* <nav className='navbar navbar-expand-sm navbar-light navbarBG'>
-        <Link className='navbar-brand m-3 mr-5' to='/dashboard'>
-          <span className='display-4 color'>Lola</span>
-        </Link>
-        <button
-          className='navbar-toggler'
-          type='button'
-          data-toggle='collapse'
-          data-target='#navbarNav'
-          aria-controls='navbarNav'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-        >
-          <span className='navbar-toggler-icon'></span>
-        </button>
-        <div className='collapse navbar-collapse ' id='navbarNav'>
-          <ul className='navbar-nav '>
-            <div className='d-flex'>
-              <div className='d-flex flex-row'>
-                <li className='nav-item active'>
-                  <Link className='nav-link navbarText' to='/dashboard'>
-                    Home <span className='sr-only'>(current)</span>
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link className='nav-link navbarText' to='/matches'>
-                    Matches
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link className='nav-link navbarText' to='/messages'>
-                    Messages
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link className='nav-link navbarText' to='/profile'>
-                    Profile
-                  </Link>
-                </li>
-              </div>
-              <div className='d-flex flex-row '>
-                <li className='nav-item'>
-                  <Link className='nav-link navbarText' to='/settings'>
-                    Settings
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link onClick={logOut} className='nav-link navbarText' to='/'>
-                    Logout
-                  </Link>
-                </li>
-              </div>
-            </div>
-          </ul>
-        </div>
-      </nav> */}
     </div>
   );
 }

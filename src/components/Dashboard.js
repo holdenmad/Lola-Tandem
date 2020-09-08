@@ -26,8 +26,8 @@ function Dashboard() {
         <h1 className='text-center mb-5 text-light'>
           Welcome {`${state.user ? state.user.name : null}`}
         </h1>
-        <Link className='nav-link navbarText' to='/matches'>
-          <button className='btn btn-warning btn-lg btn-block'>
+        <Link className='nav-link navbarText text-center' to='/matches'>
+          <button className='btn bg-orange btn-lg'>
             Find a tandem partner
           </button>
         </Link>

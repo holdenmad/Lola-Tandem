@@ -106,46 +106,11 @@ const AppContextProvider = ({ children }) => {
     setState(cleanInitialState);
   };
   //Update user
-  const updateProfile = async () => {
-    const change = { ...state.unsavedProfileState }
-    // if (state.unsavedProfileState.days) {
-    //   const bdStr = state.unsavedProfileState.days + " " + state.unsavedProfileState.months + " " + state.unsavedProfileState.years
-    //   const birthday = Date.parse(bdStr);
-    //   change.birthday = birthday;
-    // }
-    console.log("xxxxxxxxxxxxxxxxxxxxx");
-    if (state.unsavedProfileState.birthday) {
-      var DOB = state.unsavedProfileState.birthday;
-      var millisecondsBetweenDOBAnd1970 = Date.parse(DOB);
-      var millisecondsBetweenNowAnd1970 = Date.now();
-      var ageInMilliseconds = millisecondsBetweenNowAnd1970 - millisecondsBetweenDOBAnd1970;
-      var milliseconds = ageInMilliseconds;
-      var second = 1000;
-      var minute = second * 60;
-      var hour = minute * 60;
-      var day = hour * 24;
-      var month = day * 30;
-      var year = day * 365;
-      var years = Math.round(milliseconds / year);
-      var months = years * 12;
-      var days = years * 365;
-      var hours = Math.round(milliseconds / hour);
-      var seconds = Math.round(milliseconds / second);
-      function printResults() {
-        var message = "Age in Years : " + years +
-          "</br>Age in Months : " + months +
-          "</br>Age in Days : " + days +
-          "</br>Age in Hours : " + hours +
-          "</br>Age in Seconds : " + seconds +
-          "</br>Age in Milliseconds : " + milliseconds;
-          console.log(message)
-      }
-    }
-
+  const updateProfile = async (update) => {
     const requestOptions = {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(change)
+      body: JSON.stringify(update)
     };
     fetch(
       `http://localhost:5000/profiles/${state.user._id}`,
@@ -153,10 +118,7 @@ const AppContextProvider = ({ children }) => {
     )
       .then(function (res) {
         console.log(res);
-
-        const newState = { ...state, ...state.unsavedProfileState };
-        newState.unsavedProfileState = {};
-        console.log("**********************************************", newState);
+        const newState = { ...state, ...update };
         setState(newState);
       })
       .catch(function (err) {
@@ -167,27 +129,27 @@ const AppContextProvider = ({ children }) => {
 
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
   //Either push each checked item into an array to be put into the state, or change the handle to progressively update the unsavedProfile state to reflect each change
-  const handleProfileFormChange = e => {
-    // console.log('Test handleProfileFormChange', e.target.name, e.target.value);
+  // const handleProfileFormChange = e => {
+  //   // console.log('Test handleProfileFormChange', e.target.name, e.target.value);
     
-    const key = e.target.name;
-    const value = e.target.value;
-    console.log(key, value);
-    const newState = { ...state };
-    newState.unsavedProfileState = {
-      ...newState.unsavedProfileState,
-      [key]: value
-    };
-    console.log('Test handleProfileFormChange', ': ', key, e.target.value);
-    setState(newState);
-  };
+  //   const key = e.target.name;
+  //   const value = e.target.value;
+  //   console.log(key, value);
+  //   const newState = { ...state };
+  //   newState.unsavedProfileState = {
+  //     ...newState.unsavedProfileState,
+  //     [key]: value
+  //   };
+  //   console.log('Test handleProfileFormChange', ': ', key, e.target.value);
+  //   setState(newState);
+  // };
 
   return (
     <div>
       <AppContext.Provider
         value={{
           authenticate,
-          handleProfileFormChange,
+          // handleProfileFormChange,
           updateProfile,
           interests,
           logOut,

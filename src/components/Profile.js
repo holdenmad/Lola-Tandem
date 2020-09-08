@@ -111,7 +111,7 @@ const Profile = () => {
               <div className="mt-5">
                 <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">About me</h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">expectation me</h2> */}
-                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext : null}`}</p>
+                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext1 : null}`}</p>
               </div>
               <div className="mt-5">
                 <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">My motivation for learning</h2>

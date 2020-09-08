@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from './Context/AppContext';
+import calculateAge from './profile/utils/calculateAge';
 
 const MatchedUser = ({ match: { user } }) => {
   const { state, setState } = useContext(AppContext);
@@ -19,28 +20,13 @@ const MatchedUser = ({ match: { user } }) => {
       );
   }, []);
 
-  if (state.profile.birthday) {
-    var DOB = state.profile.birthday;
-    var millisecondsBetweenDOBAnd1970 = Date.parse(DOB);
-    var millisecondsBetweenNowAnd1970 = Date.now();
-    var ageInMilliseconds =
-      millisecondsBetweenNowAnd1970 - millisecondsBetweenDOBAnd1970;
-    var milliseconds = ageInMilliseconds;
-    var second = 1000;
-    var minute = second * 60;
-    var hour = minute * 60;
-    var day = hour * 24;
-    var month = day * 30;
-    var year = day * 365;
-    var years = Math.round(milliseconds / year);
-  }
 
 
   const matchId = user.userId;
   const handleClick = () => {
     console.log('heyyyy');
     setState({ ...state, matchId });
-    
+
   };
 
   return (
@@ -82,7 +68,7 @@ const MatchedUser = ({ match: { user } }) => {
                 <div className='flex-grow-1'>
                   <p className='card-title nameText text-light'>
                     {`${user ? user.name : null}`},{' '}
-                    <small>{user ? years : null} years old</small>
+                    <small>{user ? calculateAge(user.birthday) : null} years old</small>
                   </p>
                   <p className='card-text strong-orange'>
                     <i className='pr-2'>{`${user ? user.location : null}`},</i>

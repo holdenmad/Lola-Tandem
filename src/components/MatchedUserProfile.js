@@ -2,16 +2,16 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Message from './Message';
 import Message2 from './Message2';
-import { AppContext } from './Context/AppContext';
+import calculateAge from './profile/utils/calculateAge';
 
 const MatchedUserProfile = () => {
   // const { profile, setProfile } = useState();
   const { id } = useParams();
-  const { state, setState } = useContext(AppContext);
+  const  [matchedProfile, setMatchedProfile] = useState();
 
   useEffect(() => {
-    console.log(state.matchProfile);
-  }, [state.matchProfile]);
+    console.log(matchedProfile);
+  }, []);
 
   useEffect(() => {
     const requestOptions = {
@@ -20,27 +20,10 @@ const MatchedUserProfile = () => {
     };
     fetch(`http://localhost:5000/profiles/${id}`, requestOptions)
       .then(res => res.json())
-      .then(matchProfile => setState({ ...state, matchProfile }));
+      .then(matchProfile => setMatchedProfile( matchProfile ));
   }, []);
- 
 
-  if (state.matchProfile && state.matchProfile.birthday) {
-    var DOB = state.matchProfile.birthday;
-    var millisecondsBetweenDOBAnd1970 = Date.parse(DOB);
-    var millisecondsBetweenNowAnd1970 = Date.now();
-    var ageInMilliseconds =
-      millisecondsBetweenNowAnd1970 - millisecondsBetweenDOBAnd1970;
-    var milliseconds = ageInMilliseconds;
-    var second = 1000;
-    var minute = second * 60;
-    var hour = minute * 60;
-    var day = hour * 24;
-    var month = day * 30;
-    var year = day * 365;
-    var years = Math.round(milliseconds / year);
-  }
-
-  return state.matchProfile ? (
+  return matchedProfile ? (
     <div>
       {/* This is the bootstrap code with profile info */}
       <div className='Profile d-flex justify-content-center'>
@@ -54,24 +37,24 @@ const MatchedUserProfile = () => {
           <div className='card-body d-flex flex-row'>
             <div className='flex-grow-1'>
               <p className='card-title nameText text-light'>
-                {`${state.matchProfile ? state.matchProfile.name : null}`},{' '}
-                <small>{state.matchProfile ? years : null} years old</small>
+                {`${matchedProfile ? matchedProfile.name : null}`},{' '}
+                <small>{matchedProfile ? calculateAge(matchedProfile.birthday) : null} years old</small>
               </p>
               <p className='card-text strong-orange'>
                 <i className='pr-2'>
-                  {`${state.matchProfile ? state.matchProfile.location : null}`}
+                  {`${matchedProfile ? matchedProfile.location : null}`}
                   ,
                 </i>
                 <i>{`${
-                  state.matchProfile ? state.matchProfile.gender : null
+                  matchedProfile ? matchedProfile.gender : null
                 }`}</i>
               </p>
             </div>
             <div className='justify-content-end'>
               <img
-                src={`${state.matchProfile.profileImg}`}
+                src={`${matchedProfile.profileImg}`}
                 className='card-img-top '
-                alt={`${state.matchProfile.name}`}
+                alt={`${matchedProfile.name}`}
               />
             </div>
           </div>
@@ -83,7 +66,7 @@ const MatchedUserProfile = () => {
                 <div className='box2 sb2'>
                   ...learning
                   <span className='font-weight-bold pl-1'>{`${
-                    state.matchProfile ? state.matchProfile.learnlangs : null
+                    matchedProfile ? matchedProfile.learnlangs : null
                   }`}</span>
                 </div>
               </div>
@@ -91,7 +74,7 @@ const MatchedUserProfile = () => {
                 <div className='box1 sb1 mr-5'>
                   ...native in
                   <span className='font-weight-bold pl-1'>{` ${
-                    state.matchProfile ? state.matchProfile.nativelang : null
+                    matchedProfile ? matchedProfile.nativelang : null
                   }`}</span>
                 </div>
                 <h2 className='d-flex justify-content-start pt-3 iam'>
@@ -101,7 +84,7 @@ const MatchedUserProfile = () => {
               <div className='box3 sb3'>
                 ...interested in
                 <span className='font-weight-bold pl-1'>{`${
-                  state.matchProfile ? state.matchProfile.interests : null
+                  matchedProfile ? matchedProfile.interests : null
                 }`}</span>
               </div>
             </div>
@@ -112,16 +95,16 @@ const MatchedUserProfile = () => {
                 </h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">expectation me</h2> */}
                 <p className='pl-4 pr-5 pt-2 spacing'>{`${
-                  state.matchProfile ? state.matchProfile.freetext : null
+                  matchedProfile ? matchedProfile.freetext1 : null
                 }`}</p>
               </div>
               <div className='mt-5'>
                 <h2 className='h5 ml-3 mr-3 pr-2 pt-2 expectation-heading'>
                   My motivation for learning
                 </h2>
-                {/* <h2 className="h4 ml-3 mr-3 heading">My motivatin for learning {`${state.matchProfile ? state.matchProfile.learnlangs : null}`}</h2> */}
+                {/* <h2 className="h4 ml-3 mr-3 heading">My motivatin for learning {`${matchedProfile ? matchedProfile.learnlangs : null}`}</h2> */}
                 <p className='pl-4 pr-5 pt-2 spacing'>{`${
-                  state.matchProfile ? state.matchProfile.freetext2 : null
+                  matchedProfile ? matchedProfile.freetext2 : null
                 }`}</p>
               </div>
               <div className='mt-5'>
@@ -130,7 +113,7 @@ const MatchedUserProfile = () => {
                 </h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">My expectations for a lola-Tandem / meeting</h2> */}
                 <p className='pl-4 pr-5 pt-2 spacing'>{`${
-                  state.matchProfile ? state.matchProfile.freetext3 : null
+                  matchedProfile ? matchedProfile.freetext3 : null
                 }`}</p>
               </div>
             </div>
@@ -141,8 +124,8 @@ const MatchedUserProfile = () => {
             </div>
           </div>
           <div className='d-flex justify-content-between'>
-            <Link to='./matches' className='link'>
-              <i class='fas fa-arrow-left'></i> Check out more Lola-Matches
+            <Link to='/matches' className='link'>
+              <i class='fas fa-arrow-left'></i> Check out more matches
             </Link>
             <Message />
           </div>
@@ -150,7 +133,9 @@ const MatchedUserProfile = () => {
       </div>
     </div>
   ) : (
-    <h1>Loading...</h1>
+    <div className="text-center">
+    <h1 className="text-light">Loading...</h1>
+    </div>
   );
 };
 

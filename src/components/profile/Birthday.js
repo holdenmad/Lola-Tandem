@@ -1,26 +1,17 @@
-import React, { useState, useContext } from 'react';
-import { DatePicker } from 'react-rainbow-components';
+import React from 'react';
 import 'react-datepicker/dist/react-datepicker.css'
-import { AppContext } from "../Context/AppContext";
-
+import { DatePicker } from 'react-rainbow-components';
 
 const containerStyles = {
     maxWidth: 200,
 };
 
-function Birthday() {
-    const { state, setState, handleProfileFormChange } = useContext(AppContext);
-    const [value, setValue] = useState((state.unsavedProfileState && state.unsavedProfileState.birthday) ||
-        (state.profile && state.profile.birthday) || null);
-    const dateChanged = (value) => {
+function Birthday({val, set}) {
+    const changed = (value) => {
         console.log(value);
-        setBDate({ date: value })
-        const result = { target: { name: "birthday", value } }
-        handleProfileFormChange(result)
+        set(value)
     }
-    console.log(value);
-    const initialState = { date: value };
-    const [bDate, setBDate] = useState(initialState)
+
     return (
         <div>
             <label className="heading">Date of Birth</label>
@@ -29,10 +20,10 @@ function Birthday() {
                 style={containerStyles}
             >
                 <DatePicker
-                    value={bDate.date}
+                    value={val}
                     minDate={new Date(1900, 0, 4)}
                     maxDate={new Date(2020, 9, 1)}
-                    onChange={dateChanged}
+                    onChange={changed}
                 />
             </div>
         </div>

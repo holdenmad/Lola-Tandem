@@ -1,21 +1,19 @@
-import React, { useContext, useState } from 'react';
-import { AppContext } from '../Context/AppContext';
+import React from 'react';
+import SelectSearch from 'react-select-search';
 import FileUpload from './utils/FileUpload';
 
-function Avatar() {
-  const { state, handleProfileFormChange } = useContext(AppContext);
-  // const [value, setValue] = useState(
-  //   (state.unsavedProfileState && state.unsavedProfileState.profileImg) ||
-  //     (state.profile && state.profile.profileImg) ||
-  //     null
-  // );
+function Avatar({val, set}) {
+  const changed = (value) => {
+    console.log(value);
+    set(value)
+}
 
   return (
     <div>
       <div className='form-group text-light'>
         <label className='heading text-light'>Profile Photo</label> <br />
         <img src='{state.user.profileImg}' alt='profile-photo' width='100px' />
-        <FileUpload />
+        {/* <FileUpload /> */}
       </div>
     </div>
   );

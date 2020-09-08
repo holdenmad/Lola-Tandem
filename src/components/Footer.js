@@ -7,7 +7,7 @@ function Footer() {
     <Navbar className='footer d-flex justify-content-between'>
       <span className="text-black-50">©Copyright J+H</span>
       <a href='https://github.com/juliamj/Lola-client'>
-        <i class='fab fa-github text-black-50'></i>
+        <i className='fab fa-github text-black-50'></i>
       </a>
       <Link className="text-black-50" to='/about'>About Us</Link>
     </Navbar>

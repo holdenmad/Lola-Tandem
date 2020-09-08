@@ -161,6 +161,7 @@ const AppContextProvider = ({ children }) => {
         console.log(err);
       });
   };
+ 
 
   //do we need useEffect with [state.profile] and [state.user] here like in Julia's code?
   //Either push each checked item into an array to be put into the state, or change the handle to progressively update the unsavedProfile state to reflect each change

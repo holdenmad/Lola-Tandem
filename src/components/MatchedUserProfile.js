@@ -4,7 +4,7 @@ import Message from './Message';
 import Message2 from './Message2';
 
 const MatchedUserProfile = ({userId}) => {
-    const { profile, setProfile } = useState();
+    // const { profile, setProfile } = useState();
   
     useEffect(() => {
       if (!userId) return;

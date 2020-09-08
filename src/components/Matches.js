@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import MatchedUser from './MatchedUser';
+// import MatchedUser from './MatchedUser';
 
 import { AppContext } from './Context/AppContext';
 
@@ -31,7 +31,7 @@ const Matches = () => {
       <div>
         {matches.map(match => (
           <div className='m-4'>
-            <MatchedUser key={match.user._id} match={match} />
+            {/* <MatchedUser key={match.user._id} match={match} /> */}
           </div>
         ))}
       </div>

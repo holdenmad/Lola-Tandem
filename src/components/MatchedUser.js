@@ -38,7 +38,7 @@ const MatchedUser = ({ match: { user } }) => {
   // console.log(user.nativelang)
   return (
     <div className='d-flex justify-content-center '>
-      <Link className="matchlink" to='/matchedUserProfile'>
+      {/* <Link className="matchlink" to='/matchedUserProfile'> */}
       <div>
         {/* This is the bootstrap code with profile info */}
 

@@ -5,36 +5,27 @@ import SelectSearch from 'react-select-search';
 import Gender from './Gender';
 import Avatar from './Avatar';
 import Birthday from './Birthday';
-// import BdayOld from './BdayOld';
 import FreeText from './FreeText';
-import FreeText2 from './FreeText2';
-import FreeText3 from './FreeText3';
-// import FreetextTest from './FreetextTest';
 import Interests from './Interests';
-import NativeLanguages from './NativeLang';
-import LearningLanguages from './LearnLang';
+import Languages from './Languages';
 import Location from './Location';
 import { AppContext } from '../Context/AppContext';
 
-// import { accountService, alertService } from "@/_services";
 
 export default function EditProfile({ history, value, _id }) {
   const { state, setState, updateProfile } = useContext(AppContext);
-  //   const user = accountService.userValue;
-  const initialValue = {
-    Avatar: '',
-    Gender: '',
-    Birthday: '',
-    FreeText: '',
-    FreeText2: '',
-    FreeText3: '',
-    // FreetextTest: '',
-    Location: '',
-    NativeLanguages: '',
-    LearningLanguages: '',
-    Interests: ''
-  };
-  const [formState, setFormState] = useState(initialValue);
+
+  const [avatar, setAvatar] = useState(state.profile && state.profile.avatar || null);
+  const [location, setLocation] = useState(state.profile && state.profile.location || null);
+  const [gender, setGender] = useState(state.profile && state.profile.gender || null);
+  const [birthday, setBirthday] = useState(state.profile && state.profile.birthday || null);
+  const [nativelang, setNativelang] = useState(state.profile && state.profile.nativelang || []);
+  const [learnlangs, setLearnlangs] = useState(state.profile && state.profile.learnlangs || []);
+  const [interests, setInterests] = useState(state.profile && state.profile.interests || []);
+  const [freetext1, setFreetext1] = useState(state.profile && state.profile.freetext1 || null);
+  const [freetext2, setFreetext2] = useState(state.profile && state.profile.freetext2 || null);
+  const [freetext3, setFreetext3] = useState(state.profile && state.profile.freetext3 || null);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async event => {
@@ -42,7 +33,19 @@ export default function EditProfile({ history, value, _id }) {
     setIsSubmitting(true);
     try {
       console.log("ssssssssssssssssssssssssssssssssssssssss");
-      await updateProfile();
+      const update = {
+        avatar,
+        location,
+        gender,
+        birthday,
+        nativelang,
+        learnlangs,
+        interests,
+        freetext1,
+        freetext2,
+        freetext3
+      };
+      await updateProfile(update);
     } catch (error) {
       console.error(error);
     } finally {
@@ -63,7 +66,7 @@ export default function EditProfile({ history, value, _id }) {
               </div>
 
               <div className='justify-content-end'>
-                <Avatar />
+                <Avatar val={avatar} set={setAvatar} />
               </div>
             </div>
 
@@ -71,47 +74,47 @@ export default function EditProfile({ history, value, _id }) {
               <div className='profile mb-3'>
                 <div className='row mb-3'>
                   <div className='col-sm'>
-                    <Location />
+                    <Location val={location} set={setLocation} />
                   </div>
                   <div className='col-sm'>
-                    <Gender />
+                    <Gender val={gender} set={setGender} />
                   </div>
                   <div className='col-sm'>
-                    <Birthday />
+                    <Birthday val={birthday} set={setBirthday} />
                   </div>
                 </div>
                 <div className='row mb-3'>
                   <div className='col-sm'>
-                    <NativeLanguages />
+                    <Languages val={nativelang} set={setNativelang} title="Native Languages" />
                   </div>
                   <div className='col-sm'>
-                    <LearningLanguages />
+                    <Languages val={learnlangs} set={setLearnlangs} title="Learning Languages" />
                   </div>
                 </div>
 
                 <div className='row mb-3'>
                   <div className='col-sm'>
-                    <Interests />
+                    <Interests val={interests} set={setInterests} />
                   </div>
                   <div className='col-sm'></div>
                 </div>
-                <FreeText value={formState.freetext} />
-                <FreeText2 value={formState.freetext2} />
-                <FreeText3 value={formState.freetext3} />
+                <FreeText val={freetext1} set={setFreetext1} title="About you1" />
+                <FreeText val={freetext2} set={setFreetext2} title="About you2" />
+                <FreeText val={freetext3} set={setFreetext3} title="About you3" />
               </div>
             </div>
 
             <div className='form-group d-flex justify-content-end bg-light'>
 
-                <button
-                  type='submit'
-                  disabled={isSubmitting}
-                  className='btn btn-outline-success mr-2 '
-                >
-                      {/* <Link className='bg-light' to='./profile'> */}
-                  {isSubmitting && (
-                    <span className='spinner-border spinner-border-sm mr-1 bg-light'></span>
-                  )}{' '}
+              <button
+                type='submit'
+                disabled={isSubmitting}
+                className='btn btn-outline-success mr-2 '
+              >
+                {/* <Link className='bg-light' to='./profile'> */}
+                {isSubmitting && (
+                  <span className='spinner-border spinner-border-sm mr-1 bg-light'></span>
+                )}{' '}
                   Update
                 </button>
             </div>

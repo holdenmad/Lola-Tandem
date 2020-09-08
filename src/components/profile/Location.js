@@ -3,33 +3,38 @@ import { AppContext } from "../Context/AppContext";
 import SelectSearch from 'react-select-search';
 import { cities } from './data/cities';
 
-
 function Location() {
     const { state, setState, handleProfileFormChange } = useContext(AppContext);
-    const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.location ||
-        state.profile && state.profile.location || null);
+    const [value, setValue] = useState(
+        state.unsavedProfileState && state.unsavedProfileState.location ||
+        state.profile && state.profile.location || 
+        null
+        );
     const cityChanged = (value) => {
         console.log(value);
-        setLocation({ city: value })
-        const result = { target: { name: "location", value } }
+        setLocation1(value)
+        const result = { target: { name: "location", value } };
+        console.log("cityChanged");
         handleProfileFormChange(result)
     }
     console.log(value);
-    const initialState = { city: value };
-    const [location, setLocation] = useState(initialState)
+    console.log(state);
+    const initialState = value;
+    const [location1, setLocation1] = useState(initialState)
 
     return (
         <div>
             <label className="heading">Location</label>
             <SelectSearch
                 options={cities}
-                onChange={cityChanged}
                 search
+                
                 placeholder="Your location"
                 className="select-search"
-                value={location.city}
-                name="learnlangs"
+                name="location"
+                value={location1}
                 selected={cities === cities.value ? true : false}
+                onChange={cityChanged}
                 key={cities.value}
             />
 

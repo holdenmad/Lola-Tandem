@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const About = () => {
+  
   return (
     <div>
       <h2>About Lola</h2>
@@ -37,6 +38,7 @@ const About = () => {
           </a>
         </div>
       </Container>
+      {/* {!state.isLoggedIn && <Link to="/"><button className="">Back to Welcome Page</button></Link>} */}
     </div>
   );
 };

@@ -41,9 +41,10 @@ export default function EditProfile({ history, value, _id }) {
     event.preventDefault();
     setIsSubmitting(true);
     try {
+      console.log("ssssssssssssssssssssssssssssssssssssssss");
       await updateProfile();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -101,18 +102,18 @@ export default function EditProfile({ history, value, _id }) {
             </div>
 
             <div className='form-group d-flex justify-content-end bg-light'>
-              <Link className='bg-light' to='./profile'>
                 <button
                   type='submit'
                   disabled={isSubmitting}
                   className='btn btn-outline-success mr-2 '
                 >
+                      {/* <Link className='bg-light' to='./profile'> */}
                   {isSubmitting && (
                     <span className='spinner-border spinner-border-sm mr-1 bg-light'></span>
                   )}{' '}
                   Update
+              {/* </Link> */}
                 </button>
-              </Link>
             </div>
           </div>
         </div>

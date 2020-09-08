@@ -6,31 +6,33 @@ function FreeText() {
     const [value, setValue] = useState(state.unsavedProfileState && state.unsavedProfileState.freetext ||
         state.profile && state.profile.freetext || null);
     
-        const textChanged = (value) => {
-        console.log(value);
-        setFreetext({ city: value })
-        const result = { target: { name: "freetext", value } }
+        const textChanged = (e) => {
+        const val = e.target.value
+            console.log(val);
+        setFreetext(val)
+        const result = { target: { name: "freetext", val } };
         handleProfileFormChange(result)
     }
     console.log(value);
-    const initialState = { city: value };
+    const initialState = value;
     const [freetext, setFreetext] = useState(initialState)
     
     return (
         <div>
             <label className="heading" htmlFor="freetext">Tell us something about you</label>
-            <textarea
+            <input
                 className="form-control"
                 id="freetext"
                 name="freetext"
-                onChange={setFreetext}
+                type="text"
                 rows="4"
                 cols="50"
                 placeholder="About you"
-                value={(state.unsavedProfileState && state.unsavedProfileState.freetext) || (state.profile && state.profile.freetext)}
-                onChange={handleProfileFormChange}
+                value={freetext}
+                onChange={textChanged}
             >
-            </textarea>
+                {freetext}
+            </input>
         </div>
     );
 }

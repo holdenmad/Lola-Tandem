@@ -41,9 +41,31 @@ const MatchedUser = ({ match: { user } }) => {
       <Link className="matchlink" to='/matchedUserProfile'>
       <div>
         {/* This is the bootstrap code with profile info */}
+
+{/* '        <div className="profile">
+              <div class="row mt-4">
+                <div class="col-5">
+                  <h2 className="d-flex justify-content-end pt-3 iam">I am...</h2>
+                </div>
+                <div class="col-7">
+                  <div class="spacing">
+                    ...native in<span className="font-weight-bold pl-1">{` ${state.profile ? state.profile.nativelang : null}`}</span>
+                  </div>
+                  <div class="spacing">
+                    ...learning<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.learnlangs : null}`}</span>
+                  </div>
+                  <div class="spacing">
+                    ...interested in<span className="font-weight-bold pl-1">{`${state.profile ? state.profile.interests : null}`}</span>
+                  </div>
+                </div>
+              </div>
+            </div>' */}
+
+
+
         <div className='Profile d-flex justify-content-center'>
           <div
-            className='card cardcolor shadow m-5'
+            className='card cardcolor shadow m-3'
             style={{ width: '40rem' }}
           >
             <div className='card-body d-flex flex-row'>

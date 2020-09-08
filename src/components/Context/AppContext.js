@@ -113,6 +113,7 @@ const AppContextProvider = ({ children }) => {
     //   const birthday = Date.parse(bdStr);
     //   change.birthday = birthday;
     // }
+    console.log("xxxxxxxxxxxxxxxxxxxxx");
     if (state.unsavedProfileState.birthday) {
       var DOB = state.unsavedProfileState.birthday;
       var millisecondsBetweenDOBAnd1970 = Date.parse(DOB);
@@ -146,7 +147,7 @@ const AppContextProvider = ({ children }) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(change)
     };
-    await fetch(
+    fetch(
       `http://localhost:5000/profiles/${state.user._id}`,
       requestOptions
     )
@@ -155,6 +156,7 @@ const AppContextProvider = ({ children }) => {
 
         const newState = { ...state, ...state.unsavedProfileState };
         newState.unsavedProfileState = {};
+        console.log("**********************************************", newState);
         setState(newState);
       })
       .catch(function (err) {
@@ -166,11 +168,14 @@ const AppContextProvider = ({ children }) => {
   //Either push each checked item into an array to be put into the state, or change the handle to progressively update the unsavedProfile state to reflect each change
   const handleProfileFormChange = e => {
     // console.log('Test handleProfileFormChange', e.target.name, e.target.value);
+    
     const key = e.target.name;
+    const value = e.target.value;
+    console.log(key, value);
     const newState = { ...state };
     newState.unsavedProfileState = {
       ...newState.unsavedProfileState,
-      [key]: e.target.value
+      [key]: value
     };
     console.log('Test handleProfileFormChange', ': ', key, e.target.value);
     setState(newState);

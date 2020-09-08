@@ -102,6 +102,7 @@ export default function EditProfile({ history, value, _id }) {
             </div>
 
             <div className='form-group d-flex justify-content-end bg-light'>
+
                 <button
                   type='submit'
                   disabled={isSubmitting}
@@ -112,7 +113,6 @@ export default function EditProfile({ history, value, _id }) {
                     <span className='spinner-border spinner-border-sm mr-1 bg-light'></span>
                   )}{' '}
                   Update
-              {/* </Link> */}
                 </button>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { AppContext } from './Context/AppContext';
 
 const MatchedUser = ({ match: { user } }) => {
   const { state, setState } = useContext(AppContext);
-  
+ 
   useEffect(() => {
     if (!state.user) return;
 
@@ -35,7 +35,7 @@ const MatchedUser = ({ match: { user } }) => {
     var year = day * 365;
     var years = Math.round(milliseconds / year);
   }
-
+  // console.log(user.nativelang)
   return (
     <div className='d-flex justify-content-center '>
       <Link className="matchlink" to='/matchedUserProfile'>
@@ -71,21 +71,21 @@ const MatchedUser = ({ match: { user } }) => {
             <div className='card-body d-flex flex-row'>
               <div className='flex-grow-1'>
                 <p className='card-title nameText text-light'>
-                  {`${state.user ? state.user.name : null}`},{' '}
-                  <small>{state.profile ? years : null} years old</small>
+                  {`${user ? user.name : null}`},{' '}
+                  <small>{user ? years : null} years old</small>
                 </p>
                 <p className='card-text strong-orange'>
                   <i className='pr-2'>
-                    {`${state.profile ? state.profile.location : null}`},
+                    {`${user ? user.location : null}`},
                   </i>
-                  <i>{`${state.profile ? state.profile.gender : null}`}</i>
+                  <i>{`${user ? user.gender : null}`}</i>
                 </p>
               </div>
               <div className='justify-content-end'>
                 <img
-                  src={`${state.profile.profileImg}`}
+                  src={`${user.profileImg}`}
                   className='card-img-top '
-                  alt={`${state.user.name}`}
+                  alt={`${user.name}`}
                 />
               </div>
             </div>  
@@ -98,7 +98,7 @@ const MatchedUser = ({ match: { user } }) => {
                   <div className='box2 sb2'>
                     ...learning  
                       <span className='font-weight-bold pl-1'>{`${
-                      state.profile ? state.profile.learnlangs : null
+                      user ? user.learnlangs : null
                       }`}</span>
                   </div>
                 </div>  
@@ -106,26 +106,26 @@ const MatchedUser = ({ match: { user } }) => {
                   <div className='box1 sb1 mr-5'>
                     ...native in  
                       <span className='font-weight-bold pl-1'>{` ${
-                      state.profile ? state.profile.nativelang : null
+                      user ? user.nativelang : null
                       }`}</span>  
                   </div>                
                   <h2 className='d-flex justify-content-start pt-3 iam'>
-                  {`${state.user ? state.user.name : null}`} is...
+                  {`${user ? user.name : null}`} is...
                       </h2>
                 </div>
                 <div className='box3 sb3'>
                   ...interested in
   
                     <span className='font-weight-bold pl-1'>{`${
-                    state.profile ? state.profile.interests : null
+                    user ? user.interests : null
                     }`}</span>
                 </div>
               </div>  
               <div className="profile">
                 <div className="mt-5">
-                  <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">Read more about {`${state.user ? state.user.name : null}`}</h2>
+                  <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">Read more about {`${user ? user.name : null}`}</h2>
                   {/* <h2 className="h4 ml-3 mr-3 heading">expectation me</h2> */}
-                  <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext : null}`}</p>
+                  <p className="pl-4 pr-5 pt-2 spacing">{`${user ? user.freetext : null}`}</p>
                 </div>
               </div>            
    

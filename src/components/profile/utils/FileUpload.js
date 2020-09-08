@@ -6,18 +6,18 @@ const FileUpload = () => {
   const { state, setState, handleProfileFormChange } = useContext(AppContext);
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState();
-  //fetch request from server for multer logic
-  //   useEffect(() => {
-  //     const requestOptions = {
-  //       method: 'GET',
-  //       headers: { 'Content-Type': 'application/json' }
-  //     };
-  //     fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
-  //       .then(res => res.json())
-  //       .then(profile =>
-  //         setState(previousState => ({ ...previousState, profile }))
-  //       );
-  //   }, []);
+  // fetch request from server for multer logic
+    useEffect(() => {
+      const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      };
+      fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+        .then(res => res.json())
+        .then(profile =>
+          setState(previousState => ({ ...previousState, profile }))
+        );
+    }, []);
 
   const onFileChange = e => {
     setFile(e.target.files[0]);

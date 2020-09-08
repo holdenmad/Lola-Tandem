@@ -14,7 +14,7 @@ function Header() {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    console.log(state);
+    
     fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
       .then(res => res.json())
       .then(profile =>
@@ -37,7 +37,7 @@ function Header() {
           <Navbar.Text>
           <Nav.Link className="text-light" href="/profile">  {`${state.user ? state.user.name : null}`}</Nav.Link>
           </Navbar.Text>
-          <Nav.Link onClick={logOut} href="/"><i class="fas fa-power-off strong-orange"></i></Nav.Link>
+          <Nav.Link onClick={logOut} href="/"><i className="fas fa-power-off strong-orange"></i></Nav.Link>
         </Navbar.Collapse>
       </Navbar>
 

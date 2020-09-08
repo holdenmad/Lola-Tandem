@@ -101,7 +101,7 @@ export default function EditProfile({ history, value, _id }) {
             </div>
 
             <div className='form-group d-flex justify-content-end bg-light'>
-              <Link className='bg-light' to='./profile'>
+              <Link className='bg-light form-group d-flex justify-content-end mr-3' to='./profile'>
                 <button
                   type='submit'
                   disabled={isSubmitting}

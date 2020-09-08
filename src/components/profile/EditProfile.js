@@ -103,9 +103,9 @@ export default function EditProfile({ history, value, _id }) {
                   </div>
                   <div className='col-sm'></div>
                 </div>
-                <FreeText val={freetext1} set={setFreetext1} title="About you1" />
-                <FreeText val={freetext2} set={setFreetext2} title="About you2" />
-                <FreeText val={freetext3} set={setFreetext3} title="About you3" />
+                <FreeText val={freetext1} set={setFreetext1} title="Tell us something about you" />
+                <FreeText val={freetext2} set={setFreetext2} title="What is your motivation for learning the language?" />
+                <FreeText val={freetext3} set={setFreetext3} title="What expectations do you have for a lola-Tandem?" />
               </div>
             </div>
 

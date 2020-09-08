@@ -1,23 +1,22 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { AppContext } from './Context/AppContext';
 import Message from './Message';
 import Message2 from './Message2';
 
-const MatchedUserProfile = () => {
-    const { state, setState } = useContext(AppContext);
+const MatchedUserProfile = ({userId}) => {
+    const { profile, setProfile } = useState();
   
     useEffect(() => {
-      if (!state.user) return;
+      if (!userId) return;
   
       const requestOptions = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       };
-      fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+      fetch(`http://localhost:5000/profiles/${userId}`, requestOptions)
         .then(res => res.json())
         .then(profile =>
-          setState(previousState => ({ ...previousState, profile }))
+          setState(profile)
         );
     }, []);
   

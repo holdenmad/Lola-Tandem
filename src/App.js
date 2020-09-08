@@ -65,7 +65,7 @@ function App() {
         <PrivateRoute exact path='/profile' component={Profile} />
         <PrivateRoute exact path='/editprofile' component={EditProfile} />
         <PrivateRoute exact path='/matches' component={Matches} />
-        {/* <PrivateRoute exact path='/matchedUserProfile' component={MatchedUserProfile}/> */}
+        <PrivateRoute exact path='/matchedUserProfile/:id' component={MatchedUserProfile}/>
         <PrivateRoute exact path='/messages' component={Messages} />
         <PrivateRoute exact path='/About' component={About} />
 

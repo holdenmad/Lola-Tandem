@@ -53,6 +53,11 @@ export default function EditProfile({ history, value, _id }) {
     }
   };
 
+  //useRef???
+  //use state within small components
+  //then grab is out of the component when the form is submitting
+  //have the form edit its own state
+
   return (
     <div className='d-flex justify-content-center'>
       <form onSubmit={handleSubmit}>

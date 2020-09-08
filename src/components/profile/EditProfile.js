@@ -41,7 +41,7 @@ export default function EditProfile({ history, value, _id }) {
     event.preventDefault();
     setIsSubmitting(true);
     try {
-      console.log("ssssssssssssssssssssssssssssssssssssssss");
+      console.log('ssssssssssssssssssssssssssssssssssssssss');
       await updateProfile();
     } catch (error) {
       console.error(error);
@@ -49,6 +49,11 @@ export default function EditProfile({ history, value, _id }) {
       setIsSubmitting(false);
     }
   };
+
+  //useRef???
+  //use state within small components
+  //then grab is out of the component when the form is submitting
+  //have the form edit its own state
 
   return (
     <div className='d-flex justify-content-center'>
@@ -95,6 +100,7 @@ export default function EditProfile({ history, value, _id }) {
                   </div>
                   <div className='col-sm'></div>
                 </div>
+
                 <FreeText value={formState.freetext} />
                 <FreeText2 value={formState.freetext2} />
                 <FreeText3 value={formState.freetext3} />
@@ -102,18 +108,17 @@ export default function EditProfile({ history, value, _id }) {
             </div>
 
             <div className='form-group d-flex justify-content-end bg-light'>
-
-                <button
-                  type='submit'
-                  disabled={isSubmitting}
-                  className='btn btn-outline-success mr-2 '
-                >
-                      {/* <Link className='bg-light' to='./profile'> */}
-                  {isSubmitting && (
-                    <span className='spinner-border spinner-border-sm mr-1 bg-light'></span>
-                  )}{' '}
-                  Update
-                </button>
+              <button
+                type='submit'
+                disabled={isSubmitting}
+                className='btn btn-outline-success mr-2 '
+              >
+                {/* <Link className='bg-light' to='./profile'> */}
+                {isSubmitting && (
+                  <span className='spinner-border spinner-border-sm mr-1 bg-light'></span>
+                )}{' '}
+                Update
+              </button>
             </div>
           </div>
         </div>

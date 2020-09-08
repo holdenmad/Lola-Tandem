@@ -8,7 +8,7 @@ function FreeText() {
     
         const textChanged = (e) => {
         const val = e.target.value
-            console.log(val);
+            console.log("xyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy", val);
         setFreetext(val)
         const result = { target: { name: "freetext", val } };
         handleProfileFormChange(result)
@@ -20,19 +20,18 @@ function FreeText() {
     return (
         <div>
             <label className="heading" htmlFor="freetext">Tell us something about you</label>
-            <input
+            <textarea
                 className="form-control"
                 id="freetext"
                 name="freetext"
-                type="text"
                 rows="4"
                 cols="50"
                 placeholder="About you"
                 value={freetext}
                 onChange={textChanged}
             >
-                {freetext}
-            </input>
+       
+            </textarea>
         </div>
     );
 }

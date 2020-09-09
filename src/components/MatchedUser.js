@@ -44,23 +44,22 @@ const MatchedUser = ({ match: { user } }) => {
               className='card royalpurple-bg border border-0 shadow m-3'
               style={{ width: '35rem' }}
             >
-              <div className=''>
-                <div className='card-body'>
-                  <div className='flex-grow-1'>
-                    <p className='card-title nameText text-light'>
+
+              <div>
+                <div className='card-body d-flex flex-row'>
+                  <div className='flex-grow-1 pl-2'>
+                    <p className='card-title nameText text-light pt-2'>
                       {`${user ? user.name : null}`},{' '}
-                      <small>
-                        {user ? calculateAge(user.birthday) : null} years old
-                      </small>
+                      <small>{user ? calculateAge(user.birthday) : null}</small>
                     </p>
                     <p className='card-text strong-orange'>
-                      <i className='pr-2'>
-                        {`${user ? user.location : null}`},
-                      </i>
+                      <i className='pr-2'>{`${user ? user.location : null}`},</i>
+
                       <i>{`${user ? user.gender : null}`}</i>
                     </p>
                   </div>
                   <div className='justify-content-end'>
+
                     <img
                       //HARD CODED FOR DEMO
                       src={`https://i.ibb.co/K23FS19/2.png`}
@@ -78,6 +77,13 @@ const MatchedUser = ({ match: { user } }) => {
                       <div className='row'>
                         <div className='col-4 speechbubble'>
                           <i className='far fa-comments'></i>
+                      </div>
+                      <div className="col-8 speechtext">
+                        <div className="">
+                          ...native in<span className="font-weight-bold pl-1">{` ${
+                            user ? user.nativelang : null
+                            }`}</span>
+
                         </div>
                         <div className='col-8 speechtext'>
                           <div className=''>

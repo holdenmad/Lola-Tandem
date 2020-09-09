@@ -60,7 +60,7 @@ export default function EditProfile({ history, value, _id }) {
 
   return (
     <div className='d-flex justify-content-center'>
-      
+      <form onSubmit={handleSubmit}>
         <div className='Profile d-flex justify-content-center'>
           <div
             className='card royalpurple-bg border border-0 shadow m-5'
@@ -74,10 +74,10 @@ export default function EditProfile({ history, value, _id }) {
               </div>
 
               <div className='justify-content-end'>
-                <Avatar val={avatar} set={setAvatar} userId={state.user._id}/>
+                <Avatar val={avatar} set={setAvatar} userId={state.user._id} />
               </div>
             </div>
-            <form onSubmit={handleSubmit}>
+
             <div aria-label='Profile information of user' className='bg-light'>
               <div className='profile mb-3'>
                 <div className='row mb-2'>
@@ -119,7 +119,7 @@ export default function EditProfile({ history, value, _id }) {
               <div className='m-2 mb-3 d-flex justify-content-between'>
                 <Link to='./profile'>
                   <button className='btn ml-2 royalpurple-button'>
-                  <i class='fas fa-arrow-left'></i> Profile
+                    <i class='fas fa-arrow-left'></i> Profile
                   </button>
                 </Link>
                 <button
@@ -135,9 +135,12 @@ export default function EditProfile({ history, value, _id }) {
                 </button>
               </div>
             </div>
-            </form>
           </div>
-        </div>      
+        </div>
+      </form>
     </div>
   );
 }
+
+
+

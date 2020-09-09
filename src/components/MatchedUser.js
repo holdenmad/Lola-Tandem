@@ -87,7 +87,7 @@ const MatchedUser = ({ match: { user } }) => {
                         </div>
                       </div>
                     </div>
-                    <hr className="shadow"/>
+                    <hr />
 
                     <div className="row d-flex flex-row-reverse">
                       <div className="col-4 speechbubble2">

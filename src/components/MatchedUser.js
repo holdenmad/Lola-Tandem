@@ -45,7 +45,7 @@ const MatchedUser = ({ match: { user } }) => {
               style={{ width: '35rem' }}
             >
             <div className="">
-              <div className='card-body d-flex flex-row'>
+              <div className='card-body'>
                 <div className='flex-grow-1'>
                   <p className='card-title nameText text-light'>
                     {`${user ? user.name : null}`},{' '}
@@ -58,7 +58,7 @@ const MatchedUser = ({ match: { user } }) => {
                 </div>
                 <div className='justify-content-end'>
                   <img
-                    src={`${process.env.REACT_APP_HEROKU}/${user.profileImg}`}
+                    src={`${process.env.REACT_APP_API}/${user.profileImg}`}
                     className='card-img-top avatar'
                     alt={`${user.name}`}
                   />
@@ -86,7 +86,7 @@ const MatchedUser = ({ match: { user } }) => {
                         </div>
                       </div>
                     </div>
-                    <hr className="shadow"/>
+                    <hr />
 
                     <div className="row d-flex flex-row-reverse">
                       <div className="col-4 speechbubble2">

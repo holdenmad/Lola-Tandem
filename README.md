@@ -1,4 +1,4 @@
-# Lola - a tandem website
+# Lola - a language tandem site
 
 ## LIVE DEMO
  [/////////// CHECKOUT THE DEPLOYED DEMO ///////////](https://lola-tandem.netlify.app/) 

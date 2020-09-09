@@ -7,7 +7,7 @@ import calculateAge from './profile/utils/calculateAge';
 const MatchedUserProfile = () => {
   // const { profile, setProfile } = useState();
   const { id } = useParams();
-  const  [matchedProfile, setMatchedProfile] = useState();
+  const [matchedProfile, setMatchedProfile] = useState();
 
   useEffect(() => {
     console.log(matchedProfile);
@@ -20,14 +20,17 @@ const MatchedUserProfile = () => {
     };
     fetch(`${process.env.REACT_APP_API}/profiles/${id}`, requestOptions)
       .then(res => res.json())
-      .then(matchProfile => setMatchedProfile( matchProfile ));
+      .then(matchProfile => setMatchedProfile(matchProfile));
   }, []);
 
   return matchedProfile ? (
     <div>
       {/* This is the bootstrap code with profile info */}
       <div className='Profile d-flex justify-content-center'>
-        <div className='card royalpurple-bg border border-0 shadow m-5' style={{ width: '40rem' }}>
+        <div
+          className='card royalpurple-bg border border-0 shadow m-5'
+          style={{ width: '40rem' }}
+        >
           <div className='d-flex justify-content-between'>
             <Link to='/matches' className='link2'>
               <i class='fas fa-arrow-left'></i>
@@ -38,21 +41,25 @@ const MatchedUserProfile = () => {
             <div className='flex-grow-1 pl-2'>
               <p className='card-title nameText text-light'>
                 {`${matchedProfile ? matchedProfile.name : null}`},{' '}
-                <small>{matchedProfile ? calculateAge(matchedProfile.birthday) : null}</small>
+                <small>
+                  {matchedProfile
+                    ? calculateAge(matchedProfile.birthday)
+                    : null}
+                </small>
               </p>
               <p className='card-text strong-orange'>
                 <i className='pr-2'>
-                  {`${matchedProfile ? matchedProfile.location : null}`}
-                  ,
+                  {`${matchedProfile ? matchedProfile.location : null}`},
                 </i>
-                <i>{`${
-                  matchedProfile ? matchedProfile.gender : null
-                }`}</i>
+                <i>{`${matchedProfile ? matchedProfile.gender : null}`}</i>
               </p>
             </div>
             <div className='justify-content-end'>
               <img
-                src={`${process.env.REACT_APP_API}/${matchedProfile.profileImg}`}
+                //HARD CODED FOR DEMO
+                src={`https://i.ibb.co/K23FS19/2.png`}
+                //REAL CODE
+                // src={`${process.env.REACT_APP_API}/${matchedProfile.profileImg}`}
                 className='card-img-top avatar'
                 alt={`${matchedProfile.name}`}
               />
@@ -133,8 +140,8 @@ const MatchedUserProfile = () => {
       </div>
     </div>
   ) : (
-    <div className="text-center">
-    <h1 className="text-light">Loading...</h1>
+    <div className='text-center'>
+      <h1 className='text-light'>Loading...</h1>
     </div>
   );
 };

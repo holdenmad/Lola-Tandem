@@ -63,9 +63,11 @@ const Profile = () => {
               </p>
             </div>
             <div className='justify-content-end'>
-              <img
+            <img
                 src={`${process.env.REACT_APP_API}/${state.profile.profileImg}`}
                 className='card-img-top avatar'
+                src={`${state.profile.profileImg}`}
+                className='card-img-top '
                 alt={`${state.user.name}`}
               />
             </div>

@@ -13,7 +13,7 @@ const Matches = () => {
       headers: { 'Content-Type': 'application/json' }
     };
 
-    fetch(`http://localhost:5000/matches/${state.user._id}`, requestOptions)
+    fetch(`${process.env.REACT_APP_HEROKU}/matches/${state.user._id}`, requestOptions)
       .then(res => res.json())
         // .then(matches => console.log(matches))
       .then(matches => setState(prevState => ({ ...prevState, matches })))

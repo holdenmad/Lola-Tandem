@@ -18,7 +18,7 @@ const MatchedUserProfile = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    fetch(`http://localhost:5000/profiles/${id}`, requestOptions)
+    fetch(`${process.env.REACT_APP_HEROKU}/profiles/${id}`, requestOptions)
       .then(res => res.json())
       .then(matchProfile => setMatchedProfile( matchProfile ));
   }, []);

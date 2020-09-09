@@ -29,7 +29,7 @@ function Message() {
       {/* <Button variant="transparent link" onClick={handleShow}>
                 Send {`${state.user ? state.user.name : null}`} a Message <i class="far fa-comments"></i> 
             </Button> */}
-      <Button variant='transparent link' onClick={handleShow}>
+      <Button  variant='transparent link' onClick={handleShow}>
         Send a message <i class='far fa-comments'></i>
       </Button>
       <Modal

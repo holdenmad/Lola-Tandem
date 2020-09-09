@@ -44,24 +44,25 @@ const MatchedUser = ({ match: { user } }) => {
               className='card royalpurple-bg border border-0 shadow m-3'
               style={{ width: '35rem' }}
             >
-            <div className="">
-              <div className='card-body'>
-                <div className='flex-grow-1'>
-                  <p className='card-title nameText text-light'>
-                    {`${user ? user.name : null}`},{' '}
-                    <small>{user ? calculateAge(user.birthday) : null} years old</small>
-                  </p>
-                  <p className='card-text strong-orange'>
-                    <i className='pr-2'>{`${user ? user.location : null}`},</i>
-                    <i>{`${user ? user.gender : null}`}</i>
-                  </p>
-                </div>
-                <div className='justify-content-end'>
-                  <img
-                    src={`${process.env.REACT_APP_API}/${user.profileImg}`}
-                    className='card-img-top avatar'
-                    alt={`${user.name}`}
-                  />
+              <div>
+                <div className='card-body d-flex flex-row'>
+                  <div className='flex-grow-1 pl-2'>
+                    <p className='card-title nameText text-light pt-2'>
+                      {`${user ? user.name : null}`},{' '}
+                      <small>{user ? calculateAge(user.birthday) : null}</small>
+                    </p>
+                    <p className='card-text strong-orange'>
+                      <i className='pr-2'>{`${user ? user.location : null}`},</i>
+                      <i>{`${user ? user.gender : null}`}</i>
+                    </p>
+                  </div>
+                  <div className='justify-content-end'>
+                    <img
+                      src={`${user.profileImg}`}
+                      className='card-img-top '
+                      alt={`${user.name}`}
+                    />
+                  </div>
                 </div>
                 <div
                   className='bg-light p-1'
@@ -86,7 +87,7 @@ const MatchedUser = ({ match: { user } }) => {
                         </div>
                       </div>
                     </div>
-                    <hr />
+                    <hr className="shadow"/>
 
                     <div className="row d-flex flex-row-reverse">
                       <div className="col-4 speechbubble2">
@@ -119,7 +120,6 @@ const MatchedUser = ({ match: { user } }) => {
               </div>
             </div>
           </div>
-        </div>
         </div>
       </Link>
     </div>

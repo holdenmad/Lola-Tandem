@@ -11,39 +11,20 @@ import { AppContext } from '../Context/AppContext';
 import { cities } from './data/cities';
 import { genders } from './data/genders';
 
+
 export default function EditProfile({ history, value, _id }) {
   const { state, setState, updateProfile } = useContext(AppContext);
 
-  const [avatar, setAvatar] = useState(
-    (state.profile && state.profile.profileImg) || null
-  );
-  const [location, setLocation] = useState(
-    (state.profile && state.profile.location) || null
-  );
-  const [gender, setGender] = useState(
-    (state.profile && state.profile.gender) || null
-  );
-  const [birthday, setBirthday] = useState(
-    (state.profile && state.profile.birthday) || null
-  );
-  const [nativelang, setNativelang] = useState(
-    (state.profile && state.profile.nativelang) || []
-  );
-  const [learnlangs, setLearnlangs] = useState(
-    (state.profile && state.profile.learnlangs) || []
-  );
-  const [interests, setInterests] = useState(
-    (state.profile && state.profile.interests) || []
-  );
-  const [freetext1, setFreetext1] = useState(
-    (state.profile && state.profile.freetext1) || null
-  );
-  const [freetext2, setFreetext2] = useState(
-    (state.profile && state.profile.freetext2) || null
-  );
-  const [freetext3, setFreetext3] = useState(
-    (state.profile && state.profile.freetext3) || null
-  );
+  const [avatar, setAvatar] = useState(state.profile && state.profile.avatar || null);
+  const [location, setLocation] = useState(state.profile && state.profile.location || null);
+  const [gender, setGender] = useState(state.profile && state.profile.gender || null);
+  const [birthday, setBirthday] = useState(state.profile && state.profile.birthday || null);
+  const [nativelang, setNativelang] = useState(state.profile && state.profile.nativelang || []);
+  const [learnlangs, setLearnlangs] = useState(state.profile && state.profile.learnlangs || []);
+  const [interests, setInterests] = useState(state.profile && state.profile.interests || []);
+  const [freetext1, setFreetext1] = useState(state.profile && state.profile.freetext1 || null);
+  const [freetext2, setFreetext2] = useState(state.profile && state.profile.freetext2 || null);
+  const [freetext3, setFreetext3] = useState(state.profile && state.profile.freetext3 || null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -51,7 +32,7 @@ export default function EditProfile({ history, value, _id }) {
     event.preventDefault();
     setIsSubmitting(true);
     try {
-      console.log('ssssssssssssssssssssssssssssssssssssssss');
+      console.log("ssssssssssssssssssssssssssssssssssssssss");
       const update = {
         avatar,
         location,
@@ -79,24 +60,25 @@ export default function EditProfile({ history, value, _id }) {
 
   return (
     <div className='d-flex justify-content-center'>
-      <div className='Profile d-flex justify-content-center'>
-        <div
-          className='card royalpurple-bg border border-0 shadow m-5'
-          style={{ width: '50rem' }}
-        >
-          <div className='card-body d-flex flex-row '>
-            <div className='flex-grow-1 '>
-              <p className='card-title nameText text-light'>
-                {`${state.user ? state.user.name : null}`}
-              </p>
+      <form onSubmit={handleSubmit}>
+        <div className='Profile d-flex justify-content-center'>
+          <div
+            className='card royalpurple-bg border border-0 shadow m-5'
+            style={{ width: '50rem' }}
+          >
+            <div className='card-body d-flex flex-row '>
+              <div className='flex-grow-1 '>
+                <p className='card-title nameText text-light pt-2 pl-2'>
+                  {`${state.user ? state.user.name : null}`}
+                </p>
+              </div>
+
+              <div className='justify-content-end'>
+                <Avatar val={avatar} set={setAvatar} />
+              </div>
             </div>
 
-            <div className='justify-content-end'>
-              <Avatar val={avatar} set={setAvatar} userId={state.user._id}/>
-            </div>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <div aria-label='Profile information of user' className='bg-light '>
+            <div aria-label='Profile information of user' className='bg-light'>
               <div className='profile mb-3'>
                 <div className='row mb-2'>
                   <div className='col-sm'>
@@ -106,38 +88,18 @@ export default function EditProfile({ history, value, _id }) {
                 </div>
                 <div className='row mb-3'>
                   <div className='col-sm'>
-                    <Dropdown
-                      val={location}
-                      set={setLocation}
-                      title='Location'
-                      choices={cities}
-                      placeholder='Your location'
-                    />
+                    <Dropdown val={location} set={setLocation} title="Location" choices={cities} placeholder="Your location" />
                   </div>
                   <div className='col-sm'>
-                    <Dropdown
-                      val={gender}
-                      set={setGender}
-                      title='Gender'
-                      choices={genders}
-                      placeholder='Your gender'
-                    />
+                    <Dropdown val={gender} set={setGender} title="Gender" choices={genders} placeholder="Your gender" />
                   </div>
                 </div>
                 <div className='row mb-3'>
                   <div className='col-sm'>
-                    <Languages
-                      val={nativelang}
-                      set={setNativelang}
-                      title='Native Languages'
-                    />
+                    <Languages val={nativelang} set={setNativelang} title="Native Languages" />
                   </div>
                   <div className='col-sm'>
-                    <Languages
-                      val={learnlangs}
-                      set={setLearnlangs}
-                      title='Learning Languages'
-                    />
+                    <Languages val={learnlangs} set={setLearnlangs} title="Learning Languages" />
                   </div>
                 </div>
 
@@ -147,21 +109,9 @@ export default function EditProfile({ history, value, _id }) {
                   </div>
                   <div className='col-sm'></div>
                 </div>
-                <FreeText
-                  val={freetext1}
-                  set={setFreetext1}
-                  title='Tell us something about yourself'
-                />
-                <FreeText
-                  val={freetext2}
-                  set={setFreetext2}
-                  title='What is your motivation for learning a language?'
-                />
-                <FreeText
-                  val={freetext3}
-                  set={setFreetext3}
-                  title='Describe your ideal tandem'
-                />
+                <FreeText val={freetext1} set={setFreetext1} title="Tell us something about yourself" />
+                <FreeText val={freetext2} set={setFreetext2} title="What is your motivation for learning a language?" />
+                <FreeText val={freetext3} set={setFreetext3} title="Describe your ideal tandem" />
               </div>
             </div>
 
@@ -185,9 +135,9 @@ export default function EditProfile({ history, value, _id }) {
                 </button>
               </div>
             </div>
-          </form>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

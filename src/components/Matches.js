@@ -13,7 +13,7 @@ const Matches = () => {
       headers: { 'Content-Type': 'application/json' }
     };
 
-    fetch(`${process.env.REACT_APP_HEROKU}/matches/${state.user._id}`, requestOptions)
+    fetch(`${process.env.REACT_APP_API}/matches/${state.user._id}`, requestOptions)
       .then(res => res.json())
         // .then(matches => console.log(matches))
       .then(matches => setState(prevState => ({ ...prevState, matches })))
@@ -28,6 +28,11 @@ const Matches = () => {
     // matches === null ? (
     <div className='m-4'>
       <h2 className='text-center p-3 text-light'>Your best tandem matches!</h2>
+      {/* <div className='d-flex justify-content-center bg-light'> */}
+            {/* <Link to='./editprofile'>
+              <div className='card card-body text-center bg-light border border-0 shadow m-5'>No matches show up? Check your profile and add some more information</div>
+            </Link> */}
+          {/* </div> */}
       <div>
         {matches.map(match => (
           <div className='m-4'>

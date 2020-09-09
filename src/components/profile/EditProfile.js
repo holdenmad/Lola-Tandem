@@ -68,7 +68,7 @@ export default function EditProfile({ history, value, _id }) {
           >
             <div className='card-body d-flex flex-row '>
               <div className='flex-grow-1 '>
-                <p className='card-title nameText text-light'>
+                <p className='card-title nameText text-light pt-2 pl-2'>
                   {`${state.user ? state.user.name : null}`}
                 </p>
               </div>
@@ -78,17 +78,20 @@ export default function EditProfile({ history, value, _id }) {
               </div>
             </div>
 
-            <div aria-label='Profile information of user' className='bg-light '>
+            <div aria-label='Profile information of user' className='bg-light'>
               <div className='profile mb-3'>
+                <div className='row mb-2'>
+                  <div className='col-sm'>
+
+                    <Birthday val={birthday} set={setBirthday} />
+                  </div>
+                </div>
                 <div className='row mb-3'>
                   <div className='col-sm'>
                     <Dropdown val={location} set={setLocation} title="Location" choices={cities} placeholder="Your location" />
                   </div>
                   <div className='col-sm'>
                     <Dropdown val={gender} set={setGender} title="Gender" choices={genders} placeholder="Your gender" />
-                  </div>
-                  <div className='col-sm'>
-                    <Birthday val={birthday} set={setBirthday} />
                   </div>
                 </div>
                 <div className='row mb-3'>
@@ -112,11 +115,11 @@ export default function EditProfile({ history, value, _id }) {
               </div>
             </div>
 
-            <div className='form-group d-flex justify-content-end bg-light'>
-              <div className='m-2'>
+            <div className='form-group bg-light'>
+              <div className='m-2 mb-3 d-flex justify-content-between'>
                 <Link to='./profile'>
-                  <button className='btn mr-2 royalpurple-button'>
-                    To Profile
+                  <button className='btn ml-2 royalpurple-button'>
+                  <i class='fas fa-arrow-left'></i> Profile
                   </button>
                 </Link>
                 <button

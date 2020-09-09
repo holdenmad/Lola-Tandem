@@ -35,7 +35,7 @@ const AppContextProvider = ({ children }) => {
     if (state.user && state.user._id !== 'null') {
       fetch(
         // doing this with an access token would be allow for auth server side
-        `${process.env.REACT_APP_HEROKU}/users/${state.user._id}`,
+        `${process.env.REACT_APP_API}/users/${state.user._id}`,
         requestOptions
       )
         .then(async res => {
@@ -57,7 +57,7 @@ const AppContextProvider = ({ children }) => {
 
 
       // fetch profile on page load
-      fetch(`${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`, requestOptions)
+      fetch(`${process.env.REACT_APP_API}/profiles/${state.user._id}`, requestOptions)
         .then(res => res.json())
         .then(profile =>
           setState(previousState => ({ ...previousState, profile }))
@@ -80,7 +80,7 @@ const AppContextProvider = ({ children }) => {
     };
 
     const result = await fetch(
-      `${process.env.REACT_APP_HEROKU}/users/${action}`,
+      `${process.env.REACT_APP_API}/users/${action}`,
       requestOptions
     );
 
@@ -113,7 +113,7 @@ const AppContextProvider = ({ children }) => {
       body: JSON.stringify(update)
     };
     fetch(
-      `${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`,
+      `${process.env.REACT_APP_API}/profiles/${state.user._id}`,
       requestOptions
     )
       .then(function (res) {

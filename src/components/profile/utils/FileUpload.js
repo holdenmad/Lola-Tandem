@@ -12,7 +12,7 @@ const FileUpload = () => {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       };
-      fetch(`${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`, requestOptions)
+      fetch(`${process.env.REACT_APP_API}/profiles/${state.user._id}`, requestOptions)
         .then(res => res.json())
         .then(profile =>
           setState(previousState => ({ ...previousState, profile }))
@@ -36,7 +36,7 @@ const FileUpload = () => {
       body: profileData
     };
     fetch(
-      `${process.env.REACT_APP_HEROKU}/profiles/upload/${state.user._id}`,
+      `${process.env.REACT_APP_API}/profiles/upload/${state.user._id}`,
       requestOptions
     )
       .then(res => console.log(res))

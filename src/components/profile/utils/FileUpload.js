@@ -7,17 +7,17 @@ const FileUpload = () => {
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState();
   // fetch request from server for multer logic
-    useEffect(() => {
-      const requestOptions = {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-      };
-      fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
-        .then(res => res.json())
-        .then(profile =>
-          setState(previousState => ({ ...previousState, profile }))
-        );
-    }, []);
+  useEffect(() => {
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+      .then(res => res.json())
+      .then(profile =>
+        setState(previousState => ({ ...previousState, profile }))
+      );
+  }, []);
 
   const onFileChange = e => {
     setFile(e.target.files[0]);
@@ -38,11 +38,10 @@ const FileUpload = () => {
     fetch(
       `http://localhost:5000/profiles/upload/${state.user._id}`,
       requestOptions
-    )
-      .then(res => console.log(res))
-      // .then(profile =>
-      //   console.log(profile)
-      // );
+    ).then(res => console.log(res));
+    // .then(profile =>
+    //   console.log(profile)
+    // );
   };
 
   // console.log(state.profile);
@@ -51,16 +50,20 @@ const FileUpload = () => {
     <div className='container'>
       <div className='row'>
         <div className='form-group'>
-          <input type='file' onChange={onFileChange} />
-        </div>
-        <div className='form-group'>
-          <button
-            className='btn btn-warning'
-            type='submit'
-            onClick={handleSubmit}
-          >
-            Upload
-          </button>
+          <form>
+            {/* <input type='file' onChange={onFileChange} /> */}
+            <input type='file' name='myImage' accept='image/*' />
+
+            <div className='form-group'>
+              <button
+                className='btn btn-warning'
+                type='submit'
+                onClick={handleSubmit}
+              >
+                Upload
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

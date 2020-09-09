@@ -17,12 +17,15 @@ const Profile = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    fetch(`${process.env.REACT_APP_API}/profiles/${state.user._id}`, requestOptions)
+    fetch(
+      `${process.env.REACT_APP_API}/profiles/${state.user._id}`,
+      requestOptions
+    )
       .then(res => res.json())
       .then(profile => {
         console.log(profile);
-        setState(previousState => ({ ...previousState, profile }))
-  });
+        setState(previousState => ({ ...previousState, profile }));
+      });
   }, []);
 
   if (state.profile.birthday) {
@@ -63,75 +66,75 @@ const Profile = () => {
               </p>
             </div>
             <div className='justify-content-end'>
-
               <img
-              //HARD CODE FOR PRESENTATION
-              src='https://i.ibb.co/gT0Kdnt/girl-mask.png'
-
-              //REAL CODE
+                src={`https://i.ibb.co/kM80Q0w/1.png`}
                 // src={`${process.env.REACT_APP_API}/${state.profile.profileImg}`}
 
                 className='card-img-top avatar'
-                src={`${state.profile.profileImg}`}
-                className='card-img-top '
                 alt={`${state.user.name}`}
               />
             </div>
           </div>
 
-          <div className="bg-light" aria-label='Profile information of user'>
-
+          <div className='bg-light' aria-label='Profile information of user'>
             {/* BUBBLE VERSION OF TOP OF PROFILE */}
 
             <div className='profile mt-4'>
-              <div className="d-flex justify-content-end">
+              <div className='d-flex justify-content-end'>
                 <div className='box2 sb2'>
                   ...learning
-
-                    <span className='font-weight-bold pl-1'>{`${
+                  <span className='font-weight-bold pl-1'>{`${
                     state.profile ? state.profile.learnlangs : null
-                    }`}</span>
+                  }`}</span>
                 </div>
               </div>
 
-              <div className="d-flex">
+              <div className='d-flex'>
                 <div className='box1 sb1 mr-5'>
                   ...native in
-
-                    <span className='font-weight-bold pl-1'>{` ${
+                  <span className='font-weight-bold pl-1'>{` ${
                     state.profile ? state.profile.nativelang : null
-                    }`}</span>
-
-                </div>                
+                  }`}</span>
+                </div>
                 <h2 className='d-flex justify-content-start pt-3 iam'>
                   I am...
-                    </h2>
+                </h2>
               </div>
               <div className='box3 sb3'>
                 ...interested in
-
-                  <span className='font-weight-bold pl-1'>{`${
+                <span className='font-weight-bold pl-1'>{`${
                   state.profile ? state.profile.interests : null
-                  }`}</span>
+                }`}</span>
               </div>
             </div>
 
-            <div className="profile">
-              <div className="mt-5">
-                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">About me</h2>
+            <div className='profile'>
+              <div className='mt-5'>
+                <h2 className='h5 ml-3 mr-3 pr-2 pt-2 expectation-heading'>
+                  About me
+                </h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">expectation me</h2> */}
-                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext1 : null}`}</p>
+                <p className='pl-4 pr-5 pt-2 spacing'>{`${
+                  state.profile ? state.profile.freetext1 : null
+                }`}</p>
               </div>
-              <div className="mt-5">
-                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">My motivation for learning</h2>
+              <div className='mt-5'>
+                <h2 className='h5 ml-3 mr-3 pr-2 pt-2 expectation-heading'>
+                  My motivation for learning
+                </h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">My motivatin for learning {`${state.profile ? state.profile.learnlangs : null}`}</h2> */}
-                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext2 : null}`}</p>
+                <p className='pl-4 pr-5 pt-2 spacing'>{`${
+                  state.profile ? state.profile.freetext2 : null
+                }`}</p>
               </div>
-              <div className="mt-5">
-                <h2 className="h5 ml-3 mr-3 pr-2 pt-2 expectation-heading">My ideal tandem</h2>
+              <div className='mt-5'>
+                <h2 className='h5 ml-3 mr-3 pr-2 pt-2 expectation-heading'>
+                  My ideal tandem
+                </h2>
                 {/* <h2 className="h4 ml-3 mr-3 heading">My expectations for a lola-Tandem / meeting</h2> */}
-                <p className="pl-4 pr-5 pt-2 spacing">{`${state.profile ? state.profile.freetext3 : null}`}</p>
-
+                <p className='pl-4 pr-5 pt-2 spacing'>{`${
+                  state.profile ? state.profile.freetext3 : null
+                }`}</p>
               </div>
             </div>
           </div>
@@ -141,7 +144,6 @@ const Profile = () => {
               <button className='btn m-3 bg-orange'>Edit</button>
             </Link>
           </div>
-
         </div>
       </div>
     </div>

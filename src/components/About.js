@@ -64,12 +64,12 @@ const About = () => {
               <div>Julia Jannsen</div>
               <span>
                 <a href='https://www.linkedin.com/in/juliamj/'>
-                  <i class='fab fa-linkedin icon-large linkPurple'></i>
+                  <i class='fab fa-linkedin icon-xlarge linkPurple'></i>
                 </a>
               </span>
               <span>
                 <a href='https://github.com/juliamj'>
-                  <i class='fab fa-github-square icon-large ml-2 linkPurple'></i>
+                  <i class='fab fa-github-square icon-xlarge ml-2 linkPurple'></i>
                 </a>
               </span>
             </div>
@@ -77,12 +77,12 @@ const About = () => {
               <div>Holden Madagame</div>
               <span>
                 <a href='https://www.linkedin.com/in/holdenmad/'>
-                  <i class='fab fa-linkedin icon-large linkPurple'></i>
+                  <i class='fab fa-linkedin icon-xlarge linkPurple'></i>
                 </a>
               </span>
               <span>
                 <a href='https://github.com/holdenmad'>
-                  <i class='fab fa-github-square icon-large ml-2 linkPurple'></i>
+                  <i class='fab fa-github-square icon-xlarge ml-2 linkPurple'></i>
                 </a>
               </span>
             </div>

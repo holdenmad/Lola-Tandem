@@ -36,7 +36,7 @@ const MatchedUserProfile = () => {
           </div>
           <div className='card-body d-flex flex-row'>
             <div className='flex-grow-1 pl-2'>
-              <p className='card-title nameText text-light pt-2'>
+              <p className='card-title nameText text-light'>
                 {`${matchedProfile ? matchedProfile.name : null}`},{' '}
                 <small>{matchedProfile ? calculateAge(matchedProfile.birthday) : null}</small>
               </p>

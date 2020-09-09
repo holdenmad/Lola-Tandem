@@ -57,11 +57,11 @@ const MatchedUser = ({ match: { user } }) => {
                     </p>
                   </div>
                   <div className='justify-content-end'>
-                    <img
-                      src={`${user.profileImg}`}
-                      className='card-img-top '
-                      alt={`${user.name}`}
-                    />
+                  <img
+                    src={`${process.env.REACT_APP_API}/${user.profileImg}`}
+                    className='card-img-top avatar'
+                    alt={`${user.name}`}
+                  />
                   </div>
                 </div>
                 <div

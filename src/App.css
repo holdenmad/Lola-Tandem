@@ -266,13 +266,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px 25px;
 }
 .profile {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.spacing {
-    line-height: 1.8rem;
-    font-size: 1rem;
+    /* margin-left: 50px;
+    margin-right: 20px; */
+    margin: 50px;
 }
 
 .matchlink  {
@@ -414,6 +410,33 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.2rem;
 }
 
-/* .login {
-  max-width: 90rem;
-} */
+.speechbubble {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 4rem;
+  color: rgba(83, 120, 175, 0.616);
+  /* background: green; */
+}
+.speechbubble2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  color: rgba(83, 120, 175, 0.616);
+  /* background: green; */
+}
+.speechtext {
+  display: flex;
+  flex-direction: column;  
+  align-items: flex-end;
+  line-height: 2.1rem;
+  font-size: 1.1rem;
+  /* background: green; */
+}
+
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 15rem;
+}

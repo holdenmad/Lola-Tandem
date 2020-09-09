@@ -1,7 +1,7 @@
 # Lola - a tandem website
 
 ## LIVE DEMO
-/////////// [Check out the deployed demo](https://lola-tandem.netlify.app/) ///////////
+ [/////////// CHECKOUT THE DEPLOYED DEMO ///////////](https://lola-tandem.netlify.app/) 
 
 ## The Team
 

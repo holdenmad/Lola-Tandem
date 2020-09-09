@@ -48,6 +48,7 @@ function App() {
     <div className='App page-container'>
     <div className="content-wrap">
       {state.isLoggedIn && <Header />}
+      {/* <Header/> */}
       <Switch>
         <Route exact path='/'>
           {(!state.isLoggedIn && <Welcome />) || <Dashboard />}
@@ -61,6 +62,25 @@ function App() {
         <Route exact path='/about'>
           <About />
         </Route>
+        {/* for building */}
+        {/* <Route exact path='/dashboard'>
+          <Dashboard />
+        </Route>
+        <Route exact path='/profile'>
+          <Profile />
+        </Route>
+        <Route exact path='/editprofile'>
+          <EditProfile />
+        </Route>
+        <Route exact path='/matches'>
+          <Matches />
+        </Route>
+        <Route exact path='/matchedUserProfile/:id'>
+          <MatchedUserProfile />
+        </Route>
+        <Route exact path='/messages'>
+          <Messages />
+        </Route> */}
        
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/profile' component={Profile} />

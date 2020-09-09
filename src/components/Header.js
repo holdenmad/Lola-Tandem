@@ -15,7 +15,7 @@ function Header() {
       headers: { 'Content-Type': 'application/json' }
     };
     
-    fetch(`${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`, requestOptions)
+    fetch(`${process.env.REACT_APP_API}/profiles/${state.user._id}`, requestOptions)
       .then(res => res.json())
       .then(profile =>
         setState(previousState => ({ ...previousState, profile }))

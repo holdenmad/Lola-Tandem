@@ -18,7 +18,7 @@ const MatchedUserProfile = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    fetch(`${process.env.REACT_APP_HEROKU}/profiles/${id}`, requestOptions)
+    fetch(`${process.env.REACT_APP_API}/profiles/${id}`, requestOptions)
       .then(res => res.json())
       .then(matchProfile => setMatchedProfile( matchProfile ));
   }, []);
@@ -35,10 +35,10 @@ const MatchedUserProfile = () => {
             <Message2 />
           </div>
           <div className='card-body d-flex flex-row'>
-            <div className='flex-grow-1'>
-              <p className='card-title nameText text-light'>
+            <div className='flex-grow-1 pl-2'>
+              <p className='card-title nameText text-light pt-2'>
                 {`${matchedProfile ? matchedProfile.name : null}`},{' '}
-                <small>{matchedProfile ? calculateAge(matchedProfile.birthday) : null} years old</small>
+                <small>{matchedProfile ? calculateAge(matchedProfile.birthday) : null}</small>
               </p>
               <p className='card-text strong-orange'>
                 <i className='pr-2'>

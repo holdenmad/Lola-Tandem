@@ -17,11 +17,12 @@ const Profile = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    fetch(`${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`, requestOptions)
+    fetch(`${process.env.REACT_APP_API}/profiles/${state.user._id}`, requestOptions)
       .then(res => res.json())
-      .then(profile =>
+      .then(profile => {
+        console.log(profile);
         setState(previousState => ({ ...previousState, profile }))
-      );
+  });
   }, []);
 
   if (state.profile.birthday) {
@@ -49,11 +50,10 @@ const Profile = () => {
           style={{ width: '40rem' }}
         >
           <div className='card-body d-flex flex-row'>
-            <div className='flex-grow-1'>
-              <p className='card-title nameText text-light'>
-             
+            <div className='flex-grow-1 pl-2'>
+              <p className='card-title nameText text-light pt-2'>
                 {`${state.user ? state.user.name : null}`},{' '}
-                <small>{state.profile ? years : null} years old</small>
+                <small>{state.profile ? years : null}</small>
               </p>
               <p className='card-text strong-orange'>
                 <i className='pr-2'>

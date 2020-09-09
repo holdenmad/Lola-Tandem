@@ -64,8 +64,8 @@ const Profile = () => {
             </div>
             <div className='justify-content-end'>
               <img
-                src={`${state.profile.profileImg}`}
-                className='card-img-top '
+                src={`${process.env.REACT_APP_HEROKU}/${state.profile.profileImg}`}
+                className='card-img-top avatar'
                 alt={`${state.user.name}`}
               />
             </div>

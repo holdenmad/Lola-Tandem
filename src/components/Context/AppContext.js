@@ -26,6 +26,7 @@ export const AppContext = createContext();
 const AppContextProvider = ({ children }) => {
   const [state, setState] = useState(initialState);
 
+
   useEffect(() => {
     const requestOptions = {
       method: 'GET',
@@ -80,7 +81,7 @@ const AppContextProvider = ({ children }) => {
     };
 
     const result = await fetch(
-      `${process.env.REACT_APP_API}/users/${action}`,
+      `${process.env.REACT_APP_HEROKU}/users/${action}`,
       requestOptions
     );
 

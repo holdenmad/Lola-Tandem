@@ -1,7 +1,7 @@
 export const interests =
     [
         { name: "Sports", value: " Sports" },
-        { name: "Teamsports", value: " Teamsports" },
+        { name: "Team Sports", value: " Team Sports" },
         { name: "Extreme Sports", value: " Extreme Sports" },
         { name: "Skating", value: " Skating" },
         { name: "Running", value: " Running" },
@@ -21,5 +21,5 @@ export const interests =
         { name: "Cooking", value: " Cooking" },
         { name: "Painting", value: " Painting" },
         { name: "Travelling", value: " Travelling" },
-        { name: "Sight Seeing", value: " SightSeeing" }
+        { name: "Sight Seeing", value: " Sight Seeing" }
     ];

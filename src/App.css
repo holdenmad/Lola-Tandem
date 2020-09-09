@@ -382,8 +382,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .welcome-image {
-  width: 50%;
+  max-width: 35%;
+  min-width: 300px;
   float: left;
+}
+
+.about-image {
+  max-width: 35%;
+  min-width: 300px;
+  float: right;
 }
 
 .link{

@@ -1,3 +1,11 @@
+# Lola - a tandem website
+
+## LIVE DEMO
+[Check out the deployed demo](https://lola-tandem.netlify.app/)
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

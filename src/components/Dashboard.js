@@ -32,9 +32,9 @@ function Dashboard() {
           </button>
         </Link>
         <br/>
-        <div className='row'>
-          <div className='col-lg'>
-            <p className='p-5 ml-5 text bg-light'>
+        <div className='row '>
+          <div className='col-lg '>
+            <p className='p-5 ml-5 text bg-light border border-0 shadow m-5 rounded'>
               Thanks for using our site to help you on your language learning
               journey! If you're here, you want to chat with real people who
               live in your city, but are tired of boring conversations in your

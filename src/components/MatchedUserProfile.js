@@ -27,9 +27,9 @@ const MatchedUserProfile = () => {
     <div>
       {/* This is the bootstrap code with profile info */}
       <div className='Profile d-flex justify-content-center'>
-        <div className='card cardcolor shadow m-5' style={{ width: '40rem' }}>
+        <div className='card royalpurple-bg border border-0 shadow m-5' style={{ width: '40rem' }}>
           <div className='d-flex justify-content-between'>
-            <Link to='./matches' className='link2'>
+            <Link to='/matches' className='link2'>
               <i class='fas fa-arrow-left'></i>
             </Link>
             <Message2 />
@@ -124,7 +124,7 @@ const MatchedUserProfile = () => {
             </div>
           </div>
           <div className='d-flex justify-content-between'>
-            <Link to='/matches' className='link'>
+            <Link to='/matches' className='text-light link'>
               <i class='fas fa-arrow-left'></i> Check out more matches
             </Link>
             <Message />

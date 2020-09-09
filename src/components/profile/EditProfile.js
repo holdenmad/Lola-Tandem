@@ -62,7 +62,10 @@ export default function EditProfile({ history, value, _id }) {
     <div className='d-flex justify-content-center'>
       <form onSubmit={handleSubmit}>
         <div className='Profile d-flex justify-content-center'>
-          <div className='card cardcolor shadow m-5' style={{ width: '50rem' }}>
+          <div
+            className='card royalpurple-bg border border-0 shadow m-5'
+            style={{ width: '50rem' }}
+          >
             <div className='card-body d-flex flex-row '>
               <div className='flex-grow-1 '>
                 <p className='card-title nameText text-light'>
@@ -103,25 +106,31 @@ export default function EditProfile({ history, value, _id }) {
                   </div>
                   <div className='col-sm'></div>
                 </div>
-                <FreeText val={freetext1} set={setFreetext1} title="Tell us something about you" />
-                <FreeText val={freetext2} set={setFreetext2} title="What is your motivation for learning the language?" />
-                <FreeText val={freetext3} set={setFreetext3} title="What expectations do you have for a lola-Tandem?" />
+                <FreeText val={freetext1} set={setFreetext1} title="Tell us something about yourself" />
+                <FreeText val={freetext2} set={setFreetext2} title="What is your motivation for learning a language?" />
+                <FreeText val={freetext3} set={setFreetext3} title="Describe your ideal tandem" />
               </div>
             </div>
 
             <div className='form-group d-flex justify-content-end bg-light'>
-
-              <button
-                type='submit'
-                disabled={isSubmitting}
-                className='btn btn-outline-success mr-2 '
-              >
-                {/* <Link className='bg-light' to='./profile'> */}
-                {isSubmitting && (
-                  <span className='spinner-border spinner-border-sm mr-1 bg-light'></span>
-                )}{' '}
+              <div className='m-2'>
+                <Link to='./profile'>
+                  <button className='btn mr-2 royalpurple-button'>
+                    To Profile
+                  </button>
+                </Link>
+                <button
+                  type='submit'
+                  disabled={isSubmitting}
+                  className='btn bg-orange mr-2 '
+                >
+                  {/* <Link className='bg-light' to='./profile'> */}
+                  {isSubmitting && (
+                    <span className='spinner-border spinner-border-sm mr-1 bg-light'></span>
+                  )}{' '}
                   Update
                 </button>
+              </div>
             </div>
           </div>
         </div>

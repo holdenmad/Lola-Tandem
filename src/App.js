@@ -9,7 +9,6 @@ import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import EditProfile from './components/profile/EditProfile';
 import Matches from './components/Matches';
-
 import About from './components/About';
 
 import MatchedUserProfile from './components/MatchedUserProfile';
@@ -59,18 +58,21 @@ function App() {
         <Route exact path='/users/login'>
           <Login />
         </Route>
-
+        <Route exact path='/about'>
+          <About />
+        </Route>
+       
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/profile' component={Profile} />
         <PrivateRoute exact path='/editprofile' component={EditProfile} />
         <PrivateRoute exact path='/matches' component={Matches} />
         <PrivateRoute exact path='/matchedUserProfile/:id' component={MatchedUserProfile}/>
         <PrivateRoute exact path='/messages' component={Messages} />
-        <PrivateRoute exact path='/About' component={About} />
+        
 
         {/* <PrivateRoute exact path='/settings' component={Settings} /> */}
       </Switch>
-      {state.isLoggedIn && <Footer />}
+      <Footer />
       </div>
     </div>
   );

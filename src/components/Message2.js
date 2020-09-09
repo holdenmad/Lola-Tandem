@@ -36,7 +36,8 @@ function Message2() {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Send {`${state.user ? state.user.name : null}`} a Message</Modal.Title>
+                {/* <Modal.Title>Send {`${state.user ? state.user.name : null}`} a Message</Modal.Title> */}
+                    <Modal.Title>Send a message</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <InputGroup>

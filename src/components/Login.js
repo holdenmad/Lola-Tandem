@@ -24,9 +24,15 @@ const Login = () => {
 
   return !state.isLoggedIn ? (
     <div>
+    <div className='text-light text-center m-5'>
+        <h1>
+          Welcome to <span className='logo display-3'>Lola</span>
+        </h1>
+        <div className='mediumtext'>a language tandem site</div>
+      </div>
       <div className='row mt-5'>
         <div className='col-md-6 m-auto'>
-          <div className='card card-body bg-light'>
+          <div className='card card-body bg-light border border-0 shadow m-5'>
             <h1 className='text-center mb-3'>
               <i className='fas fa-sign-in-alt'></i> Login
             </h1>
@@ -64,7 +70,7 @@ const Login = () => {
               </button>
             </form>
             <p className='lead mt-4'>
-              No Account? <Link to='/users/register'>Register</Link>
+              No account? <Link className="linkOrange" to='/users/register'>Register</Link>
             </p>
           </div>
         </div>

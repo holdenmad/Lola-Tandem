@@ -340,6 +340,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .royalpurple-bg {
   background-color: rgb(94, 42, 231);
+  
 }
 
 
@@ -351,6 +352,22 @@ h1, h2, h3, h4, h5, h6 {
 .bg-orange:hover {
   background-image: linear-gradient(#eba040, #d67e0a);
   color: white;
+}
+
+.linkOrange {
+  color: #eba040;
+}
+
+.linkOrange:hover {
+  color: #eba040;
+}
+
+.linkPurple {
+  color: rgb(94, 42, 231);
+}
+
+.linkPurple:hover {
+  color: rgb(94, 42, 231);
 }
 
 .logout {
@@ -374,10 +391,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .link{
-  color: black;
+  color: white;
   padding-left: 10px;
   padding-top: 8px;
   font-size: 1.2rem;
+
 }
 .link:hover {
   text-decoration: none;

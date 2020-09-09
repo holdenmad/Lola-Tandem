@@ -64,7 +64,7 @@ const Profile = () => {
             </div>
             <div className='justify-content-end'>
               <img
-              //HARD CODE FOR PRESENTATION
+              // HARD CODE FOR PRESENTATION
               src='https://i.ibb.co/gT0Kdnt/girl-mask.png'
 
               //REAL CODE

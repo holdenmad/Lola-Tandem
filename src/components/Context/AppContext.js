@@ -81,7 +81,7 @@ const AppContextProvider = ({ children }) => {
     };
 
     const result = await fetch(
-      `${process.env.REACT_APP_API}/users/${action}`,
+      `${process.env.REACT_APP_HEROKU}/users/${action}`,
       requestOptions
     );
 

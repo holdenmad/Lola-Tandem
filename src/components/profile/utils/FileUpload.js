@@ -13,7 +13,7 @@ const FileUpload = () => {
       headers: { 'Content-Type': 'application/json' }
     };
     fetch(
-      `${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`,
+      `${process.env.REACT_APP_API}/profiles/${state.user._id}`,
       requestOptions
     )
       .then(res => res.json())
@@ -38,7 +38,7 @@ const FileUpload = () => {
       method: 'POST',
       body: profileData
     };
-    const URL = `${process.env.REACT_APP_HEROKU}/profiles/upload/${state.user._id}`;
+    const URL = `${process.env.REACT_APP_API}/profiles/upload/${state.user._id}`;
     console.log(URL);
 
     fetch(URL, requestOptions)

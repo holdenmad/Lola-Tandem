@@ -58,7 +58,7 @@ const MatchedUser = ({ match: { user } }) => {
                 </div>
                 <div className='justify-content-end'>
                   <img
-                    src={`${process.env.REACT_APP_HEROKU}/${user.profileImg}`}
+                    src={`${process.env.REACT_APP_API}/${user.profileImg}`}
                     className='card-img-top avatar'
                     alt={`${user.name}`}
                   />

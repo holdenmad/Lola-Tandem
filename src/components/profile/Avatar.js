@@ -27,7 +27,7 @@ function Avatar({ val, set, userId }) {
       method: 'POST',
       body: profileData
     };
-    const URL = `${process.env.REACT_APP_HEROKU}/profiles/upload/${userId}`;
+    const URL = `${process.env.REACT_APP_API}/profiles/upload/${userId}`;
     console.log(URL);
 
     fetch(URL, requestOptions)
@@ -40,7 +40,7 @@ function Avatar({ val, set, userId }) {
       <div className='form-group text-light'>
         <label className='heading text-light'>Profile Photo</label> <br />
         {/* Image Preview */}
-        <img src={`${process.env.REACT_APP_HEROKU}/${val}`} alt='profile-photo' className="m-2 avatar" />
+        <img src={`${process.env.REACT_APP_API}/${val}`} alt='profile-photo' className="m-2 avatar" />
         <div className='container'>
           <div className='row'>
             <div className='form-group'>

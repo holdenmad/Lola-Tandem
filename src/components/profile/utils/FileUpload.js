@@ -12,7 +12,10 @@ const FileUpload = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+    fetch(
+      `${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`,
+      requestOptions
+    )
       .then(res => res.json())
       .then(profile =>
         setState(previousState => ({ ...previousState, profile }))
@@ -21,27 +24,26 @@ const FileUpload = () => {
 
   const onFileChange = e => {
     setFile(e.target.files[0]);
+    console.log(e.target.files[0]);
     setFileName(e.target.files[0].name);
-    console.log('Test', file, fileName);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     const profileData = new FormData(); //what is this?
     profileData.append('file', file); //can we use this?
-    console.log(file, fileName);
+    console.log('Test', file, fileName);
     //how to write "If there is a profileImg, change it, if there isn't one, create it"?
     const requestOptions = {
       method: 'POST',
       body: profileData
     };
-    fetch(
-      `http://localhost:5000/profiles/upload/${state.user._id}`,
-      requestOptions
-    ).then(res => console.log(res));
-    // .then(profile =>
-    //   console.log(profile)
-    // );
+    const URL = `${process.env.REACT_APP_HEROKU}/profiles/upload/${state.user._id}`;
+    console.log(URL);
+
+    fetch(URL, requestOptions)
+      .then(res => res.json())
+      .then(profile => console.log(profile));
   };
 
   // console.log(state.profile);
@@ -50,16 +52,12 @@ const FileUpload = () => {
     <div className='container'>
       <div className='row'>
         <div className='form-group'>
-          <form>
-            {/* <input type='file' onChange={onFileChange} /> */}
-            <input type='file' name='myImage' accept='image/*' />
+          <form onSubmit={handleSubmit} encType='multipart/form-data'>
+            <input type='file' name='file' onChange={onFileChange} />
+            {/* <input type='file' name='myImage' accept='image/*' /> */}
 
             <div className='form-group'>
-              <button
-                className='btn btn-warning'
-                type='submit'
-                onClick={handleSubmit}
-              >
+              <button className='btn btn-warning' type='submit'>
                 Upload
               </button>
             </div>

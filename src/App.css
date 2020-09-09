@@ -413,3 +413,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #eba14044;
   font-size: 1.2rem;
 }
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  object-fit: cover;
+}

@@ -6,23 +6,23 @@ import { AppContext } from './Context/AppContext';
 function Message() {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const { state, setState } = useContext(AppContext);
-
-  useEffect(() => {
-    if (!state.user) return;
-
-    const requestOptions = {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    };
-    fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
-      .then(res => res.json())
-      .then(profile =>
-        setState(previousState => ({ ...previousState, profile }))
-      );
-  }, []);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const { state, setState } = useContext(AppContext);
+  
+    useEffect(() => {
+      if (!state.user) return;
+  
+      const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      };
+      fetch(`${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`, requestOptions)
+        .then(res => res.json())
+        .then(profile =>
+          setState(previousState => ({ ...previousState, profile }))
+        );
+    }, []);
 
   return (
     <>

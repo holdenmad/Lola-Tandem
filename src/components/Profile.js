@@ -17,7 +17,7 @@ const Profile = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+    fetch(`${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`, requestOptions)
       .then(res => res.json())
       .then(profile =>
         setState(previousState => ({ ...previousState, profile }))
@@ -51,6 +51,7 @@ const Profile = () => {
           <div className='card-body d-flex flex-row'>
             <div className='flex-grow-1'>
               <p className='card-title nameText text-light'>
+             
                 {`${state.user ? state.user.name : null}`},{' '}
                 <small>{state.profile ? years : null} years old</small>
               </p>
@@ -63,8 +64,8 @@ const Profile = () => {
             </div>
             <div className='justify-content-end'>
               <img
-                src={`${state.profile.profileImg}`}
-                className='card-img-top '
+                src={`${process.env.REACT_APP_HEROKU}/${state.profile.profileImg}`}
+                className='card-img-top avatar'
                 alt={`${state.user.name}`}
               />
             </div>

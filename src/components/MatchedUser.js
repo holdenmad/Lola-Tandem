@@ -13,7 +13,7 @@ const MatchedUser = ({ match: { user } }) => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     };
-    fetch(`http://localhost:5000/profiles/${state.user._id}`, requestOptions)
+    fetch(`${process.env.REACT_APP_HEROKU}/profiles/${state.user._id}`, requestOptions)
       .then(res => res.json())
       .then(profile =>
         setState(previousState => ({ ...previousState, profile }))
@@ -77,8 +77,8 @@ const MatchedUser = ({ match: { user } }) => {
                 </div>
                 <div className='justify-content-end'>
                   <img
-                    src={`${user.profileImg}`}
-                    className='card-img-top '
+                    src={`${process.env.REACT_APP_HEROKU}/${user.profileImg}`}
+                    className='card-img-top avatar'
                     alt={`${user.name}`}
                   />
                 </div>

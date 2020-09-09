@@ -57,7 +57,7 @@ const MatchedUserProfile = () => {
             <div className='justify-content-end'>
               <img
                 //HARD CODED FOR DEMO
-                src={`https://i.ibb.co/K23FS19/2.png`}
+                src={`2.png`}
                 //REAL CODE
                 // src={`${process.env.REACT_APP_API}/${matchedProfile.profileImg}`}
                 className='card-img-top avatar'

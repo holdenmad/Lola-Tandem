@@ -10,6 +10,8 @@ import Profile from './components/Profile';
 import EditProfile from './components/profile/EditProfile';
 import Matches from './components/Matches';
 import About from './components/About';
+import Settings from './components/Settings';
+
 
 import MatchedUserProfile from './components/MatchedUserProfile';
 import Messages from './components/Messages';
@@ -88,6 +90,7 @@ function App() {
         <PrivateRoute exact path='/matches' component={Matches} />
         <PrivateRoute exact path='/matchedUserProfile/:id' component={MatchedUserProfile}/>
         <PrivateRoute exact path='/messages' component={Messages} />
+        <PrivateRoute exact path='/settings' component={Settings} />
         
 
         {/* <PrivateRoute exact path='/settings' component={Settings} /> */}

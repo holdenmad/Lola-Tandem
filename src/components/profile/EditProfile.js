@@ -96,10 +96,10 @@ export default function EditProfile({ history, value, _id }) {
                 </div>
                 <div className='row mb-3'>
                   <div className='col-sm'>
-                    <Languages val={nativelang} set={setNativelang} title="Native Languages" />
+                    <Languages val={nativelang} set={setNativelang} title="Native Languages" placeholder="Native Languages"/>
                   </div>
                   <div className='col-sm'>
-                    <Languages val={learnlangs} set={setLearnlangs} title="Learning Languages" />
+                    <Languages val={learnlangs} set={setLearnlangs} title="Learning Languages" placeholder="Learning Languages"/>
                   </div>
                 </div>
 
@@ -109,9 +109,9 @@ export default function EditProfile({ history, value, _id }) {
                   </div>
                   <div className='col-sm'></div>
                 </div>
-                <FreeText val={freetext1} set={setFreetext1} title="Tell us something about yourself" />
-                <FreeText val={freetext2} set={setFreetext2} title="What is your motivation for learning a language?" />
-                <FreeText val={freetext3} set={setFreetext3} title="Describe your ideal tandem" />
+                <FreeText val={freetext1} set={setFreetext1} title="Tell us something about yourself" placeholder="About you"/>
+                <FreeText val={freetext2} set={setFreetext2} title="What is your motivation for learning a language?" placeholder="Your motivation"/>
+                <FreeText val={freetext3} set={setFreetext3} title="Describe your ideal tandem" placeholder="Your ideal tandem"/>
               </div>
             </div>
 

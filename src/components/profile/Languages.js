@@ -2,7 +2,7 @@ import React from 'react';
 import SelectSearch from 'react-select-search';
 import { languages } from './data/languages';
 
-function Languages({val, set, title}) {
+function Languages({val, set, title, placeholder}) {
   const changed = (value) => {
     console.log(value);
     set(value)
@@ -15,7 +15,7 @@ function Languages({val, set, title}) {
         options={languages}
         search
         multiple
-        placeholder='Learning Language'
+        placeholder={placeholder}
         className='select-search select-search--multiple'
         name='learnlangs'
         value={val}

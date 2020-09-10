@@ -96,10 +96,10 @@ export default function EditProfile({ history, value, _id }) {
                 </div>
                 <div className='row mb-3'>
                   <div className='col-sm'>
-                    <Languages val={nativelang} set={setNativelang} title="Native Languages" />
+                    <Languages val={nativelang} set={setNativelang} title="Native Languages" placeholder="Native Languages"/>
                   </div>
                   <div className='col-sm'>
-                    <Languages val={learnlangs} set={setLearnlangs} title="Learning Languages" />
+                    <Languages val={learnlangs} set={setLearnlangs} title="Learning Languages" placeholder="Learning Languages"/>
                   </div>
                 </div>
 

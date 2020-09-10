@@ -37,8 +37,7 @@ function Dashboard() {
             <p className='p-5 ml-5 text bg-light border border-0 shadow m-5 rounded'>
               Thanks for using our site to help you on your language learning
               journey! If you're here, you want to chat with real people who
-              live in your city, but are tired of boring conversations in your
-              target language. <br /> <br />
+              live in your city, but want a different kind of experience.<br /> <br />
               With <i>Lola</i>, you'll be able to find language tandem partners
               based on your common interests, so you can have your language
               tandem while doing something you both love.

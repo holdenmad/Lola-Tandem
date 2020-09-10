@@ -48,7 +48,7 @@ function Message2() {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                 </Button>
-                    <Button variant="primary">Send</Button>
+                    <Button variant="primary" onClick={handleClose}>Send</Button>
                 </Modal.Footer>
             </Modal>
         </>

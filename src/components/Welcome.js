@@ -33,8 +33,7 @@ const Welcome = () => {
       <div className='justify-content-center'>
         <div className='p-3 text m-5 bg-light rounded border border-0 shadow m-5'>
           <div className='d-flex flex-row '>
-           
-            <div className="">
+            <div className=''>
               <h2 className='text-center p-2 m-2'>
                 What is <span className='logo'>Lola</span>?
               </h2>
@@ -50,9 +49,9 @@ const Welcome = () => {
                 some time speaking two languages: each for half the time.
               </p>
               <p className='pr-5 pl-5'>
-                Normally, this means two people have a coffee and have nothing
-                to talk about, despite desperately wanting to speak together.
-                This is where Lola comes in. We’ll grease the wheels and get you
+                Normally, this means two people have a coffee and might run out
+                of topics, despite desperately wanting to speak together. This
+                is where Lola comes in. We’ll grease the wheels and get you
                 talking sooner by matching you with other people who love doing
                 activities you love to do, in your area.
               </p>

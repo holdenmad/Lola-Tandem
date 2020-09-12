@@ -25,7 +25,7 @@ const About = () => {
           inclusive and safety features we wanted (member blocking to reduce
           abuse of female users, gender categorization for muslim female users,
           accessibility optimization, and creating truly inclusive gender
-          options that don't exclude non-binary or trans users. We hope to
+          options that don't exclude non-binary or trans users). We hope to
           continue developing this application to include these goals.
         </p>
       </div>

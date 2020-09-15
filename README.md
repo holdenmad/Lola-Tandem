@@ -1,7 +1,7 @@
 # Lola - a language tandem site
 
 ## LIVE DEMO
- [/////////// CHECKOUT THE DEPLOYED DEMO ///////////](https://lola-tandem.netlify.app/) 
+ [////////////////////// CHECKOUT THE DEPLOYED DEMO //////////////////////](https://lola-tandem.netlify.app/) 
  
 ![Lola Welcome Page](https://i.ibb.co/F3xv3hx/Screenshot-2020-09-09-at-21-40-50.png)
 ![Lola Welcome Page Description](https://i.ibb.co/h7TcX5y/Screenshot-2020-09-09-at-21-41-06.png)
